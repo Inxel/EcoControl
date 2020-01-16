@@ -28,7 +28,7 @@ final class ResetPasswordViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet private weak var emailTextfield: TextField! {
+    @IBOutlet private weak var emailTextfield: AuthenticationTextField! {
         didSet {
             emailTextfield.backgroundColor = Theme.current.background
             emailTextfield.textColor = Theme.current.textfieldTextColor
@@ -77,7 +77,7 @@ final class ResetPasswordViewController: UIViewController {
 
 extension ResetPasswordViewController {
     
-    @IBAction private func sendTapped(_ sender: Button) {
+    @IBAction private func sendTapped(_ sender: PrimaryButton) {
         
         if let text = emailTextfield.text, !text.isEmpty {
             sender.startAnimation()

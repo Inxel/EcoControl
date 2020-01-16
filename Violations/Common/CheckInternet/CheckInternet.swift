@@ -9,7 +9,8 @@
 import Foundation
 import SystemConfiguration
 
-public class CheckInternet {
+
+final class CheckInternet {
     
     class func connection() -> Bool{
         

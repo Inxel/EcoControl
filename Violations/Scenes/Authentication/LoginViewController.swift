@@ -25,13 +25,13 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
     
     // MARK: Outlets
     
-    @IBOutlet private weak var emailTextfield: TextField! {
+    @IBOutlet private weak var emailTextfield: AuthenticationTextField! {
         didSet {
             emailTextfield.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
             changeStyleOf(emailTextfield, "Email")
         }
     }
-    @IBOutlet private weak var passwordTextfield: TextField! {
+    @IBOutlet private weak var passwordTextfield: AuthenticationTextField! {
         didSet {
             passwordTextfield.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             changeStyleOf(passwordTextfield, "Password")
@@ -87,7 +87,7 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
 
 extension LoginViewController {
     
-    @IBAction private func loginButtonTapped(_ sender: Button) {
+    @IBAction private func loginButtonTapped(_ sender: PrimaryButton) {
         if !CheckInternet.connection() {
             createAlert(with: "Internet connection issues")
         } else {
@@ -136,7 +136,7 @@ extension LoginViewController {
         
     }
     
-    private func signIn(_ sender: Button) {
+    private func signIn(_ sender: PrimaryButton) {
         sender.startAnimation()
         guard
             let email = emailTextfield.text,

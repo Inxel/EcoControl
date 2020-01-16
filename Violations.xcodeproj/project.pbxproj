@@ -10,9 +10,16 @@
 		2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A79B2261B40C00C6D45E /* SavedMarker.swift */; };
 		2208A79F2261FB8B00C6D45E /* CustomMarkerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A79D2261FB8B00C6D45E /* CustomMarkerCell.swift */; };
 		2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */; };
-		2208A7A92262F86A00C6D45E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A7A82262F86A00C6D45E /* Extensions.swift */; };
 		2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */; };
-		220E24A42287F66D002F2D63 /* UIElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24A32287F66D002F2D63 /* UIElements.swift */; };
+		2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */; };
+		2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */; };
+		2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94123D0C57C00B3FE51 /* UITextField+Padding.swift */; };
+		2209B94523D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94423D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift */; };
+		2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94823D0C63000B3FE51 /* PrimaryButton.swift */; };
+		2209B94B23D0C6AD00B3FE51 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94A23D0C6AD00B3FE51 /* Image.swift */; };
+		2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94C23D0C6D800B3FE51 /* BackgroundView.swift */; };
+		2209B94F23D0C70D00B3FE51 /* AuthenticationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */; };
+		2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */; };
 		220E24A6228837FA002F2D63 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24A5228837FA002F2D63 /* AppStoryboard.swift */; };
 		220E24A822883957002F2D63 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220E24A722883957002F2D63 /* Login.storyboard */; };
 		220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AD22883FA9002F2D63 /* NavigationViewController.swift */; };
@@ -55,9 +62,16 @@
 		2208A79B2261B40C00C6D45E /* SavedMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMarker.swift; sourceTree = "<group>"; };
 		2208A79D2261FB8B00C6D45E /* CustomMarkerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarkerCell.swift; sourceTree = "<group>"; };
 		2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoViewController.swift; sourceTree = "<group>"; };
-		2208A7A82262F86A00C6D45E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlertShowing.swift; sourceTree = "<group>"; };
-		220E24A32287F66D002F2D63 /* UIElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIElements.swift; sourceTree = "<group>"; };
+		2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleImage.swift"; sourceTree = "<group>"; };
+		2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Instantiate.swift"; sourceTree = "<group>"; };
+		2209B94123D0C57C00B3FE51 /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		2209B94423D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+SettingRootView.swift"; sourceTree = "<group>"; };
+		2209B94823D0C63000B3FE51 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		2209B94A23D0C6AD00B3FE51 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		2209B94C23D0C6D800B3FE51 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTextField.swift; sourceTree = "<group>"; };
+		2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPannable.swift; sourceTree = "<group>"; };
 		220E24A5228837FA002F2D63 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		220E24A722883957002F2D63 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		220E24AD22883FA9002F2D63 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +148,69 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		2209B93623D0C45D00B3FE51 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2209B94323D0C5C700B3FE51 /* UIApplication */,
+				2209B94023D0C56C00B3FE51 /* TextField */,
+				2209B93A23D0C4BA00B3FE51 /* ViewController */,
+				2209B93723D0C47700B3FE51 /* Image */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2209B93723D0C47700B3FE51 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		2209B93A23D0C4BA00B3FE51 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2209B94023D0C56C00B3FE51 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				2209B94123D0C57C00B3FE51 /* UITextField+Padding.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		2209B94323D0C5C700B3FE51 /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				2209B94423D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		2209B94623D0C61100B3FE51 /* CheckInternet */ = {
+			isa = PBXGroup;
+			children = (
+				220E24AF2288405A002F2D63 /* CheckInternet.swift */,
+			);
+			path = CheckInternet;
+			sourceTree = "<group>";
+		};
+		2209B94723D0C61F00B3FE51 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2209B94823D0C63000B3FE51 /* PrimaryButton.swift */,
+				2209B94A23D0C6AD00B3FE51 /* Image.swift */,
+				2209B94C23D0C6D800B3FE51 /* BackgroundView.swift */,
+				2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */,
+				2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		220E24A922883E9C002F2D63 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,10 +280,10 @@
 		22C968D623D0A6E600E55572 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2209B94723D0C61F00B3FE51 /* UI */,
+				2209B94623D0C61100B3FE51 /* CheckInternet */,
+				2209B93623D0C45D00B3FE51 /* Extensions */,
 				2209B93423D0C16D00B3FE51 /* CollectionView */,
-				220E24AF2288405A002F2D63 /* CheckInternet.swift */,
-				2208A7A82262F86A00C6D45E /* Extensions.swift */,
-				220E24A32287F66D002F2D63 /* UIElements.swift */,
 				22C968DB23D0A80A00E55572 /* Protocols */,
 				22C968D823D0A7AC00E55572 /* Constants */,
 			);
@@ -446,31 +523,38 @@
 				2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */,
 				22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */,
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
+				2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,
 				2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */,
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,
+				2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */,
 				2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */,
 				2208A79F2261FB8B00C6D45E /* CustomMarkerCell.swift in Sources */,
 				220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */,
+				2209B94B23D0C6AD00B3FE51 /* Image.swift in Sources */,
 				22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */,
+				2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */,
 				22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */,
 				2294CCA322747954008131A5 /* ImageSource.swift in Sources */,
 				22C968DA23D0A7BD00E55572 /* Handlers.swift in Sources */,
+				2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */,
 				22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */,
 				22FF5A52225A000E007E4C19 /* TabBarController.swift in Sources */,
 				2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */,
+				2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */,
 				22FF5A54225A0163007E4C19 /* MarkersTableViewController.swift in Sources */,
+				2209B94F23D0C70D00B3FE51 /* AuthenticationTextField.swift in Sources */,
 				2247BD3F22BDF9DA009AE55C /* Theme.swift in Sources */,
 				220E24A6228837FA002F2D63 /* AppStoryboard.swift in Sources */,
 				22CA8091225A3A2800E01B61 /* ProfileViewController.swift in Sources */,
 				2294CCA722758EE2008131A5 /* StorageServiceFireBase.swift in Sources */,
-				2208A7A92262F86A00C6D45E /* Extensions.swift in Sources */,
 				2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */,
 				2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */,
+				2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */,
 				2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
 				2260E40722BFA09000374258 /* UserMarker.swift in Sources */,
-				220E24A42287F66D002F2D63 /* UIElements.swift in Sources */,
+				2209B94523D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift in Sources */,
 				2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
 			);

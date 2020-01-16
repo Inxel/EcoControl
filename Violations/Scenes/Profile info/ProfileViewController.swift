@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     private var numberOfMarkers = 0
     private var user = Auth.auth().currentUser
     
-    @IBOutlet weak var logoutButton: Button! {
+    @IBOutlet weak var logoutButton: PrimaryButton! {
         didSet {
             logoutButton.layer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         }

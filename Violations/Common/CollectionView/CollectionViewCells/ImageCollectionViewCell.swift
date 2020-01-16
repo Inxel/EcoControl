@@ -9,11 +9,17 @@
 import UIKit
 import FirebaseStorage
 
+
+// MARK: - Protocols
+
 protocol ImageCellDelegate {
     func delete(cell: ImageCollectionViewCell)
 }
 
-class ImageCollectionViewCell: UICollectionViewCell {
+
+// MARK: - Base
+
+final class ImageCollectionViewCell: UICollectionViewCell {
     
     var deleteImage = false
     private var sizeOfDeleteButton = 25

@@ -70,12 +70,12 @@ class MapViewController: CustomTransitionViewController {
         }
     }
     
-    @IBOutlet weak var addByTapButton: Button! {
+    @IBOutlet weak var addByTapButton: PrimaryButton! {
         didSet {
             addByTapButton.alpha = 0
         }
     }
-    @IBOutlet weak var addToLocationButton: Button! {
+    @IBOutlet weak var addToLocationButton: PrimaryButton! {
         didSet {
             addToLocationButton.alpha = 0
         }

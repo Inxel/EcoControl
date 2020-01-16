@@ -26,20 +26,20 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Outlets
     
-    @IBOutlet private weak var emailTextfield: TextField! {
+    @IBOutlet private weak var emailTextfield: AuthenticationTextField! {
         didSet {
             styleOf(emailTextfield, "Email")
             emailTextfield.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         }
     }
-    @IBOutlet private weak var passwordTextfield: TextField! {
+    @IBOutlet private weak var passwordTextfield: AuthenticationTextField! {
         didSet {
             styleOf(passwordTextfield, "Password")
             passwordTextfield.layer.cornerRadius = 0
         }
     }
     
-    @IBOutlet private weak var confirmPasswordTextfield: TextField! {
+    @IBOutlet private weak var confirmPasswordTextfield: AuthenticationTextField! {
         didSet {
             styleOf(confirmPasswordTextfield, "Confirm password")
             confirmPasswordTextfield.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -86,7 +86,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
         removeObservers()
     }
 
-    @IBAction private func registerButtonTapped(_ sender: Button) {
+    @IBAction private func registerButtonTapped(_ sender: PrimaryButton) {
         
         sender.startAnimation()
         

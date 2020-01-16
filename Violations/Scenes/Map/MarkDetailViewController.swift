@@ -47,9 +47,9 @@ class MarkDetailViewController: ViewControllerPannable {
         }
     }
     
-    @IBOutlet weak var saveButton: Button!
+    @IBOutlet weak var saveButton: PrimaryButton!
     
-    @IBOutlet weak var cancelButton: Button!
+    @IBOutlet weak var cancelButton: PrimaryButton!
 
     private var titleArray = ["Air pollution", "Water pollution", "Land pollution", "Deforestation", "Trash problem", "Waste", "Other"]
     private var currentTitle = ""
