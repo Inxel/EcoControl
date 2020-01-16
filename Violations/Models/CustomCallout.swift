@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 import Contacts
 
-class CustomCallout: NSObject, MKAnnotation {
+
+final class CustomCallout: NSObject, MKAnnotation {
 
     var title: String?
     var comment: String

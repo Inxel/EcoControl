@@ -8,9 +8,9 @@
 
 import Foundation
 import RealmSwift
-import MapKit
 
-class SavedMarker: Object {
+
+final class SavedMarker: Object {
     @objc dynamic var title = ""
     @objc dynamic var comment = ""
     @objc dynamic var url = ""

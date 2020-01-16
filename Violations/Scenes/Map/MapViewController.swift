@@ -88,7 +88,6 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     }()
     
     private var realm = try! Realm()
-    private let weatherData = WeatherData()
     
     private var annotations: [CustomCallout] = []
     

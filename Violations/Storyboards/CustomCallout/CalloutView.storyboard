@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,36 +13,36 @@
             <objects>
                 <viewController storyboardIdentifier="CalloutView" modalPresentationStyle="overFullScreen" id="1m8-fF-MJR" customClass="CalloutView" customModule="Violations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HZ8-0D-lS0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9B-vQ-rTo" customClass="BackgroundView" customModule="Violations" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="150" width="600" height="450"/>
+                                <rect key="frame" x="0.0" y="190" width="414" height="672"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uKr-xj-KwZ">
-                                        <rect key="frame" x="0.0" y="58" width="600" height="159"/>
+                                        <rect key="frame" x="0.0" y="58" width="414" height="270"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJS-AQ-o9g" customClass="BackgroundView" customModule="Violations" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPT-4q-UOl">
-                                                <rect key="frame" x="242" y="7" width="116" height="36"/>
+                                                <rect key="frame" x="149" y="7" width="116" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFe-Ko-BjC">
-                                                <rect key="frame" x="557" y="9" width="34" height="33"/>
+                                                <rect key="frame" x="371" y="9" width="34" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="0te-ht-QM8"/>
                                                     <constraint firstAttribute="width" constant="34" id="PSZ-N3-zNu"/>
                                                 </constraints>
                                                 <state key="normal" title="more" image="more"/>
                                                 <connections>
-                                                    <action selector="showMore:" destination="1m8-fF-MJR" eventType="touchUpInside" id="4pC-9q-lfa"/>
+                                                    <action selector="showMore:" destination="1m8-fF-MJR" eventType="touchUpInside" id="fJ5-F5-knO"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -53,7 +55,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zb-Oq-PTL" customClass="PrimaryButton" customModule="Violations" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="394" width="120" height="48"/>
+                                        <rect key="frame" x="24" y="616" width="120" height="48"/>
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.43308785189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="9xX-k8-Z31"/>
@@ -65,11 +67,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="saveButtonTapped:" destination="1m8-fF-MJR" eventType="touchUpInside" id="fQD-uh-ux5"/>
+                                            <action selector="saveButtonTapped:" destination="1m8-fF-MJR" eventType="touchUpInside" id="sWN-Qx-hNK"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-dy-5Qo" customClass="PrimaryButton" customModule="Violations" customModuleProvider="target">
-                                        <rect key="frame" x="456" y="394" width="120" height="48"/>
+                                        <rect key="frame" x="270" y="616" width="120" height="48"/>
                                         <color key="backgroundColor" red="0.0" green="0.56470588235294117" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="1va-o9-FcG"/>
@@ -81,11 +83,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissCallout:" destination="1m8-fF-MJR" eventType="touchUpInside" id="VGl-xE-Jma"/>
+                                            <action selector="dismissCallout:" destination="1m8-fF-MJR" eventType="touchUpInside" id="9UT-lw-tvk"/>
                                         </connections>
                                     </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dGc-xo-cq1">
-                                        <rect key="frame" x="0.0" y="225" width="600" height="159"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dGc-xo-cq1">
+                                        <rect key="frame" x="0.0" y="336" width="414" height="270"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="scrollIndicatorInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1DJ-6s-O5v">
@@ -117,13 +119,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hA-ms-zSm">
-                                <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
+                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPF-cP-AgX">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="146"/>
                                 <connections>
-                                    <action selector="dismissCallout:" destination="1m8-fF-MJR" eventType="touchUpInside" id="j1A-Am-Jba"/>
+                                    <action selector="dismissCallout:" destination="1m8-fF-MJR" eventType="touchUpInside" id="fPm-Nv-9VN"/>
                                 </connections>
                             </button>
                         </subviews>
