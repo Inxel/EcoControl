@@ -10,11 +10,10 @@ import UIKit
 import SKPhotoBrowser
 import FirebaseStorage
 import RealmSwift
-import SVProgressHUD
 import MapKit
 import Firebase
 
-class CalloutView: ViewControllerPannable {
+class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -90,8 +89,7 @@ class CalloutView: ViewControllerPannable {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.show()
+        showProgressHUD()
         let marker = SavedMarker()
         marker.title = titleOfMarker
         marker.comment = comment == "User didn't add comment" ? "" : comment
@@ -115,7 +113,7 @@ class CalloutView: ViewControllerPannable {
             
             saveMarker(coordinate, titleOfMarker, comment, url, amountOfPhotos!)
         } else {
-            SVProgressHUD.showError(withStatus: "You've already saved this marker")
+            showProgressHUDError(with: "You've already saved this marker")
         }
         
     }
@@ -151,11 +149,11 @@ extension CalloutView {
         do {
             try realm.write {
                 realm.add(marker)
-                SVProgressHUD.showSuccess(withStatus: "Marker has been successfully saved")
+                showProgressHUDSuccess(with: "Marker has been successfully saved")
             }
         } catch {
             print("Fuckin' error")
-            SVProgressHUD.showError(withStatus: "Try later")
+            showProgressHUDError(with: "Try later")
         }
         
     }

@@ -21,6 +21,7 @@
 		2209B94F23D0C70D00B3FE51 /* AuthenticationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */; };
 		2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */; };
 		2209B95423D0C95600B3FE51 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B95323D0C95600B3FE51 /* UserDefault.swift */; };
+		2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B95523D0CBE800B3FE51 /* ProgressHUDShowing.swift */; };
 		220E24A6228837FA002F2D63 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24A5228837FA002F2D63 /* AppStoryboard.swift */; };
 		220E24A822883957002F2D63 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220E24A722883957002F2D63 /* Login.storyboard */; };
 		220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AD22883FA9002F2D63 /* NavigationViewController.swift */; };
@@ -74,6 +75,7 @@
 		2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationTextField.swift; sourceTree = "<group>"; };
 		2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPannable.swift; sourceTree = "<group>"; };
 		2209B95323D0C95600B3FE51 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		2209B95523D0CBE800B3FE51 /* ProgressHUDShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUDShowing.swift; sourceTree = "<group>"; };
 		220E24A5228837FA002F2D63 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		220E24A722883957002F2D63 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		220E24AD22883FA9002F2D63 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			children = (
 				22C968DC23D0A84600E55572 /* KeyboardShowing.swift */,
 				2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */,
+				2209B95523D0CBE800B3FE51 /* ProgressHUDShowing.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */,
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
 				2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */,
+				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,
 				2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */,
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,

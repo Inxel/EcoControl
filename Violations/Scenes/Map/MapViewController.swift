@@ -10,14 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
-import SVProgressHUD
 import TransitionButton
 import Alamofire
 import SwiftyJSON
 import RealmSwift
 
 
-class MapViewController: CustomTransitionViewController {
+class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -88,9 +87,8 @@ class MapViewController: CustomTransitionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultStyle(.dark)
         
-         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         mapView.delegate = self
     
@@ -259,7 +257,7 @@ extension MapViewController: UIGestureRecognizerDelegate, tappedButtonDelegate {
             
             if addToLocationTapped {
                 guard let userLocation = currentLocation?.coordinate else {
-                    SVProgressHUD.showError(withStatus: "Connection issues")
+                    showProgressHUDError(with: "Connection issues")
                     addToLocationTapped = false
                     return
                 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SVProgressHUD
 
 
 // MARK: - Constants
@@ -22,7 +21,7 @@ private enum Constants {
 
 // MARK: - Base
 
-final class RegisterViewController: UIViewController, UITextFieldDelegate {
+final class RegisterViewController: UIViewController, UITextFieldDelegate, ProgressHUDShowing {
     
     // MARK: Outlets
     
@@ -68,7 +67,6 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultStyle(.dark)
         emailTextfield.delegate = self
         passwordTextfield.delegate = self
         confirmPasswordTextfield.delegate = self
@@ -101,8 +99,8 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
 
         guard password == confirmationPassword else {
             sender.stopAnimation(animationStyle: .shake)
-            SVProgressHUD.showError(withStatus: "Password and confirmation password do not match")
-            dismissProgressHud()
+            showProgressHUDError(with: "Password and confirmation password do not match")
+            dismissProgressHUD()
             return
         }
         
@@ -110,8 +108,8 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate {
                 
             if let error = error {
                 sender.stopAnimation(animationStyle: .shake) {
-                    SVProgressHUD.showError(withStatus: error.localizedDescription)
-                    self.dismissProgressHud()
+                    self.showProgressHUDError(with: error.localizedDescription)
+                    self.dismissProgressHUD()
                 }
             } else {
                 print("Registration Successful!")
@@ -167,12 +165,6 @@ extension RegisterViewController {
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    private func dismissProgressHud() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            SVProgressHUD.dismiss()
-        }
     }
     
     private func styleOf(_ textfield: UITextField, _ placeholder: String) {

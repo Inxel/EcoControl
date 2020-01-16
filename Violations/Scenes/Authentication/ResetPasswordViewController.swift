@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 import Firebase
 
 
@@ -24,7 +23,7 @@ private enum Constants {
 
 // MARK: - Base
 
-final class ResetPasswordViewController: UIViewController {
+final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
     
     // MARK: Outlets
     
@@ -55,7 +54,6 @@ final class ResetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultStyle(.dark)
         view.backgroundColor = Theme.current.background
     }
     
@@ -85,21 +83,21 @@ extension ResetPasswordViewController {
             Auth.auth().sendPasswordReset(withEmail: text) { error in
                 if error != nil {
                     sender.stopAnimation(animationStyle: .shake) {
-                        SVProgressHUD.showError(withStatus: "Your email doesn't exist in our app")
-                        self.dismissProgressHud()
+                        self.showProgressHUDError(with: "Your email doesn't exist in EcoControl")
+                        self.dismissProgressHUD()
                     }
                 } else {
                     self.dismissKeyboard()
                     self.navigationController?.popToRootViewController(animated: true)
-                    SVProgressHUD.showSuccess(withStatus: "Check your email!")
+                    self.showProgressHUDSuccess(with: "Check your email!")
                 }
                 
             }
         } else {
-            SVProgressHUD.showError(withStatus: "Please, enter email")
+            showProgressHUDError(with: "Please, enter email")
         }
         
-        dismissProgressHud()
+        dismissProgressHUD()
     }
     
 }
@@ -123,12 +121,6 @@ extension ResetPasswordViewController: KeyboardShowing {
 // MARK: - Private API
 
 extension ResetPasswordViewController {
-    
-    private func dismissProgressHud() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            SVProgressHUD.dismiss()
-        }
-    }
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)

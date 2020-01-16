@@ -8,9 +8,9 @@
 
 import UIKit
 import Firebase
-import SVProgressHUD
 
-class ProfileViewController: UIViewController {
+
+class ProfileViewController: UIViewController, ProgressHUDShowing {
 
     private var numberOfMarkers = 0
     private var user: User? { Auth.auth().currentUser }
@@ -45,7 +45,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultStyle(.dark)
         retrieveMarkers()
         
         applyTheme()
@@ -60,8 +59,8 @@ class ProfileViewController: UIViewController {
         }
         catch {
             logoutButton.stopAnimation(animationStyle: .shake) {
-                SVProgressHUD.showError(withStatus: "Something went wrong")
-                self.dismissProgressHud()
+                self.showProgressHUDError(with: "Something went wrong")
+                self.dismissProgressHUD()
             }
         }
 
@@ -95,19 +94,6 @@ class ProfileViewController: UIViewController {
             return "You marked \(self.numberOfMarkers) violations!\nThanks for help!"
         }
     }
-}
-
-
-//MARK: - Show error with SVProgressHUD
-
-extension ProfileViewController {
-    
-    func dismissProgressHud() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            SVProgressHUD.dismiss()
-        }
-    }
-    
 }
 
 
