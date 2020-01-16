@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>116284518505-tio2n78a4ev2n1unrhrkgu8nlun8m28c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.116284518505-tio2n78a4ev2n1unrhrkgu8nlun8m28c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA_r1OAXFZ0uT3WvwVl0lYvM6l8R-sZJOE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>116284518505</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Zago.Violations</string>
+	<key>PROJECT_ID</key>
+	<string>violations-1b314</string>
+	<key>STORAGE_BUCKET</key>
+	<string>violations-1b314.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:116284518505:ios:984c8ba24e0be073</string>
+	<key>DATABASE_URL</key>
+	<string>https://violations-1b314.firebaseio.com</string>
+</dict>
+</plist>
