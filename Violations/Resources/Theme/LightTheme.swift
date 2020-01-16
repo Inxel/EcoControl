@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LightTheme: ThemeProtocol {
+final class LightTheme: ThemeProtocol {
     var accent: UIColor = UIColor(named: "Accent")!
     var background: UIColor = UIColor(named: "Background")!
     var tabBarColor: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

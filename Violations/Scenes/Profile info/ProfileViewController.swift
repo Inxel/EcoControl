@@ -13,7 +13,7 @@ import SVProgressHUD
 class ProfileViewController: UIViewController {
 
     private var numberOfMarkers = 0
-    private var user = Auth.auth().currentUser
+    private var user: User? { Auth.auth().currentUser }
     
     @IBOutlet weak var logoutButton: PrimaryButton! {
         didSet {
@@ -35,9 +35,7 @@ class ProfileViewController: UIViewController {
     }
     @IBOutlet weak var themeSwitcher: UISwitch! {
         didSet {
-            if UserDefaults.standard.object(forKey: "LightTheme") != nil {
-                themeSwitcher.isOn = !UserDefaults.standard.bool(forKey: "LightTheme")
-            }
+            themeSwitcher.isOn = !Theme.isLightTheme
         }
     }
     
@@ -70,9 +68,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func changeTheme(_ sender: UISwitch) {
-        Theme.current = sender.isOn ? DarkTheme() : LightTheme()
-        
-        UserDefaults.standard.set(!sender.isOn, forKey: "LightTheme")
+        Theme.isLightTheme = !sender.isOn
         
         applyTheme()
     }

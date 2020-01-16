@@ -8,6 +8,8 @@
 
 import UIKit
 
-class Theme {
-    static var current: ThemeProtocol = LightTheme()
+final class Theme {
+    static var current: ThemeProtocol { isLightTheme ? LightTheme() : DarkTheme() }
+    
+    @UserDefault("LightTheme", true) static var isLightTheme: Bool
 }

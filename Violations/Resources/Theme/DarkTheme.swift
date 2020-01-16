@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DarkTheme: ThemeProtocol {
+final class DarkTheme: ThemeProtocol {
     var accent: UIColor = UIColor(named: "Background")!
     var background: UIColor = UIColor(named: "Accent")!
     var tabBarColor: UIColor = #colorLiteral(red: 0.2290914655, green: 0.2301582694, blue: 0.2327426076, alpha: 1)

@@ -29,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = loginViewController
         }
         
-        if UserDefaults.standard.object(forKey: "LightTheme") != nil {
-            Theme.current = UserDefaults.standard.bool(forKey: "LightTheme") ? LightTheme() : DarkTheme()
-        }
-        
         return true
     }
 
