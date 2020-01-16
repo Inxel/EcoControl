@@ -11,3 +11,5 @@ import Foundation
 
 typealias Handler<T> = (T) -> Void
 typealias DefaultHandler = () -> Void
+
+typealias DequeueableCell = NIBLoadableView & ReusableView

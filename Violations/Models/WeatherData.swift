@@ -6,18 +6,19 @@
 //  Copyright © 2019 Tyoma Zagoskin. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class WeatherData {
+
+struct WeatherData {
     
     var temperature : Int = 0
     var condition : Int = 0
-    var weather: String?
+    var weather: String { "\(temperature)º\n\(updateWeatherEmoji)" }
     
     
     //This method turns a condition code into the name of the weather condition image
     
-    func updateWeatherEmoji(condition: Int) -> String {
+    var updateWeatherEmoji: String {
         
         switch (condition) {
             

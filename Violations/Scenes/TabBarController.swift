@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate {
+
+final class TabBarController: UITabBarController, UITabBarControllerDelegate {
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,4 +19,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.barTintColor = Theme.current.background
         tabBar.unselectedItemTintColor = Theme.current.tabBarTintColor
     }
+    
 }

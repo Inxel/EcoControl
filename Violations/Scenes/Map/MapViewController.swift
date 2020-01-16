@@ -16,36 +16,35 @@ import SwiftyJSON
 import RealmSwift
 
 
-class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
+// MARK: - Constants
+
+private enum Constants {
+    static var weatherURL: String { "http://api.openweathermap.org/data/2.5/weather" }
+    static var weatherAppID: String { "e72ca729af228beabd5d20e3b7749713" }
+    static var user: User? { Auth.auth().currentUser }
+}
+
+
+// MARK: - Base
+
+final class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
     
-    @IBOutlet weak var mapView: MKMapView!
+    // MARK: Outlets
     
-    private var realm = try! Realm()
-    private let weatherData = WeatherData()
-    private let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    private let APP_ID = "e72ca729af228beabd5d20e3b7749713"
+    @IBOutlet private weak var mapView: MKMapView!
     
-    private var locationManager: CLLocationManager!
-    private var currentLocation: CLLocation?
-    private var tappedCoordinates: CGPoint?
-    private var userLocationButton: MKUserTrackingButton?
-    
-    private var annotations: [CustomCallout] = []
-    
-    private var user = Auth.auth().currentUser
-    
-    @IBOutlet weak var addByTapBottomConstraint: NSLayoutConstraint! {
+    @IBOutlet private weak var addByTapBottomConstraint: NSLayoutConstraint! {
         didSet {
             addByTapBottomConstraint.constant = -30
         }
     }
-    @IBOutlet weak var addToLocationBottomConstraint: NSLayoutConstraint! {
+    @IBOutlet private weak var addToLocationBottomConstraint: NSLayoutConstraint! {
         didSet {
             addToLocationBottomConstraint.constant = -30
         }
     }
     
-    @IBOutlet weak var viewForShadow: UIView! {
+    @IBOutlet private weak var viewForShadow: UIView! {
         didSet {
             viewForShadow.layer.cornerRadius = viewForShadow.frame.height / 2
             viewForShadow.layer.shadowOffset = CGSize(width: -2, height: 2)
@@ -54,13 +53,13 @@ class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
         }
     }
     
-    @IBOutlet weak var addAnotation: UIButton! {
+    @IBOutlet private weak var addAnotation: UIButton! {
         didSet {
             addAnotation.layer.cornerRadius = addAnotation.frame.height / 2
         }
     }
     
-    @IBOutlet weak var weatherView: UITextView! {
+    @IBOutlet private weak var weatherView: UITextView! {
         didSet {
             weatherView.layer.cornerRadius = 5
             weatherView.textContainerInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)
@@ -69,21 +68,41 @@ class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
         }
     }
     
-    @IBOutlet weak var addByTapButton: PrimaryButton! {
+    @IBOutlet private weak var addByTapButton: PrimaryButton! {
         didSet {
             addByTapButton.alpha = 0
         }
     }
-    @IBOutlet weak var addToLocationButton: PrimaryButton! {
+    @IBOutlet private weak var addToLocationButton: PrimaryButton! {
         didSet {
             addToLocationButton.alpha = 0
         }
     }
     
+    // MARK: Properties
+    
+    private lazy var gestureRecognizer: UIGestureRecognizer = {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        tapRecognizer.delegate = self
+        return tapRecognizer
+    }()
+    
+    private var realm = try! Realm()
+    private let weatherData = WeatherData()
+    
+    private var annotations: [CustomCallout] = []
+    
+    private var locationManager: CLLocationManager!
+    private var currentLocation: CLLocation?
+    private var tappedCoordinates: CGPoint?
+    private var userLocationButton: MKUserTrackingButton?
+    
     private var canAddAnnotation = false
     private var addAnnotationTapped = false
     private var showAddButtons = false
     private var addToLocationTapped = false
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +115,6 @@ class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        gestureRecognizer.delegate = self
         mapView.addGestureRecognizer(gestureRecognizer)
         
         // Check for Location Services
@@ -112,7 +129,7 @@ class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
         retrieveMarkers()
         
         if !CheckInternet.connection() {
-            createAlert(Message: "Internet connection issues")
+            showAlert(message: "Internet connection issues", defaultButtonTitle: "OK")
         }
     }
     
@@ -130,21 +147,28 @@ class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
         setupUserTrackingButton()
     }
 
-    @IBAction func addAnnotationTapped(_ sender: Any) {
-        addAnnotationTapped = !addAnnotationTapped
+}
+
+
+// MARK: - Actions
+
+extension MapViewController {
+    
+    @IBAction private func addAnnotationTapped(_ sender: UIButton) {
+        addAnnotationTapped.toggle()
         showAddButtons = canAddAnnotation ? showAddButtons : !showAddButtons
         canAddAnnotation = false
         addAnnotationAnimate()
     }
     
-    @IBAction func addByTapButtonTapped(_ sender: Any) {
+    @IBAction private func addByTapButtonTapped(_ sender: PrimaryButton) {
         canAddAnnotation = true
         showAddButtons = false
         addToLocationTapped = false
         addAnnotationAnimate()
     }
     
-    @IBAction func addToLocationButtonTapped(_ sender: Any) {
+    @IBAction private func addToLocationButtonTapped(_ sender: PrimaryButton) {
         performSegue(withIdentifier: "createMarkDetail", sender: Any?.self)
         
         addToLocationTapped = true
@@ -153,16 +177,10 @@ class MapViewController: CustomTransitionViewController, ProgressHUDShowing {
         addAnnotationAnimate()
     }
     
-    func createAlert(Message: String){
-        let alert = UIAlertController(title: "Alert", message: Message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-
 }
 
 
-//MARK: - Location methods
+// MARK: - Location methods
 
 extension MapViewController: CLLocationManagerDelegate {
     
@@ -187,13 +205,20 @@ extension MapViewController: CLLocationManagerDelegate {
             let latitude = String(location.coordinate.latitude)
             let longitude = String(location.coordinate.longitude)
             
-            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
+            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : Constants.weatherAppID]
             
-            getWeatherData(url: WEATHER_URL, parameters: params)
+            getWeatherData(url: Constants.weatherURL, parameters: params)
         }
     }
     
-    func checkLocationAuthorizationStatus() {
+}
+
+
+// MARK: - Private API
+
+extension MapViewController: DefaultAlertShowing {
+    
+    private func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
         } else {
@@ -201,7 +226,7 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
     
-    func setupUserTrackingButton() {
+    private func setupUserTrackingButton() {
         mapView.showsCompass = false
 
         let button = MKUserTrackingButton(mapView: mapView)
@@ -226,14 +251,12 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 
-//MARK: - Add marker by tap
+//MARK: - Gesture Recognizer
 
-
-extension MapViewController: UIGestureRecognizerDelegate, tappedButtonDelegate {
+extension MapViewController: UIGestureRecognizerDelegate {
     
-    @objc func handleTap(_ gestureReconizer: UILongPressGestureRecognizer) {
+    @objc private func handleTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         if canAddAnnotation {
-        
             performSegue(withIdentifier: "createMarkDetail", sender: Any?.self)
             
             tappedCoordinates = gestureReconizer.location(in: mapView)
@@ -241,61 +264,76 @@ extension MapViewController: UIGestureRecognizerDelegate, tappedButtonDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "createMarkDetail" {
             
             let destinationVC = segue.destination as! MarkDetailViewController
             
             destinationVC.delegate = self
-            
         }
     }
     
-    func userTappedButton(button: String, title: String, comment: String, url: String, amountOfPhotos: String) {
-        if button ==  "Save" {
-            let coordinate: CLLocationCoordinate2D?
-            
-            if addToLocationTapped {
-                guard let userLocation = currentLocation?.coordinate else {
-                    showProgressHUDError(with: "Connection issues")
-                    addToLocationTapped = false
-                    return
-                }
-                coordinate = userLocation
-            } else {
-                coordinate = mapView.convert(tappedCoordinates!, toCoordinateFrom: mapView)
-            }
-            
-            addAnnotationTapped = false
-            canAddAnnotation = false
-            addToLocationTapped = false
-            
-            let marker = UserMarker()
-            marker.title = title
-            marker.comment = comment
-            marker.dateCreated = Date()
-            marker.url = url
-            marker.amountOfPhotos = Int(amountOfPhotos)!
-            marker.latitude = String(describing: coordinate!.latitude)
-            marker.longitude = String(describing: coordinate!.longitude)
-            saveToRealm(marker)
-            
-            saveMarkerToFirebase(coordinate!, title, comment, url, Int(amountOfPhotos)!)
-        }
+}
+
+
+// MARK: - Tapped Button Delegate
+
+extension MapViewController: TappedButtonDelegate {
+    
+    func userTappedButton(button: MarkDetailViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {
         
         addToLocationTapped = false
         addAnnotationAnimate()
         
+        guard
+            button == .save,
+            let title = title,
+            let comment = comment,
+            let url = url,
+            let amountOfPhotos = amountOfPhotos
+        else { return }
+        
+        var coordinates: CLLocationCoordinate2D = .init()
+        
+        if addToLocationTapped {
+            guard let userLocation = currentLocation?.coordinate else {
+                showProgressHUDError(with: "Connection issues")
+                addToLocationTapped = false
+                return
+            }
+            coordinates = userLocation
+        } else if let tappedCoordinates = tappedCoordinates {
+            coordinates = mapView.convert(tappedCoordinates, toCoordinateFrom: mapView)
+        }
+        
+        addAnnotationTapped = false
+        canAddAnnotation = false
+        addToLocationTapped = false
+        
+        guard let numberOfPhotos = Int(amountOfPhotos) else { return }
+        
+        let marker = UserMarker()
+        marker.title = title
+        marker.comment = comment
+        marker.dateCreated = Date()
+        marker.url = url
+        marker.amountOfPhotos = numberOfPhotos
+        marker.latitude = String(describing: coordinates.latitude)
+        marker.longitude = String(describing: coordinates.longitude)
+        saveToRealm(marker)
+        saveMarkerToFirebase(coordinates, title, comment, url, numberOfPhotos)
+        
     }
+    
 }
 
 
-//MARK: - Animation methods
+//MARK: - Private API
 
 extension MapViewController {
-    func addAnnotationAnimate() {
+    
+    private func addAnnotationAnimate() {
         UIView.animate(withDuration: 0.2) {
-            self.addAnotation.transform = CGAffineTransform(rotationAngle: !self.addAnnotationTapped ? CGFloat(Double.pi*2) : CGFloat(Double.pi/4))
+            self.addAnotation.transform = CGAffineTransform(rotationAngle: !self.addAnnotationTapped ? CGFloat(Double.pi * 2) : CGFloat(Double.pi / 4))
             self.addByTapBottomConstraint.constant = self.showAddButtons ? 20 : -30
             self.addToLocationBottomConstraint.constant = self.showAddButtons ? 20 : -30
             self.addByTapButton.alpha = self.showAddButtons ? 1 : 0
@@ -303,6 +341,11 @@ extension MapViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    private func changeColorOf(_ button: UIButton) {
+        button.backgroundColor = Theme.current.tableViewBackground
+    }
+    
 }
 
 
@@ -310,9 +353,9 @@ extension MapViewController {
 
 extension MapViewController {
     
-    func saveMarkerToFirebase(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ url: String, _ amountOfPhotos: Int) {
+    private func saveMarkerToFirebase(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ url: String, _ amountOfPhotos: Int) {
         let markersDB = Database.database().reference().child("Markers")
-        let markersDictionary = ["Sender": Auth.auth().currentUser?.email,
+        let markersDictionary = ["Sender": Constants.user?.email,
                                  "Title": title,
                                  "Comment": comment,
                                  "Latitude": String(coordinate.latitude),
@@ -332,7 +375,7 @@ extension MapViewController {
         }
     }
     
-    func retrieveMarkers() {
+    private func retrieveMarkers() {
         
         TakeMarkersFromFirebase.downloadMarkers(child: "Markers") { snapshotValue in
             let title = snapshotValue["Title"]!
@@ -359,6 +402,9 @@ extension MapViewController {
 
 }
 
+
+// MARK: MapView Delegate
+
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -382,11 +428,13 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        guard let annotation = view.annotation as? CustomCallout else { return }
+        guard
+            let annotation = view.annotation as? CustomCallout,
+            let calloutVC = CalloutView.instance() as? CalloutView
+        else { return }
         
-        let calloutVC = CalloutView.instance() as! CalloutView
+        calloutVC.titleOfMarker = annotation.title ?? ""
         calloutVC.comment = annotation.comment
-        calloutVC.titleOfMarker = annotation.title!
         calloutVC.amountOfPhotos = Int(annotation.amountOfPhotos)
         calloutVC.url = annotation.url
         calloutVC.location = annotation.coordinate
@@ -397,59 +445,49 @@ extension MapViewController: MKMapViewDelegate {
 }
 
 
-//MARK: - API Requesting
+//MARK: - Weather Requesting
 
 extension MapViewController {
     
-    func getWeatherData(url: String, parameters: [String: String]) {
+    private func getWeatherData(url: String, parameters: [String: String]) {
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
             response in
-            if response.result.isSuccess {
+            if let value = response.result.value, response.result.isSuccess {
                 
                 print("Success! Got the weather data")
-                let weatherJSON: JSON = JSON(response.result.value!)
-                
-                print(weatherJSON)
-                
-                self.weatherView.isHidden = false
+                let weatherJSON: JSON = JSON(value)
                 
                 self.updateWeatherData(json: weatherJSON)
                 
             }
             else {
-                print("Error \(String(describing: response.result.error))")
+                print("Error: \(String(describing: response.result.error))")
             }
         }
     }
     
-    func updateWeatherData(json : JSON) {
+    private func updateWeatherData(json : JSON) {
         
         let tempResult = json["main"]["temp"].doubleValue
         
-        weatherData.temperature = Int(tempResult - 273.15)
-        weatherData.condition = json["weather"][0]["id"].intValue
-        weatherData.weather = "\(weatherData.temperature)º\n\(weatherData.updateWeatherEmoji(condition: weatherData.condition))"
+        let temperature = Int(tempResult - 273.15)
+        let condition = json["weather"][0]["id"].intValue
+        
+        let weatherData = WeatherData(temperature: temperature, condition: condition)
         
         weatherView.text = weatherData.weather
+        weatherView.isHidden = false
     }
     
-}
-
-
-//MARK: - Change theme
-
-extension MapViewController {
-    func changeColorOf(_ button: UIButton) {
-        button.backgroundColor = Theme.current.tableViewBackground
-    }
 }
 
 
 //MARK: - Realm methods
 
 extension MapViewController {
-    func saveToRealm(_ marker: UserMarker) {
+    
+    private func saveToRealm(_ marker: UserMarker) {
         
         do {
             try realm.write {
@@ -460,4 +498,5 @@ extension MapViewController {
         }
         
     }
+    
 }

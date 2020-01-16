@@ -142,7 +142,7 @@
                                     <color key="titleShadowColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addAnnotationTapped:" destination="zi0-XU-ccg" eventType="touchUpInside" id="uxg-A2-seO"/>
+                                    <action selector="addAnnotationTapped:" destination="zi0-XU-ccg" eventType="touchUpInside" id="b5n-xj-6Mk"/>
                                 </connections>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoE-wN-o0S">
@@ -179,7 +179,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addToLocationButtonTapped:" destination="zi0-XU-ccg" eventType="touchUpInside" id="oMH-aU-iy7"/>
+                                    <action selector="addToLocationButtonTapped:" destination="zi0-XU-ccg" eventType="touchUpInside" id="cot-fg-lbk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMJ-ZN-B0x" customClass="PrimaryButton" customModule="Violations" customModuleProvider="target">
@@ -197,7 +197,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addByTapButtonTapped:" destination="zi0-XU-ccg" eventType="touchUpInside" id="rau-uy-5wk"/>
+                                    <action selector="addByTapButtonTapped:" destination="zi0-XU-ccg" eventType="touchUpInside" id="yLL-LM-ent"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,6 +320,10 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9g-Ep-wtE">
                                         <rect key="frame" x="0.0" y="82" width="414" height="236.5"/>
                                         <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="lqb-eH-eXQ" id="8T7-6d-Q3e"/>
+                                            <outlet property="delegate" destination="lqb-eH-eXQ" id="s8r-eN-jqc"/>
+                                        </connections>
                                     </pickerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Qt-0q-GED">
                                         <rect key="frame" x="0.0" y="326.5" width="414" height="237"/>
@@ -330,6 +334,9 @@
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" smartDashesType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="lqb-eH-eXQ" id="UZ7-t7-6Cf"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <constraints>
@@ -364,6 +371,10 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lqb-eH-eXQ" id="TFS-zv-4zz"/>
+                                                    <outlet property="delegate" destination="lqb-eH-eXQ" id="3o3-N7-f4L"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <constraints>
@@ -493,6 +504,10 @@
                                                     <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="jBv-no-Sun" id="lgn-fn-tBG"/>
+                                                    <outlet property="delegate" destination="jBv-no-Sun" id="QRo-r2-7hb"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -663,6 +678,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="b5y-he-WDt" id="JRN-ab-5mf"/>
+                                    <outlet property="delegate" destination="b5y-he-WDt" id="JWZ-Bh-JYB"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gm-X2-j1h">
                                 <rect key="frame" x="0.0" y="424" width="414" height="48"/>

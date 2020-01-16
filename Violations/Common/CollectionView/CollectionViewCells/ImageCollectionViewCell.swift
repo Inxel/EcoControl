@@ -12,7 +12,7 @@ import FirebaseStorage
 
 // MARK: - Protocols
 
-protocol ImageCellDelegate {
+protocol ImageCellDelegate: class {
     func delete(cell: ImageCollectionViewCell)
 }
 
@@ -21,11 +21,10 @@ protocol ImageCellDelegate {
 
 final class ImageCollectionViewCell: UICollectionViewCell {
     
-    var deleteImage = false
     private var sizeOfDeleteButton = 25
-    var delegate: ImageCellDelegate?
+    weak var delegate: ImageCellDelegate?
     
-    lazy var imageView: UIImageView = {
+    lazy private var imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "loading"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 10
@@ -36,7 +35,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
-    lazy var blurEffect: UIVisualEffectView = {
+    lazy private var blurEffect: UIVisualEffectView = {
         let blur = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         blur.translatesAutoresizingMaskIntoConstraints = false
         blur.layer.cornerRadius = CGFloat(sizeOfDeleteButton / 2)
@@ -45,7 +44,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         return blur
     }()
     
-    lazy var deleteButton: UIButton = {
+    lazy private var deleteButton: UIButton = {
         let delete = UIButton()
         delete.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         delete.setImage(UIImage(named: "plus"), for: .normal)
@@ -65,7 +64,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addSubviews() {
+    private func addSubviews() {
         addSubview(imageView)
         addSubview(blurEffect)
         insertSubview(deleteButton, aboveSubview: blurEffect)
@@ -90,7 +89,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         deleteButton.rightAnchor.constraint(equalTo: blurEffect.rightAnchor).isActive = true
     }
     
-    @objc func deleteButtonTapped(_ sender: UIButton!) {
+    @objc private func deleteButtonTapped(_ sender: UIButton!) {
         delegate?.delete(cell: self)
     }
     

@@ -10,34 +10,44 @@ import UIKit
 import FirebaseStorage
 import RealmSwift
 
-protocol tappedButtonDelegate {
-    func userTappedButton(button: String, title: String, comment: String, url: String, amountOfPhotos: String)
+
+// MARK: - Protocols
+
+protocol TappedButtonDelegate: class {
+    func userTappedButton(button: MarkDetailViewController.ButtonType, title: String?, comment: String?, url: String?, amountOfPhotos: String?)
 }
 
-class MarkDetailViewController: ViewControllerPannable {
+
+extension TappedButtonDelegate {
+    func userTappedButton(button: MarkDetailViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {}
+}
+
+
+// MARK: - Base
+
+final class MarkDetailViewController: ViewControllerPannable {
     
-    var delegate: tappedButtonDelegate?
+    weak var delegate: TappedButtonDelegate?
     
-    @IBOutlet weak var commentView: UIView!
-    @IBOutlet weak var typeOfViolationLabel: UILabel! {
+    @IBOutlet private weak var commentView: UIView!
+    @IBOutlet private weak var typeOfViolationLabel: UILabel! {
         didSet {
             typeOfViolationLabel.textColor = Theme.current.textColor
         }
     }
     
     
-    @IBOutlet weak var dataPicker: UIPickerView!
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet private weak var dataPicker: UIPickerView!
+    @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
+            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
             collectionView.backgroundColor = Theme.current.background
         }
     }
     
-    var imagePicker: UIImagePickerController!
-    var images = [UIImage]()
-    @IBOutlet weak var addPhotoButton: UIButton!
+    @IBOutlet private weak var addPhotoButton: UIButton!
     
-    @IBOutlet weak var commentTextView: UITextView! {
+    @IBOutlet private weak var commentTextView: UITextView! {
         didSet {
             commentTextView.text = "Comment"
             commentTextView.layer.borderWidth = 1
@@ -47,33 +57,29 @@ class MarkDetailViewController: ViewControllerPannable {
         }
     }
     
-    @IBOutlet weak var saveButton: PrimaryButton!
-    
-    @IBOutlet weak var cancelButton: PrimaryButton!
+    @IBOutlet private weak var saveButton: PrimaryButton!
+    @IBOutlet private weak var cancelButton: PrimaryButton!
 
-    private var titleArray = ["Air pollution", "Water pollution", "Land pollution", "Deforestation", "Trash problem", "Waste", "Other"]
+    private var titleArray: [String] { ["Air pollution", "Water pollution", "Land pollution", "Deforestation", "Trash problem", "Waste", "Other"] }
     private var currentTitle = ""
     private var currentComment = ""
     
+    private var imagePicker: UIImagePickerController!
+    private var images: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        commentTextView.delegate = self
-        dataPicker.delegate = self
-        dataPicker.dataSource = self
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
         
         view.backgroundColor = Theme.current.background
     }
     
-    @IBAction func cancelTapped(_ sender: Any) {
-        delegate?.userTappedButton(button: "Cancel", title: "", comment: "", url: "", amountOfPhotos: "")
+    @IBAction private func cancelTapped(_ sender: Any) {
+        delegate?.userTappedButton(button: .cancel)
         dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func saveTapped(_ sender: Any) {
+    @IBAction private func saveTapped(_ sender: Any) {
         let title = currentTitle
         let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
         let url = UUID().uuidString
@@ -82,11 +88,11 @@ class MarkDetailViewController: ViewControllerPannable {
         
         saveImagesToFirebase(url)
         
-        delegate?.userTappedButton(button: "Save", title: title == "" ? titleArray[0] : title, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
+        delegate?.userTappedButton(button: .save, title: title.isEmpty ? titleArray[0] : title, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addPhoto(_ sender: Any) {
+    @IBAction private func addPhoto(_ sender: Any) {
         
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
@@ -144,24 +150,18 @@ extension MarkDetailViewController: UITextViewDelegate {
 
 
 extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return titleArray.count
-    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { titleArray.count }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return titleArray[row]
-    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { titleArray[row] }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentTitle = titleArray[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: titleArray[row], attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textColor])
+        NSAttributedString(string: titleArray[row], attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textColor])
     }
 }
 
@@ -197,21 +197,11 @@ extension MarkDetailViewController: UIImagePickerControllerDelegate, UINavigatio
 }
 
 
-//MARK: - CollectionView delegate methods
-
-extension MarkDetailViewController: UICollectionViewDelegate {
-    
-
-}
-
-
 //MARK: - CollectionView data source methods
 
 extension MarkDetailViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
-    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { images.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
@@ -238,9 +228,10 @@ extension MarkDetailViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
-//MARK: - Delete image methods
+//MARK: - ImageCell Delegate
 
 extension MarkDetailViewController: ImageCellDelegate {
+    
     func delete(cell: ImageCollectionViewCell) {
         if let indexPath = collectionView?.indexPath(for: cell) {
             images.remove(at: indexPath.item)
@@ -248,14 +239,15 @@ extension MarkDetailViewController: ImageCellDelegate {
         }
         collectionView.reloadData()
     }
+    
 }
 
 
-//MARK: - save photos
+//MARK: - Save Photos
 
-private extension MarkDetailViewController {
+extension MarkDetailViewController {
     
-    func saveImagesToFirebase(_ url: String) {
+    private func saveImagesToFirebase(_ url: String) {
         for index in 0 ..< images.count {
             PostServiceFireBase.create(for: images[index], path: "\(url)/\(index)") { downloadURL in
                 guard let downloadURL = downloadURL else {
@@ -267,4 +259,16 @@ private extension MarkDetailViewController {
         }
     }
     
+}
+
+
+// MARK: - Mark Detail Screen Button Type
+
+extension MarkDetailViewController {
+    
+    enum ButtonType {
+        case save
+        case cancel
+    }
+
 }
