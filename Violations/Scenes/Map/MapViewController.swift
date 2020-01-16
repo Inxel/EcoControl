@@ -384,14 +384,15 @@ extension MapViewController {
             let url = snapshotValue["URL"]!
             let amountOfPhotos = snapshotValue["AmountOfPhotos"]!
             
-            let lat = Double(latitude)
-            let lon = Double(longitude)
+            guard let lat = Double(latitude), let lon = Double(longitude) else { return }
             
-            let coordinates = CLLocationCoordinate2D(latitude:lat!, longitude:lon!)
+            let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            
+            let reportType = ReportsType(rawValue: title)
             
             // Add marker on map
             
-            let viewModel = CustomCallout(title: title, comment: comment, coordinate: coordinates, url: url, amountOfPhotos: amountOfPhotos)
+            let viewModel = CustomCallout(reportType: reportType, comment: comment, coordinate: coordinates, url: url, amountOfPhotos: amountOfPhotos)
             
             self.annotations.append(viewModel)
             
@@ -432,7 +433,7 @@ extension MapViewController: MKMapViewDelegate {
             let calloutVC = CalloutView.instance() as? CalloutView
         else { return }
         
-        calloutVC.titleOfMarker = annotation.title ?? ""
+        calloutVC.reportType = annotation.reportType
         calloutVC.comment = annotation.comment
         calloutVC.amountOfPhotos = Int(annotation.amountOfPhotos)
         calloutVC.url = annotation.url

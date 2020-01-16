@@ -66,12 +66,14 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     private var markersFromRealm: Results<SavedMarker>?
     private var isExist = false
     
-    var titleOfMarker = ""
+    var reportType: ReportsType = .other
     var comment = ""
     var url = ""
     var amountOfPhotos: Int?
     var location: CLLocationCoordinate2D?
     var mark: CustomCallout?
+    
+    private var titleOfMarker: String { reportType.rawValue }
     
     private var images = [SKPhotoProtocol]()
     private var data = Data()
@@ -148,7 +150,7 @@ extension CalloutView {
         guard let location = location else { return }
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: #"Show on "Maps""#, style: .default, handler: { _ in
-            self.mark = CustomCallout(title: self.titleOfMarker, comment: self.comment, coordinate: location, url: self.url, amountOfPhotos: String(self.numberOfPhotos))
+            self.mark = CustomCallout(reportType: self.reportType, comment: self.comment, coordinate: location, url: self.url, amountOfPhotos: String(self.numberOfPhotos))
             let launchOptions = [MKLaunchOptionsDirectionsModeKey:
                 MKLaunchOptionsDirectionsModeDriving]
             self.mark?.mapItem().openInMaps(launchOptions: launchOptions)

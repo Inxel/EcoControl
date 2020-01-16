@@ -149,20 +149,20 @@ extension MarkerInfoViewController {
     
     func createActionSheet() {
         
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: #"Show on "Maps""#, style: .default, handler: { _ in
-            self.mark = CustomCallout(title: self.report.text!, comment: self.comment.text ?? "", coordinate: self.location!, url: self.ifSavedSegment! ? self.savedMarker!.url : self.userMarker!.url, amountOfPhotos: String(describing: self.ifSavedSegment! ? self.savedMarker!.amountOfPhotos : self.userMarker!.amountOfPhotos))
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey:
-                MKLaunchOptionsDirectionsModeDriving]
-            self.mark!.mapItem().openInMaps(launchOptions: launchOptions)
-        }))
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        cancel.setValue(UIColor.red, forKey: "titleTextColor")
-        
-        alert.addAction(cancel)
-        
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: #"Show on "Maps""#, style: .default, handler: { _ in
+//            self.mark = CustomCallout(title: self.report.text!, comment: self.comment.text ?? "", coordinate: self.location!, url: self.ifSavedSegment! ? self.savedMarker!.url : self.userMarker!.url, amountOfPhotos: String(describing: self.ifSavedSegment! ? self.savedMarker!.amountOfPhotos : self.userMarker!.amountOfPhotos))
+//            let launchOptions = [MKLaunchOptionsDirectionsModeKey:
+//                MKLaunchOptionsDirectionsModeDriving]
+//            self.mark!.mapItem().openInMaps(launchOptions: launchOptions)
+//        }))
+//        
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        cancel.setValue(UIColor.red, forKey: "titleTextColor")
+//        
+//        alert.addAction(cancel)
+//        
+//        self.present(alert, animated: true, completion: nil)
         
     }
     

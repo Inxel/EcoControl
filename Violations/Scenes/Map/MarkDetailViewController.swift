@@ -60,7 +60,7 @@ final class MarkDetailViewController: ViewControllerPannable {
     @IBOutlet private weak var saveButton: PrimaryButton!
     @IBOutlet private weak var cancelButton: PrimaryButton!
 
-    private var titleArray: [String] { ["Air pollution", "Water pollution", "Land pollution", "Deforestation", "Trash problem", "Waste", "Other"] }
+    private var reports: [ReportsType] { ReportsType.allCases }
     private var currentTitle = ""
     private var currentComment = ""
     
@@ -88,7 +88,7 @@ final class MarkDetailViewController: ViewControllerPannable {
         
         saveImagesToFirebase(url)
         
-        delegate?.userTappedButton(button: .save, title: title.isEmpty ? titleArray[0] : title, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
+        delegate?.userTappedButton(button: .save, title: title.isEmpty ? reports.first?.rawValue : title, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
         dismiss(animated: true, completion: nil)
     }
     
@@ -152,16 +152,16 @@ extension MarkDetailViewController: UITextViewDelegate {
 extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { titleArray.count }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { reports.count }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { titleArray[row] }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { reports[row].rawValue }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentTitle = titleArray[row]
+        currentTitle = reports[row].rawValue
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        NSAttributedString(string: titleArray[row], attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textColor])
+        NSAttributedString(string: reports[row].rawValue, attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textColor])
     }
 }
 
