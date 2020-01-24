@@ -29,6 +29,7 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
+            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
             collectionView.backgroundColor = Theme.current.background
         }
     }
@@ -55,7 +56,7 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
-            titleLabel.text = titleOfMarker
+            titleLabel.text = markerTitle
             titleLabel.textColor = Theme.current.textColor
         }
     }
@@ -64,19 +65,20 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     
     private var realm = try! Realm()
     private var markersFromRealm: Results<SavedMarker>?
-    private var isExist = false
     
-    var reportType: ReportsType = .other
-    var comment = ""
-    var url = ""
-    var amountOfPhotos: Int?
-    var location: CLLocationCoordinate2D?
-    var mark: CustomCallout?
+    private var reportType: ReportsType { marker?.reportType ?? .other }
+    private var markerTitle: String { marker?.title ?? "" }
+    private var comment: String { marker?.comment ?? "" }
+    private var url: String { marker?.url ?? "" }
+    private var amountOfPhotos: Int? {
+        guard let marker = marker else { return .init() }
+        return Int(marker.amountOfPhotos)
+    }
+    private var location: CLLocationCoordinate2D? { marker?.coordinate }
     
-    private var titleOfMarker: String { reportType.rawValue }
+    var marker: CustomCallout?
     
-    private var images = [SKPhotoProtocol]()
-    private var data = Data()
+    private var images: [SKPhotoProtocol] = []
     
     private var numberOfPhotos: Int { amountOfPhotos ?? 0 }
     
@@ -92,16 +94,22 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
         SKPhotoBrowserOptions.displayCounterLabel = true
         SKPhotoBrowserOptions.displayBackAndForwardButton = true
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
-        
         markersFromRealm = realm.objects(SavedMarker.self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        makePresentationViewTranslucent(with: 0.3)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        makePresentationViewTranslucent(with: .zero)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        commentTextview.setContentOffset(CGPoint.zero, animated: false)
+        commentTextview.setContentOffset(.zero, animated: false)
     }
 
 }
@@ -109,7 +117,7 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
 
 // MARK: - Actions
 
-extension CalloutView {
+extension CalloutView: ActionSheetShowing {
     
     @IBAction private func dismissCallout(_ sender: UIButton) {
          dismiss(animated: true, completion: nil)
@@ -119,27 +127,20 @@ extension CalloutView {
         guard let location = location else { return }
         showProgressHUD()
         let marker = SavedMarker()
-        marker.title = titleOfMarker
+        marker.title = markerTitle
         marker.comment = comment == "User didn't add comment" ? "" : comment
         marker.dateCreated = Date()
         marker.url = url
         marker.amountOfPhotos = numberOfPhotos
-        marker.latitude = String(describing: location.latitude)
-        marker.longitude = String(describing: location.longitude)
+        marker.latitude = String(location.latitude)
+        marker.longitude = String(location.longitude)
         
-        markersFromRealm?.forEach {
-            if $0.url == self.url {
-                self.isExist = true
-                return
-            }
-        }
-        
-        if !isExist {
+        if !(markersFromRealm?.contains(where: { $0.url == url }) ?? false) {
             saveToRealm(marker)
             
             let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             
-            saveMarker(coordinate, titleOfMarker, comment, url, numberOfPhotos)
+            saveMarker(coordinate, markerTitle, comment, url, numberOfPhotos)
         } else {
             showProgressHUDError(with: "You've already saved this marker")
         }
@@ -147,21 +148,7 @@ extension CalloutView {
     }
     
     @IBAction private func showMore(_ sender: UIButton) {
-        guard let location = location else { return }
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: #"Show on "Maps""#, style: .default, handler: { _ in
-            self.mark = CustomCallout(reportType: self.reportType, comment: self.comment, coordinate: location, url: self.url, amountOfPhotos: String(self.numberOfPhotos))
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey:
-                MKLaunchOptionsDirectionsModeDriving]
-            self.mark?.mapItem().openInMaps(launchOptions: launchOptions)
-        }))
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        cancel.setValue(UIColor.red, forKey: "titleTextColor")
-        
-        alert.addAction(cancel)
-        
-        self.present(alert, animated: true, completion: nil)
+        chooseMap(marker: marker)
     }
     
 }
@@ -205,6 +192,12 @@ extension CalloutView {
             else {
                 print("Marker saved successfully!")
             }
+        }
+    }
+    
+    private func makePresentationViewTranslucent(with alpha: CGFloat) {
+        UIView.animate(withDuration: 0.2) {
+            self.presentationController?.containerView?.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: alpha)
         }
     }
     

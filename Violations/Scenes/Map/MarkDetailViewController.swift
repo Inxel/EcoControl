@@ -29,6 +29,8 @@ final class MarkDetailViewController: ViewControllerPannable {
     
     weak var delegate: TappedButtonDelegate?
     
+    // MARK: Oultets
+    
     @IBOutlet private weak var commentView: UIView!
     @IBOutlet private weak var typeOfViolationLabel: UILabel! {
         didSet {
@@ -59,19 +61,37 @@ final class MarkDetailViewController: ViewControllerPannable {
     
     @IBOutlet private weak var saveButton: PrimaryButton!
     @IBOutlet private weak var cancelButton: PrimaryButton!
+    
+    // MARK: Properties
+    
+    lazy var tapRecognizer: UITapGestureRecognizer = {
+        var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
+        return recognizer
+    }()
 
     private var reports: [ReportsType] { ReportsType.allCases }
-    private var currentTitle = ""
-    private var currentComment = ""
+    private var currentTitle: String = ""
+    private var currentComment: String = ""
     
     private var imagePicker: UIImagePickerController!
     private var images: [UIImage] = []
     
+    // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addObservers()
         view.backgroundColor = Theme.current.background
     }
+    
+    deinit { removeObservers() }
+    
+}
+
+
+// MARK: - Actions
+
+extension MarkDetailViewController {
     
     @IBAction private func cancelTapped(_ sender: Any) {
         delegate?.userTappedButton(button: .cancel)
@@ -140,14 +160,21 @@ extension MarkDetailViewController: UITextViewDelegate {
         return true
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        commentTextView.endEditing(true)
+}
+
+
+// MARK: - Keyboard Showing Methods
+
+extension MarkDetailViewController: KeyboardShowing {
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
+    
 }
 
 
 //MARK: - Picker view methods
-
 
 extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
@@ -171,7 +198,7 @@ extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate
 
 extension MarkDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func selectImageFrom(_ source: ImageSource){
+    private func selectImageFrom(_ source: ImageSource) {
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         switch source {
@@ -183,7 +210,7 @@ extension MarkDetailViewController: UIImagePickerControllerDelegate, UINavigatio
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.originalImage] as? UIImage else {
             print("Image not found!")

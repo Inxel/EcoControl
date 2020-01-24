@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A79B2261B40C00C6D45E /* SavedMarker.swift */; };
-		2208A79F2261FB8B00C6D45E /* CustomMarkerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A79D2261FB8B00C6D45E /* CustomMarkerCell.swift */; };
 		2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */; };
 		2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */; };
 		2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */; };
@@ -40,6 +39,9 @@
 		2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4822BDFCC1009AE55C /* DarkTheme.swift */; };
 		22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */; };
 		2260E40722BFA09000374258 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E40622BFA09000374258 /* UserMarker.swift */; };
+		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
+		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
+		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
 		22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */; };
 		2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CC7A226EE674008131A5 /* WeatherData.swift */; };
 		2294CCA322747954008131A5 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA222747954008131A5 /* ImageSource.swift */; };
@@ -51,6 +53,14 @@
 		22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968D923D0A7BD00E55572 /* TypeAliases.swift */; };
 		22C968DD23D0A84600E55572 /* KeyboardShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968DC23D0A84600E55572 /* KeyboardShowing.swift */; };
 		22CA8091225A3A2800E01B61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA8090225A3A2800E01B61 /* ProfileViewController.swift */; };
+		22DC151223DA1066007F363F /* MarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC151123DA1066007F363F /* MarkersTableViewController.swift */; };
+		22DC151B23DA1788007F363F /* SavedMarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC151923DA1788007F363F /* SavedMarkersTableViewController.swift */; };
+		22DC152023DA17A2007F363F /* AddedMarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC151E23DA17A2007F363F /* AddedMarkersTableViewController.swift */; };
+		22DC152323DA17BD007F363F /* AddedMarkersTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DC152223DA17BD007F363F /* AddedMarkersTableViewController.storyboard */; };
+		22DC152523DA17D3007F363F /* SavedMarkersTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DC152423DA17D3007F363F /* SavedMarkersTableViewController.storyboard */; };
+		22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC152623DA1863007F363F /* MarkerInfoCell.swift */; };
+		22DC152923DA1863007F363F /* MarkerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DC152723DA1863007F363F /* MarkerInfoCell.xib */; };
+		22DC152C23DA288B007F363F /* UIPageViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */; };
 		22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2E87A226825A80052BBC9 /* CustomCallout.swift */; };
 		22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A362259AF21007E4C19 /* AppDelegate.swift */; };
 		22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A382259AF21007E4C19 /* LoginViewController.swift */; };
@@ -61,14 +71,12 @@
 		22FF5A4E2259C9C2007E4C19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22FF5A4D2259C9C2007E4C19 /* GoogleService-Info.plist */; };
 		22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A4F2259CDF0007E4C19 /* MapViewController.swift */; };
 		22FF5A52225A000E007E4C19 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A51225A000E007E4C19 /* TabBarController.swift */; };
-		22FF5A54225A0163007E4C19 /* MarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A53225A0163007E4C19 /* MarkersTableViewController.swift */; };
 		9032C981100BD28C10885BAD /* Pods_Violations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AECE1715DA8B6914EA4A1F7 /* Pods_Violations.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0497CF83778F778446DED38A /* Pods-Violations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violations.release.xcconfig"; path = "Target Support Files/Pods-Violations/Pods-Violations.release.xcconfig"; sourceTree = "<group>"; };
 		2208A79B2261B40C00C6D45E /* SavedMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMarker.swift; sourceTree = "<group>"; };
-		2208A79D2261FB8B00C6D45E /* CustomMarkerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMarkerCell.swift; sourceTree = "<group>"; };
 		2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoViewController.swift; sourceTree = "<group>"; };
 		2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlertShowing.swift; sourceTree = "<group>"; };
 		2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleImage.swift"; sourceTree = "<group>"; };
@@ -100,6 +108,9 @@
 		2247BD4822BDFCC1009AE55C /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeMarkersFromFirebase.swift; sourceTree = "<group>"; };
 		2260E40622BFA09000374258 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
+		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
 		22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDetailViewController.swift; sourceTree = "<group>"; };
 		2294CC79226DAA81008131A5 /* Violations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Violations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2294CC7A226EE674008131A5 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
@@ -112,6 +123,14 @@
 		22C968D923D0A7BD00E55572 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		22C968DC23D0A84600E55572 /* KeyboardShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShowing.swift; sourceTree = "<group>"; };
 		22CA8090225A3A2800E01B61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		22DC151123DA1066007F363F /* MarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkersTableViewController.swift; sourceTree = "<group>"; };
+		22DC151923DA1788007F363F /* SavedMarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMarkersTableViewController.swift; sourceTree = "<group>"; };
+		22DC151E23DA17A2007F363F /* AddedMarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedMarkersTableViewController.swift; sourceTree = "<group>"; };
+		22DC152223DA17BD007F363F /* AddedMarkersTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddedMarkersTableViewController.storyboard; sourceTree = "<group>"; };
+		22DC152423DA17D3007F363F /* SavedMarkersTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SavedMarkersTableViewController.storyboard; sourceTree = "<group>"; };
+		22DC152623DA1863007F363F /* MarkerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoCell.swift; sourceTree = "<group>"; };
+		22DC152723DA1863007F363F /* MarkerInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoCell.xib; sourceTree = "<group>"; };
+		22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Navigation.swift"; sourceTree = "<group>"; };
 		22F2E87A226825A80052BBC9 /* CustomCallout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallout.swift; sourceTree = "<group>"; };
 		22FF5A362259AF21007E4C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22FF5A382259AF21007E4C19 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +142,6 @@
 		22FF5A4D2259C9C2007E4C19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22FF5A4F2259CDF0007E4C19 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		22FF5A51225A000E007E4C19 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		22FF5A53225A0163007E4C19 /* MarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkersTableViewController.swift; sourceTree = "<group>"; };
 		6AECE1715DA8B6914EA4A1F7 /* Pods_Violations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Violations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B9A8853405CDF2F0F70A94 /* Pods-Violations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violations.debug.xcconfig"; path = "Target Support Files/Pods-Violations/Pods-Violations.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,14 +158,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2208A7A12261FF7700C6D45E /* MarkerCell */ = {
-			isa = PBXGroup;
-			children = (
-				2208A79D2261FB8B00C6D45E /* CustomMarkerCell.swift */,
-			);
-			path = MarkerCell;
-			sourceTree = "<group>";
-		};
 		2209B93423D0C16D00B3FE51 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				22DC152A23DA2868007F363F /* PageViewController */,
 				2209B96123D0DD7300B3FE51 /* CollectionView */,
 				2209B95A23D0DCA200B3FE51 /* TableView */,
 				2209B94323D0C5C700B3FE51 /* UIApplication */,
@@ -274,8 +285,8 @@
 		220E24AA22883F4C002F2D63 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */,
 				22FF5A4F2259CDF0007E4C19 /* MapViewController.swift */,
+				22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -283,8 +294,10 @@
 		220E24AB22883F56002F2D63 /* Saved Markers */ = {
 			isa = PBXGroup;
 			children = (
-				22FF5A53225A0163007E4C19 /* MarkersTableViewController.swift */,
+				22DC151123DA1066007F363F /* MarkersTableViewController.swift */,
 				2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */,
+				22DC151323DA11CA007F363F /* InnerPageViewControllers */,
+				22DC151423DA13E4007F363F /* TableViewCells */,
 			);
 			path = "Saved Markers";
 			sourceTree = "<group>";
@@ -358,8 +371,62 @@
 				2209B95523D0CBE800B3FE51 /* ProgressHUDShowing.swift */,
 				2209B95D23D0DCF600B3FE51 /* NIBLoadableView.swift */,
 				2209B95F23D0DD1300B3FE51 /* ReusableView.swift */,
+				228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		22DC151323DA11CA007F363F /* InnerPageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				22DC151D23DA178B007F363F /* AddedMarkersTableViewController */,
+				22DC151823DA1772007F363F /* SavedMarkersTableViewController */,
+			);
+			path = InnerPageViewControllers;
+			sourceTree = "<group>";
+		};
+		22DC151423DA13E4007F363F /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				22DC151523DA13F9007F363F /* MarkerInfoCell */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		22DC151523DA13F9007F363F /* MarkerInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				22DC152623DA1863007F363F /* MarkerInfoCell.swift */,
+				22DC152723DA1863007F363F /* MarkerInfoCell.xib */,
+			);
+			path = MarkerInfoCell;
+			sourceTree = "<group>";
+		};
+		22DC151823DA1772007F363F /* SavedMarkersTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22DC151923DA1788007F363F /* SavedMarkersTableViewController.swift */,
+				22DC152423DA17D3007F363F /* SavedMarkersTableViewController.storyboard */,
+			);
+			path = SavedMarkersTableViewController;
+			sourceTree = "<group>";
+		};
+		22DC151D23DA178B007F363F /* AddedMarkersTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22DC151E23DA17A2007F363F /* AddedMarkersTableViewController.swift */,
+				22DC152223DA17BD007F363F /* AddedMarkersTableViewController.storyboard */,
+			);
+			path = AddedMarkersTableViewController;
+			sourceTree = "<group>";
+		};
+		22DC152A23DA2868007F363F /* PageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */,
+				228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */,
+			);
+			path = PageViewController;
 			sourceTree = "<group>";
 		};
 		22F2E879226825700052BBC9 /* CustomCallout */ = {
@@ -400,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				22F2E87A226825A80052BBC9 /* CustomCallout.swift */,
+				228A1D3223DAD9E30058C5CD /* Marker.swift */,
 				2208A79B2261B40C00C6D45E /* SavedMarker.swift */,
 				2260E40622BFA09000374258 /* UserMarker.swift */,
 				2294CC7A226EE674008131A5 /* WeatherData.swift */,
@@ -432,7 +500,6 @@
 				220E24A722883957002F2D63 /* Login.storyboard */,
 				22FF5A3A2259AF21007E4C19 /* Main.storyboard */,
 				22F2E879226825700052BBC9 /* CustomCallout */,
-				2208A7A12261FF7700C6D45E /* MarkerCell */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -515,10 +582,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FF5A412259AF23007E4C19 /* LaunchScreen.storyboard in Resources */,
+				22DC152923DA1863007F363F /* MarkerInfoCell.xib in Resources */,
 				220E24A822883957002F2D63 /* Login.storyboard in Resources */,
 				22FF5A4E2259C9C2007E4C19 /* GoogleService-Info.plist in Resources */,
 				22FF5A3E2259AF23007E4C19 /* Assets.xcassets in Resources */,
 				22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */,
+				22DC152323DA17BD007F363F /* AddedMarkersTableViewController.storyboard in Resources */,
+				22DC152523DA17D3007F363F /* SavedMarkersTableViewController.storyboard in Resources */,
 				22FF5A3C2259AF21007E4C19 /* Main.storyboard in Resources */,
 				2247BD4222BDFAC1009AE55C /* Colors.xcassets in Resources */,
 			);
@@ -591,9 +661,9 @@
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,
 				2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */,
 				2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */,
-				2208A79F2261FB8B00C6D45E /* CustomMarkerCell.swift in Sources */,
 				220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */,
 				2209B94B23D0C6AD00B3FE51 /* Image.swift in Sources */,
+				22DC152023DA17A2007F363F /* AddedMarkersTableViewController.swift in Sources */,
 				22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */,
 				2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */,
 				22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */,
@@ -601,26 +671,32 @@
 				22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */,
 				2209B95923D0D20500B3FE51 /* MarkersManager.swift in Sources */,
 				2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */,
+				228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */,
 				22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */,
 				22FF5A52225A000E007E4C19 /* TabBarController.swift in Sources */,
 				2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */,
 				2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */,
-				22FF5A54225A0163007E4C19 /* MarkersTableViewController.swift in Sources */,
 				2209B94F23D0C70D00B3FE51 /* AuthenticationTextField.swift in Sources */,
 				2247BD3F22BDF9DA009AE55C /* Theme.swift in Sources */,
 				220E24A6228837FA002F2D63 /* AppStoryboard.swift in Sources */,
 				22CA8091225A3A2800E01B61 /* ProfileViewController.swift in Sources */,
+				22DC152C23DA288B007F363F /* UIPageViewController+Navigation.swift in Sources */,
 				2294CCA722758EE2008131A5 /* StorageServiceFireBase.swift in Sources */,
+				22DC151223DA1066007F363F /* MarkersTableViewController.swift in Sources */,
 				2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */,
 				2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */,
 				2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */,
 				2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
 				2260E40722BFA09000374258 /* UserMarker.swift in Sources */,
+				22DC151B23DA1788007F363F /* SavedMarkersTableViewController.swift in Sources */,
+				228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */,
 				2209B94523D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift in Sources */,
 				2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */,
+				22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */,
 				2209B96323D0DD8100B3FE51 /* UICollectionView+Registration.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
+				228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

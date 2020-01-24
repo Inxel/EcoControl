@@ -65,20 +65,11 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
         super.viewDidLoad()
         emailTextfield.delegate = self
         passwordTextfield.delegate = self
-        
-        view.backgroundColor = Theme.current.background
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         addObservers()
+        view.backgroundColor = Theme.current.background
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeObservers()
-    }
+    deinit { removeObservers() }
     
 }
 

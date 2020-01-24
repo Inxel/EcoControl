@@ -67,23 +67,20 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextfield.delegate = self
-        passwordTextfield.delegate = self
-        confirmPasswordTextfield.delegate = self
         
+        addObservers()
         view.backgroundColor = Theme.current.background
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addObservers()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeObservers()
-    }
+    deinit { removeObservers() }
 
+}
+
+
+// MARK: - Actions
+
+extension RegisterViewController {
+    
     @IBAction private func registerButtonTapped(_ sender: PrimaryButton) {
         
         sender.startAnimation()
@@ -118,14 +115,6 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
             }
         }
     }
-}
-
-
-// MARK: - Actions
-
-extension RegisterViewController {
-    
-    
     
 }
 

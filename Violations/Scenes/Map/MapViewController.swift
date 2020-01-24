@@ -96,10 +96,10 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     private var tappedCoordinates: CGPoint?
     private var userLocationButton: MKUserTrackingButton?
     
-    private var canAddAnnotation = false
-    private var addAnnotationTapped = false
-    private var showAddButtons = false
-    private var addToLocationTapped = false
+    private var canAddAnnotation: Bool = false
+    private var addAnnotationTapped: Bool = false
+    private var showAddButtons: Bool = false
+    private var addToLocationTapped: Bool = false
     
     // MARK: Life Cycle
     
@@ -281,7 +281,6 @@ extension MapViewController: TappedButtonDelegate {
     func userTappedButton(button: MarkDetailViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {
         
         addToLocationTapped = false
-        addAnnotationAnimate()
         
         guard
             button == .save,
@@ -307,6 +306,8 @@ extension MapViewController: TappedButtonDelegate {
         addAnnotationTapped = false
         canAddAnnotation = false
         addToLocationTapped = false
+        
+        addAnnotationAnimate()
         
         guard let numberOfPhotos = Int(amountOfPhotos) else { return }
         
@@ -433,11 +434,8 @@ extension MapViewController: MKMapViewDelegate {
             let calloutVC = CalloutView.instance() as? CalloutView
         else { return }
         
-        calloutVC.reportType = annotation.reportType
-        calloutVC.comment = annotation.comment
-        calloutVC.amountOfPhotos = Int(annotation.amountOfPhotos)
-        calloutVC.url = annotation.url
-        calloutVC.location = annotation.coordinate
+        calloutVC.marker = annotation
+        
         present(calloutVC, animated: true)
         
         mapView.deselectAnnotation(view.annotation, animated: true)

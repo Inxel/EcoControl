@@ -54,19 +54,12 @@ final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addObservers()
         view.backgroundColor = Theme.current.background
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addObservers()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeObservers()
-        
-    }
+    deinit { removeObservers() }
     
 }
 

@@ -11,63 +11,70 @@ import FirebaseStorage
 import SKPhotoBrowser
 import MapKit
 
-class MarkerInfoViewController: ViewControllerPannable {
 
-    var savedMarker: SavedMarker?
-    var userMarker: UserMarker?
-    var ifSavedSegment: Bool?
+// MARK: - Constants
+
+private enum Constants {
+    static var textColor: UIColor { Theme.current.textColor }
+    static var backgroundColor: UIColor { Theme.current.background }
+}
+
+
+// MARK: - Base
+
+final class MarkerInfoViewController: ViewControllerPannable {
+
+    // MARK: Outlets
     
-    @IBOutlet weak var report: UILabel! {
+    @IBOutlet private weak var report: UILabel! {
         didSet {
-            report.text = ifSavedSegment! ? savedMarker?.title : userMarker?.title
-            report.lineBreakMode = .byWordWrapping
-            report.numberOfLines = 0
-            changeColorOf(report)
+            report.text = marker?.title
+            report.textColor = Constants.textColor
         }
     }
     
-    @IBOutlet weak var date: UILabel! {
+    @IBOutlet private weak var date: UILabel! {
         didSet {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm   dd.MM.yy"
-            date.text = "Saved at \(formatter.string(from: (ifSavedSegment! ? savedMarker?.dateCreated : userMarker?.dateCreated)!))"
-            changeColorOf(date)
+            date.text = formatter.string(from: marker?.dateCreated ?? Date())
+            date.textColor = Constants.textColor
         }
     }
     
-    @IBOutlet weak var comment: UITextView! {
+    @IBOutlet private weak var comment: UITextView! {
         didSet {
-            comment.text = ifSavedSegment! ? savedMarker?.comment : userMarker?.comment
-            comment.textColor = Theme.current.textColor
+            comment.text = marker?.comment
+            comment.textColor = Constants.textColor
         }
     }
     
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.backgroundColor = Theme.current.background
+            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+            collectionView.backgroundColor = Constants.backgroundColor
         }
     }
     
-    private var mark: CustomCallout?
-    private var images = [SKPhotoProtocol]()
-    private var data = Data()
-    private var location: CLLocationCoordinate2D?
+    // MARK: Properties
+    
+    var marker: Marker?
+    
+    private var images: [SKPhotoProtocol] = []
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        images = Array(repeating: SKPhoto.photoWithImage(#imageLiteral(resourceName: "loading")), count: ifSavedSegment! ? savedMarker!.amountOfPhotos : userMarker!.amountOfPhotos)
+        images = Array(repeating: SKPhoto.photoWithImage(#imageLiteral(resourceName: "loading")), count: marker?.amountOfPhotos ?? .zero)
         
         SKPhotoBrowserOptions.displayAction = false
         SKPhotoBrowserOptions.displayStatusbar = true
         SKPhotoBrowserOptions.displayCounterLabel = true
         SKPhotoBrowserOptions.displayBackAndForwardButton = true
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
-        
-        view.backgroundColor = Theme.current.background
+
+        view.backgroundColor = Constants.backgroundColor
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,52 +82,53 @@ class MarkerInfoViewController: ViewControllerPannable {
         comment.setContentOffset(CGPoint.zero, animated: false)
     }
     
-    @IBAction func closeButtonTapped(_ sender: Any) {
+}
+
+
+// MARK: - Actions
+
+extension MarkerInfoViewController {
+    
+    @IBAction private func closeButtonTapped(_ sender: PrimaryButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func moreButtonTapped(_ sender: Any) {
-        transformStringToLocation()
+    @IBAction private func moreButtonTapped(_ sender: UIButton) {
+        guard let marker = marker, let reportType = ReportsType(rawValue: marker.title) else { return }
+        let customCallout = CustomCallout(reportType: reportType, comment: marker.comment, coordinate: marker.coordinate, url: marker.url, amountOfPhotos: String(marker.amountOfPhotos))
         
-        createActionSheet()
+        chooseMap(marker: customCallout)
     }
     
 }
 
 
+// MARK: - CollectionView Delegate, SKPhotoBrowser Delegate
+
 extension MarkerInfoViewController: UICollectionViewDelegate, SKPhotoBrowserDelegate {
     
-    @objc(collectionView:didSelectItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.item)
         browser.delegate = self
         
         present(browser, animated: true, completion: nil)
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return CGSize(width: UIScreen.main.bounds.size.width / 2 - 5, height: 300)
-        } else {
-            return CGSize(width: UIScreen.main.bounds.size.width / 2 - 5, height: 200)
-        }
     }
     
 }
 
 
+// MARK: - CollectionView Data Source
+
 extension MarkerInfoViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { marker?.amountOfPhotos ?? .zero }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ifSavedSegment! ? savedMarker!.amountOfPhotos : userMarker!.amountOfPhotos
-    }
-    
-    @objc(collectionView:cellForItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
 
-        cell.downloadImage(ifSavedSegment! ? savedMarker!.url : userMarker!.url, indexPath.item) { image in
-            let photo = SKPhoto.photoWithImage(image!)
+        cell.downloadImage(marker?.url ?? "", indexPath.item) { image in
+            guard let image = image else { return }
+            let photo = SKPhoto.photoWithImage(image)
             photo.shouldCachePhotoURLImage = true
             self.images[indexPath.item] = photo
         }
@@ -130,6 +138,8 @@ extension MarkerInfoViewController: UICollectionViewDataSource {
     
 }
 
+
+// MARK: - CollectionView Delegate Flow Layout
 
 extension MarkerInfoViewController: UICollectionViewDelegateFlowLayout {
     
@@ -143,46 +153,7 @@ extension MarkerInfoViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-//MARK: - "More" tapped methods
 
-extension MarkerInfoViewController {
-    
-    func createActionSheet() {
-        
-//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: #"Show on "Maps""#, style: .default, handler: { _ in
-//            self.mark = CustomCallout(title: self.report.text!, comment: self.comment.text ?? "", coordinate: self.location!, url: self.ifSavedSegment! ? self.savedMarker!.url : self.userMarker!.url, amountOfPhotos: String(describing: self.ifSavedSegment! ? self.savedMarker!.amountOfPhotos : self.userMarker!.amountOfPhotos))
-//            let launchOptions = [MKLaunchOptionsDirectionsModeKey:
-//                MKLaunchOptionsDirectionsModeDriving]
-//            self.mark!.mapItem().openInMaps(launchOptions: launchOptions)
-//        }))
-//        
-//        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        cancel.setValue(UIColor.red, forKey: "titleTextColor")
-//        
-//        alert.addAction(cancel)
-//        
-//        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func transformStringToLocation() {
-        
-        if let latitude = ifSavedSegment! ? savedMarker!.latitude : userMarker!.latitude, let longitude = ifSavedSegment! ? savedMarker!.longitude : userMarker!.longitude {
-            let lat = Double(latitude)
-            let lon = Double(longitude)
-            
-            location = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
-        }
-    }
-    
-}
+// MARK: - ActionSheetShowing
 
-
-//MARK: - Change theme
-
-extension MarkerInfoViewController {
-    func changeColorOf(_ label: UILabel) {
-        label.textColor = Theme.current.textColor
-    }
-}
+extension MarkerInfoViewController: ActionSheetShowing {}
