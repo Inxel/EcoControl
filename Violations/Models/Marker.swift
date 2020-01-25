@@ -16,7 +16,7 @@ struct Marker {
     let comment: String
     let url: String
     let amountOfPhotos: Int
-    let dateCreated: Date?
+    let date: Date?
     let latitude: String?
     let longitude: String?
     
@@ -36,7 +36,7 @@ struct Marker {
         comment = marker.comment
         url = marker.url
         amountOfPhotos = marker.amountOfPhotos
-        dateCreated = marker.date
+        date = marker.date
         latitude = marker.latitude
         longitude = marker.longitude
     }
@@ -46,7 +46,7 @@ struct Marker {
         comment = marker.comment
         url = marker.url
         amountOfPhotos = marker.amountOfPhotos
-        dateCreated = marker.date
+        date = marker.date
         latitude = marker.latitude
         longitude = marker.longitude
     }

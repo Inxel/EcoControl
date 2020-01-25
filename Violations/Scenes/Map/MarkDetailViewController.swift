@@ -103,7 +103,6 @@ extension MarkDetailViewController {
         let title = currentTitle
         let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
         let url = UUID().uuidString
-        //TODO: - make array
         let amountOfPhotos = images.count
         
         saveImagesToFirebase(url)

@@ -20,16 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-                schemaVersion: 3,
-                migrationBlock: { migration, oldSchemaVersion in
-                    if oldSchemaVersion < 3 {
-                        migration.renameProperty(onType: UserMarker.className(), from: "dateCreated", to: "date") // Renaming
-        //                migration.enumerateObjects(ofType: SavedMarker.className()) { _, newObject in
-        //                    newObject!["engine"] = 0 // New
-        //                    newObject!["hasSunroof"] = false // New
-        //                }
-                    }
-                })
+            schemaVersion: 6,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 6 {
+                    migration.renameProperty(onType: SavedMarker.className(), from: "dateCreated", to: "date") // Renaming
+//                    migration.enumerateObjects(ofType: SavedMarker.className()) { _, newObject in
+//                        newObject!["isMigrationDoneAlright"] = newObject!["isMigrationDone"] // New
+//                    }
+                }
+            }
+        )
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1)

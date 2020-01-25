@@ -37,7 +37,7 @@ final class MarkerInfoViewController: ViewControllerPannable {
         didSet {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm   dd.MM.yy"
-            date.text = formatter.string(from: marker?.dateCreated ?? Date())
+            date.text = formatter.string(from: marker?.date ?? Date())
             date.textColor = Constants.textColor
         }
     }

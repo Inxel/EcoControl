@@ -66,7 +66,7 @@ extension AddedMarkersTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as MarkerInfoCell
         
         let marker = markers[indexPath.row]
-        cell.setUp(title: marker.title, comment: marker.comment, date: marker.dateCreated)
+        cell.setUp(title: marker.title, comment: marker.comment, date: marker.date)
         cell.applyTheme()
         
         return cell
