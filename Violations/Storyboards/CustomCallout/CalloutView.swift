@@ -129,7 +129,7 @@ extension CalloutView: ActionSheetShowing {
         let marker = SavedMarker()
         marker.title = markerTitle
         marker.comment = comment == "User didn't add comment" ? "" : comment
-        marker.dateCreated = Date()
+        marker.date = Date()
         marker.url = url
         marker.amountOfPhotos = numberOfPhotos
         marker.latitude = String(location.latitude)
@@ -217,13 +217,7 @@ extension CalloutView: UICollectionViewDelegate, SKPhotoBrowserDelegate {
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return CGSize(width: UIScreen.main.bounds.size.width / 2 - 5, height: 300)
-        } else {
-            return CGSize(width: UIScreen.main.bounds.size.width / 2 - 5, height: 200)
-        }
-    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize { .init(width: UIScreen.main.bounds.size.width / 2 - 5, height: 200) }
     
 }
 

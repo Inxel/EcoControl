@@ -36,7 +36,7 @@ struct Marker {
         comment = marker.comment
         url = marker.url
         amountOfPhotos = marker.amountOfPhotos
-        dateCreated = marker.dateCreated
+        dateCreated = marker.date
         latitude = marker.latitude
         longitude = marker.longitude
     }
@@ -46,7 +46,7 @@ struct Marker {
         comment = marker.comment
         url = marker.url
         amountOfPhotos = marker.amountOfPhotos
-        dateCreated = marker.dateCreated
+        dateCreated = marker.date
         latitude = marker.latitude
         longitude = marker.longitude
     }

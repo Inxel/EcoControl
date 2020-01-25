@@ -107,7 +107,7 @@ extension AddedMarkersTableViewController: UITableViewDelegate {
 extension AddedMarkersTableViewController {
     
     private func getMarkers() {
-        let addedMarkers = realm.objects(UserMarker.self).sorted(byKeyPath: "dateCreated", ascending: true)
+        let addedMarkers = realm.objects(UserMarker.self).sorted(byKeyPath: "date", ascending: true)
         
         markers = addedMarkers.map { Marker(marker: $0) }
         

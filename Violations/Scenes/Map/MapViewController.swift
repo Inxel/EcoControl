@@ -314,7 +314,7 @@ extension MapViewController: TappedButtonDelegate {
         let marker = UserMarker()
         marker.title = title
         marker.comment = comment
-        marker.dateCreated = Date()
+        marker.date = Date()
         marker.url = url
         marker.amountOfPhotos = numberOfPhotos
         marker.latitude = String(describing: coordinates.latitude)

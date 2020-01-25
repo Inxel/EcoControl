@@ -15,7 +15,7 @@ final class UserMarker: Object {
     @objc dynamic var comment = ""
     @objc dynamic var url = ""
     @objc dynamic var amountOfPhotos = 0
-    @objc dynamic var dateCreated: Date?
+    @objc dynamic var date: Date?
     @objc dynamic var latitude: String?
     @objc dynamic var longitude: String?
 }
