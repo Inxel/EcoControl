@@ -152,10 +152,6 @@ extension RegisterViewController {
         }
     }
     
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
     private func styleOf(_ textfield: UITextField, _ placeholder: String) {
         textfield.backgroundColor = Theme.current.background
         textfield.textColor = Theme.current.textfieldTextColor

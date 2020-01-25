@@ -164,13 +164,7 @@ extension MarkDetailViewController: UITextViewDelegate {
 
 // MARK: - Keyboard Showing Methods
 
-extension MarkDetailViewController: KeyboardShowing {
-    
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
-}
+extension MarkDetailViewController: KeyboardShowing {}
 
 
 //MARK: - Picker view methods

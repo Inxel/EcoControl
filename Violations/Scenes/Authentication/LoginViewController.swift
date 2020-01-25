@@ -154,10 +154,6 @@ extension LoginViewController {
         textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textfieldTextColor])
     }
     
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
 }
 
 

@@ -31,6 +31,7 @@
 		220E24A822883957002F2D63 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220E24A722883957002F2D63 /* Login.storyboard */; };
 		220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AD22883FA9002F2D63 /* NavigationViewController.swift */; };
 		220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AF2288405A002F2D63 /* CheckInternet.swift */; };
+		2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */; };
 		223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */; };
 		2247BD3F22BDF9DA009AE55C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD3E22BDF9DA009AE55C /* Theme.swift */; };
 		2247BD4222BDFAC1009AE55C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2247BD4122BDFAC1009AE55C /* Colors.xcassets */; };
@@ -100,6 +101,7 @@
 		220E24A722883957002F2D63 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		220E24AD22883FA9002F2D63 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		220E24AF2288405A002F2D63 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
+		2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissingKeyboard.swift"; sourceTree = "<group>"; };
 		223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		2247BD3E22BDF9DA009AE55C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2247BD4122BDFAC1009AE55C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */,
+				2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,
 				2209B96523D0E69B00B3FE51 /* ReportsType.swift in Sources */,
+				2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */,
 				2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */,
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,
 				2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */,

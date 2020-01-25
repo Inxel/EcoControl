@@ -115,10 +115,6 @@ extension ResetPasswordViewController: KeyboardShowing {
 
 extension ResetPasswordViewController {
     
-    @objc private func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
     private func changeSendButtonBottomConstraint(keyboardHeight: CGFloat = 0, with animationDuration: Double) {
         sendButtonBottomConstraint.constant = keyboardHeight + Constants.sendButtonBottomConstraint
         
