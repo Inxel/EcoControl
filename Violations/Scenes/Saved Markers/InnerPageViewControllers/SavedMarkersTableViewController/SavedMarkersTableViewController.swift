@@ -30,6 +30,12 @@ final class SavedMarkersTableViewController: UIViewController {
     private var markers: [Marker] = []
     
     private weak var delegate: MarkersTableViewControllerDelegate?
+    private let themeManager: ThemeManager = .shared
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        themeManager.delegate = self
+    }
     
     // MARK: Life Cycle
 
@@ -66,8 +72,7 @@ extension SavedMarkersTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as MarkerInfoCell
         
         let marker = markers[indexPath.row]
-        cell.setUp(title: marker.title, comment: marker.comment, date: marker.date)
-        cell.applyTheme()
+        cell.setUp(title: marker.title, comment: marker.comment, date: marker.date, themeProtocol: themeManager.current)
         
         return cell
     }
@@ -97,6 +102,17 @@ extension SavedMarkersTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didTap(on: markers[indexPath.row])
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension SavedMarkersTableViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        tableView.reloadData()
     }
     
 }

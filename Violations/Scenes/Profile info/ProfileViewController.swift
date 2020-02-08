@@ -23,30 +23,22 @@ final class ProfileViewController: UIViewController, ProgressHUDShowing {
     @IBOutlet private weak var infoLabel: UILabel! {
         didSet {
             infoLabel.text = ""
-            infoLabel.textColor = Theme.current.textColor
-        }
-    }
-    
-    @IBOutlet private weak var themeLabel: UILabel! {
-        didSet {
-            themeLabel.textColor = Theme.current.textColor
-        }
-    }
-    @IBOutlet private weak var themeSwitcher: UISwitch! {
-        didSet {
-            themeSwitcher.isOn = !Theme.isLightTheme
         }
     }
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: Properties
+    
+    private let themeManager: ThemeManager = .shared
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveMarkers()
-        
-        applyTheme()
+        themeManager.delegate = self
+        themeDidChange()
     }
     
 }
@@ -71,10 +63,16 @@ extension ProfileViewController {
 
     }
     
-    @IBAction private func changeTheme(_ sender: UISwitch) {
-        Theme.isLightTheme = !sender.isOn
-        
-        applyTheme()
+}
+
+
+// MARK: - Theme Managert Delegate
+
+extension ProfileViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        view.backgroundColor = themeManager.current.background
+        infoLabel.textColor = themeManager.current.textColor
     }
     
 }
@@ -83,14 +81,6 @@ extension ProfileViewController {
 //MARK: - Private API
 
 extension ProfileViewController {
-    
-    private func applyTheme() {
-        view.backgroundColor = Theme.current.background
-        themeLabel.textColor = Theme.current.textColor
-        infoLabel.textColor = Theme.current.textColor
-        self.tabBarController?.tabBar.barTintColor = Theme.current.tabBarColor
-        self.tabBarController?.tabBar.unselectedItemTintColor = Theme.current.tabBarTintColor
-    }
     
     private func retrieveMarkers() {
         let user = Auth.auth().currentUser

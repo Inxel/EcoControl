@@ -39,16 +39,15 @@ final class MarkersTableViewController: UIViewController {
     private var markersType: MarkersType = .saved
     private var selectedMarker: Marker? { didSet { performSegue(withIdentifier: "showMarkerInfo", sender: self) } }
     
+    private let themeManager: ThemeManager = .shared
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPageViewController()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super .viewWillAppear(animated)
-        view.backgroundColor = Theme.current.tableViewBackground
+        themeManager.delegate = self
+        themeDidChange()
     }
     
     // MARK: Overridden API
@@ -110,6 +109,17 @@ extension MarkersTableViewController {
         view.sendSubviewToBack(pageContainer.view)
 
         view.layoutIfNeeded()
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension MarkersTableViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        view.backgroundColor = themeManager.current.tableViewBackground
     }
     
 }

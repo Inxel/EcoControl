@@ -30,34 +30,21 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
-            collectionView.backgroundColor = Theme.current.background
         }
     }
     
     @IBOutlet private weak var commentTextview: UITextView! {
         didSet {
             commentTextview.text = comment
-            commentTextview.textColor = Theme.current.textColor
-            commentTextview.backgroundColor = Theme.current.background
         }
     }
     
-    @IBOutlet private weak var backgroundView: BackgroundView! {
-        didSet {
-            backgroundView.backgroundColor = Theme.current.background
-        }
-    }
-    
-    @IBOutlet private weak var underButtonView: UIView! {
-        didSet {
-            underButtonView.backgroundColor = Theme.current.background
-        }
-    }
+    @IBOutlet private weak var backgroundView: BackgroundView!
+    @IBOutlet private weak var underButtonView: UIView!
     
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = markerTitle
-            titleLabel.textColor = Theme.current.textColor
         }
     }
     
@@ -82,11 +69,14 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     
     private var numberOfPhotos: Int { amountOfPhotos ?? 0 }
     
+    private let themeManager: ThemeManager = .shared
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        themeManager.delegate = self
+        themeDidChange()
         images = Array(repeating: SKPhoto.photoWithImage(#imageLiteral(resourceName: "loading")), count: numberOfPhotos)
         
         SKPhotoBrowserOptions.displayAction = false
@@ -149,6 +139,22 @@ extension CalloutView: ActionSheetShowing {
     
     @IBAction private func showMore(_ sender: UIButton) {
         chooseMap(marker: marker)
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension CalloutView: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        collectionView.backgroundColor = themeManager.current.background
+        commentTextview.textColor = themeManager.current.textColor
+        commentTextview.backgroundColor = themeManager.current.background
+        backgroundView.backgroundColor = themeManager.current.background
+        underButtonView.backgroundColor = themeManager.current.background
+        titleLabel.textColor = themeManager.current.textColor
     }
     
 }

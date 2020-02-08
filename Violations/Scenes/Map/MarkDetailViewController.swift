@@ -32,18 +32,11 @@ final class MarkDetailViewController: ViewControllerPannable {
     // MARK: Oultets
     
     @IBOutlet private weak var commentView: UIView!
-    @IBOutlet private weak var typeOfViolationLabel: UILabel! {
-        didSet {
-            typeOfViolationLabel.textColor = Theme.current.textColor
-        }
-    }
-    
-    
+    @IBOutlet private weak var typeOfViolationLabel: UILabel!
     @IBOutlet private weak var dataPicker: UIPickerView!
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
-            collectionView.backgroundColor = Theme.current.background
         }
     }
     
@@ -76,12 +69,15 @@ final class MarkDetailViewController: ViewControllerPannable {
     private var imagePicker: UIImagePickerController!
     private var images: [UIImage] = []
     
+    private let themeManager: ThemeManager = .shared
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        themeManager.delegate = self
+        themeDidChange()
         addObservers()
-        view.backgroundColor = Theme.current.background
     }
     
     deinit { removeObservers() }
@@ -133,6 +129,20 @@ extension MarkDetailViewController {
 }
 
 
+// MARK: - Theme Manager Delegate
+
+extension MarkDetailViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        typeOfViolationLabel.textColor = themeManager.current.textColor
+        collectionView.backgroundColor = themeManager.current.background
+        view.backgroundColor = themeManager.current.background
+        dataPicker.reloadInputViews()
+    }
+    
+}
+
+
 // MARK: - Textview Methods
 
 extension MarkDetailViewController: UITextViewDelegate {
@@ -140,7 +150,7 @@ extension MarkDetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Comment" {
             textView.text = ""
-            textView.textColor = Theme.current.textColor
+            textView.textColor = themeManager.current.textColor
         }
     }
     
@@ -181,7 +191,7 @@ extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        NSAttributedString(string: reports[row].rawValue, attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textColor])
+        NSAttributedString(string: reports[row].rawValue, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textColor])
     }
 }
 

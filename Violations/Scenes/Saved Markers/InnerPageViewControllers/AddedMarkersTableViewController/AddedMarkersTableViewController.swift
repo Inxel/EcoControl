@@ -30,8 +30,14 @@ final class AddedMarkersTableViewController: UIViewController {
     private var markers: [Marker] = []
     
     private weak var delegate: MarkersTableViewControllerDelegate?
+    private let themeManager: ThemeManager = .shared
     
     // MARK: Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        themeManager.delegate = self
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -66,10 +72,20 @@ extension AddedMarkersTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(for: indexPath) as MarkerInfoCell
         
         let marker = markers[indexPath.row]
-        cell.setUp(title: marker.title, comment: marker.comment, date: marker.date)
-        cell.applyTheme()
+        cell.setUp(title: marker.title, comment: marker.comment, date: marker.date, themeProtocol: themeManager.current)
         
         return cell
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension AddedMarkersTableViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        tableView.reloadData()
     }
     
 }

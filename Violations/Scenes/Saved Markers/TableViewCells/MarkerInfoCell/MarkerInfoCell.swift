@@ -25,8 +25,13 @@ final class MarkerInfoCell: UITableViewCell, DequeueableCell {
             background.layer.shadowOpacity = 0.7
             background.layer.shadowOffset = .zero
             background.layer.shadowRadius = 7
-            background.backgroundColor = Theme.current.cellBackground
         }
+    }
+    
+    // MARK: Lige Cycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
     
 }
@@ -36,15 +41,12 @@ final class MarkerInfoCell: UITableViewCell, DequeueableCell {
 
 extension MarkerInfoCell {
     
-    func setUp(title: String, comment: String, date: Date?) {
+    func setUp(title: String, comment: String, date: Date?, themeProtocol: ThemeProtocol) {
         titleLabel.text = title
         commentLabel.text = comment
         formatDate(date: date)
-    }
-    
-    func applyTheme() {
-        background.backgroundColor = Theme.current.cellBackground
-        backgroundColor = Theme.current.tableViewBackground
+        background.backgroundColor = themeProtocol.cellBackground
+        backgroundColor = themeProtocol.tableViewBackground
     }
     
 }

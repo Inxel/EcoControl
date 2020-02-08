@@ -33,7 +33,6 @@
 		220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AF2288405A002F2D63 /* CheckInternet.swift */; };
 		2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */; };
 		223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */; };
-		2247BD3F22BDF9DA009AE55C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD3E22BDF9DA009AE55C /* Theme.swift */; };
 		2247BD4222BDFAC1009AE55C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2247BD4122BDFAC1009AE55C /* Colors.xcassets */; };
 		2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */; };
 		2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4522BDFCA8009AE55C /* LightTheme.swift */; };
@@ -63,6 +62,8 @@
 		22DC152923DA1863007F363F /* MarkerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DC152723DA1863007F363F /* MarkerInfoCell.xib */; };
 		22DC152C23DA288B007F363F /* UIPageViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */; };
 		22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2E87A226825A80052BBC9 /* CustomCallout.swift */; };
+		22FAF2E923EF1AD0008C554F /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAF2E823EF1AD0008C554F /* MulticastDelegate.swift */; };
+		22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAF2EA23EF1BDA008C554F /* ThemeManager.swift */; };
 		22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A362259AF21007E4C19 /* AppDelegate.swift */; };
 		22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A382259AF21007E4C19 /* LoginViewController.swift */; };
 		22FF5A3C2259AF21007E4C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FF5A3A2259AF21007E4C19 /* Main.storyboard */; };
@@ -103,7 +104,6 @@
 		220E24AF2288405A002F2D63 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissingKeyboard.swift"; sourceTree = "<group>"; };
 		223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		2247BD3E22BDF9DA009AE55C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2247BD4122BDFAC1009AE55C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2247BD4522BDFCA8009AE55C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
@@ -134,6 +134,8 @@
 		22DC152723DA1863007F363F /* MarkerInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoCell.xib; sourceTree = "<group>"; };
 		22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Navigation.swift"; sourceTree = "<group>"; };
 		22F2E87A226825A80052BBC9 /* CustomCallout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallout.swift; sourceTree = "<group>"; };
+		22FAF2E823EF1AD0008C554F /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		22FAF2EA23EF1BDA008C554F /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		22FF5A362259AF21007E4C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22FF5A382259AF21007E4C19 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22FF5A3B2259AF21007E4C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				2209B95323D0C95600B3FE51 /* UserDefault.swift */,
+				22FAF2E823EF1AD0008C554F /* MulticastDelegate.swift */,
 			);
 			path = PropertyWrappers;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				2209B95823D0D20500B3FE51 /* MarkersManager.swift */,
+				22FAF2EA23EF1BDA008C554F /* ThemeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -325,7 +329,6 @@
 		2247BD4722BDFCB0009AE55C /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				2247BD3E22BDF9DA009AE55C /* Theme.swift */,
 				2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */,
 				2247BD4522BDFCA8009AE55C /* LightTheme.swift */,
 				2247BD4822BDFCC1009AE55C /* DarkTheme.swift */,
@@ -681,7 +684,6 @@
 				2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */,
 				2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */,
 				2209B94F23D0C70D00B3FE51 /* AuthenticationTextField.swift in Sources */,
-				2247BD3F22BDF9DA009AE55C /* Theme.swift in Sources */,
 				220E24A6228837FA002F2D63 /* AppStoryboard.swift in Sources */,
 				22CA8091225A3A2800E01B61 /* ProfileViewController.swift in Sources */,
 				22DC152C23DA288B007F363F /* UIPageViewController+Navigation.swift in Sources */,
@@ -697,7 +699,9 @@
 				228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */,
 				2209B94523D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift in Sources */,
 				2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */,
+				22FAF2E923EF1AD0008C554F /* MulticastDelegate.swift in Sources */,
 				22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */,
+				22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */,
 				2209B96323D0DD8100B3FE51 /* UICollectionView+Registration.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
 				228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */,

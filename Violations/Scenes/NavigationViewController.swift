@@ -9,4 +9,21 @@
 import UIKit
 
 
-final class NavigationViewController: UINavigationController {}
+final class NavigationViewController: UINavigationController {
+
+    // MARK: Properties
+    
+    private let themeManager: ThemeManager = .shared
+    
+    // MARK: - Overridden Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+    }
+    
+}

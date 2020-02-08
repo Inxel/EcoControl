@@ -63,13 +63,15 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
         return recognizer
     }()
     
+    private let themeManager: ThemeManager = .shared
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        themeManager.delegate = self
         addObservers()
-        view.backgroundColor = Theme.current.background
+        view.backgroundColor = themeManager.current.background
     }
     
     deinit { removeObservers() }
@@ -134,6 +136,20 @@ extension RegisterViewController: KeyboardShowing {
 }
 
 
+// MARK: - Theme Manager Delegate
+
+extension RegisterViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        view.backgroundColor = themeManager.current.background
+        styleOf(emailTextfield, "Email")
+        styleOf(passwordTextfield, "Password")
+        styleOf(confirmPasswordTextfield, "Confirm password")
+    }
+    
+}
+
+
 // MARK: - Private API
 
 extension RegisterViewController {
@@ -153,9 +169,9 @@ extension RegisterViewController {
     }
     
     private func styleOf(_ textfield: UITextField, _ placeholder: String) {
-        textfield.backgroundColor = Theme.current.background
-        textfield.textColor = Theme.current.textfieldTextColor
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textfieldTextColor])
+        textfield.backgroundColor = themeManager.current.background
+        textfield.textColor = themeManager.current.textfieldTextColor
+        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
     }
     
 }

@@ -29,15 +29,15 @@ final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
     
     @IBOutlet private weak var emailTextfield: AuthenticationTextField! {
         didSet {
-            emailTextfield.backgroundColor = Theme.current.background
-            emailTextfield.textColor = Theme.current.textfieldTextColor
-            emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textfieldTextColor])
+            emailTextfield.backgroundColor = themeManager.current.background
+            emailTextfield.textColor = themeManager.current.textfieldTextColor
+            emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
         }
     }
     
     @IBOutlet private weak var enterEmailLabel: UILabel! {
         didSet {
-            enterEmailLabel.textColor = Theme.current.textColor
+            enterEmailLabel.textColor = themeManager.current.textColor
         }
     }
     
@@ -49,14 +49,15 @@ final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
         var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
         return recognizer
     }()
+    private let themeManager: ThemeManager = .shared
     
     // MARK: Life Style
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        themeManager.delegate = self
         addObservers()
-        view.backgroundColor = Theme.current.background
+        view.backgroundColor = themeManager.current.background
     }
     
     deinit { removeObservers() }
@@ -106,6 +107,21 @@ extension ResetPasswordViewController: KeyboardShowing {
     
     func keyboardWillHide(with animationDuration: Double) {
         changeSendButtonBottomConstraint(with: animationDuration)
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension ResetPasswordViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        emailTextfield.backgroundColor = themeManager.current.background
+        emailTextfield.textColor = themeManager.current.textfieldTextColor
+        emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
+        enterEmailLabel.textColor = themeManager.current.textColor
+        view.backgroundColor = themeManager.current.background
     }
     
 }

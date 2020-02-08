@@ -63,8 +63,6 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
         didSet {
             weatherView.layer.cornerRadius = 5
             weatherView.textContainerInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)
-            weatherView.textColor = Theme.current.textColor
-            weatherView.backgroundColor = Theme.current.background
         }
     }
     
@@ -101,6 +99,8 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     private var showAddButtons: Bool = false
     private var addToLocationTapped: Bool = false
     
+    private let themeManager: ThemeManager = .shared
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
@@ -110,6 +110,9 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
         
         mapView.delegate = self
     
+        themeManager.delegate = self
+        themeDidChange()
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -138,11 +141,6 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        weatherView.textColor = Theme.current.textColor
-        weatherView.backgroundColor = Theme.current.background
-        changeColorOf(addAnotation)
-        changeColorOf(addByTapButton)
-        changeColorOf(addToLocationButton)
         setupUserTrackingButton()
     }
 
@@ -226,6 +224,7 @@ extension MapViewController: DefaultAlertShowing {
     }
     
     private func setupUserTrackingButton() {
+        view.subviews.filter { $0 is MKUserTrackingButton }.first?.removeFromSuperview()
         mapView.showsCompass = false
 
         let button = MKUserTrackingButton(mapView: mapView)
@@ -234,8 +233,8 @@ extension MapViewController: DefaultAlertShowing {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.backgroundColor = Theme.current.background.cgColor
-        button.tintColor = Theme.current.trackingButton
+        button.layer.backgroundColor = themeManager.current.background.cgColor
+        button.tintColor = themeManager.current.trackingButton
         view.addSubview(button)
         
         let scale = MKScaleView(mapView: mapView)
@@ -343,7 +342,23 @@ extension MapViewController {
     }
     
     private func changeColorOf(_ button: UIButton) {
-        button.backgroundColor = Theme.current.tableViewBackground
+        button.backgroundColor = themeManager.current.tableViewBackground
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension MapViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        weatherView.textColor = themeManager.current.textColor
+        weatherView.backgroundColor = themeManager.current.background
+        changeColorOf(addAnotation)
+        changeColorOf(addByTapButton)
+        changeColorOf(addToLocationButton)
+        setupUserTrackingButton()
     }
     
 }

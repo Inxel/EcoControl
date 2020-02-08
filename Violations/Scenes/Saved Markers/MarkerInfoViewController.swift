@@ -12,14 +12,6 @@ import SKPhotoBrowser
 import MapKit
 
 
-// MARK: - Constants
-
-private enum Constants {
-    static var textColor: UIColor { Theme.current.textColor }
-    static var backgroundColor: UIColor { Theme.current.background }
-}
-
-
 // MARK: - Base
 
 final class MarkerInfoViewController: ViewControllerPannable {
@@ -29,7 +21,6 @@ final class MarkerInfoViewController: ViewControllerPannable {
     @IBOutlet private weak var report: UILabel! {
         didSet {
             report.text = marker?.title
-            report.textColor = Constants.textColor
         }
     }
     
@@ -38,21 +29,18 @@ final class MarkerInfoViewController: ViewControllerPannable {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm   dd.MM.yy"
             date.text = formatter.string(from: marker?.date ?? Date())
-            date.textColor = Constants.textColor
         }
     }
     
     @IBOutlet private weak var comment: UITextView! {
         didSet {
             comment.text = marker?.comment
-            comment.textColor = Constants.textColor
         }
     }
     
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
-            collectionView.backgroundColor = Constants.backgroundColor
         }
     }
     
@@ -61,6 +49,8 @@ final class MarkerInfoViewController: ViewControllerPannable {
     var marker: Marker?
     
     private var images: [SKPhotoProtocol] = []
+    
+    private let themeManager: ThemeManager = .shared
     
     // MARK: - Life Cycle
     
@@ -73,8 +63,8 @@ final class MarkerInfoViewController: ViewControllerPannable {
         SKPhotoBrowserOptions.displayStatusbar = true
         SKPhotoBrowserOptions.displayCounterLabel = true
         SKPhotoBrowserOptions.displayBackAndForwardButton = true
-
-        view.backgroundColor = Constants.backgroundColor
+        themeManager.delegate = self
+        themeDidChange()
     }
     
     override func viewDidLayoutSubviews() {
@@ -98,6 +88,21 @@ extension MarkerInfoViewController {
         let customCallout = CustomCallout(reportType: reportType, comment: marker.comment, coordinate: marker.coordinate, url: marker.url, amountOfPhotos: String(marker.amountOfPhotos))
         
         chooseMap(marker: customCallout)
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension MarkerInfoViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        report.textColor = themeManager.current.textColor
+        date.textColor = themeManager.current.textColor
+        comment.textColor = themeManager.current.textColor
+        collectionView.backgroundColor = themeManager.current.background
+        view.backgroundColor = themeManager.current.background
     }
     
 }

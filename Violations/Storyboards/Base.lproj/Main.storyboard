@@ -52,34 +52,15 @@
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WPx-7Z-pq5">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="259.5"/>
                                     </activityIndicatorView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Ha-oH-hhW">
-                                        <rect key="frame" x="261" y="228.5" width="51" height="31"/>
-                                        <color key="onTintColor" red="0.0" green="0.56470588239999997" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="changeTheme:" destination="zyl-3h-4gw" eventType="valueChanged" id="f9I-yy-B9I"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Night theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbX-Bk-Rac">
-                                        <rect key="frame" x="10" y="229.5" width="231" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="2Ha-oH-hhW" firstAttribute="leading" secondItem="zbX-Bk-Rac" secondAttribute="trailing" constant="20" id="A2u-17-grn"/>
-                                    <constraint firstAttribute="bottom" secondItem="zbX-Bk-Rac" secondAttribute="bottom" id="Cmj-ZA-Abc"/>
                                     <constraint firstItem="0FN-pU-4iU" firstAttribute="leading" secondItem="mgi-qc-7Mr" secondAttribute="leading" constant="34.5" id="FRE-Ot-ste"/>
                                     <constraint firstAttribute="bottom" secondItem="WPx-7Z-pq5" secondAttribute="bottom" id="HyY-vV-CdH"/>
                                     <constraint firstItem="WPx-7Z-pq5" firstAttribute="leading" secondItem="mgi-qc-7Mr" secondAttribute="leading" id="Jsm-wN-q6E"/>
                                     <constraint firstAttribute="trailing" secondItem="0FN-pU-4iU" secondAttribute="trailing" constant="34.5" id="VqR-Lt-puz"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Ha-oH-hhW" secondAttribute="trailing" constant="10" id="WxH-wc-e5O"/>
                                     <constraint firstItem="0FN-pU-4iU" firstAttribute="centerY" secondItem="mgi-qc-7Mr" secondAttribute="centerY" id="d5h-P4-Rm2"/>
                                     <constraint firstAttribute="trailing" secondItem="WPx-7Z-pq5" secondAttribute="trailing" id="eA6-jv-FHm"/>
                                     <constraint firstItem="WPx-7Z-pq5" firstAttribute="top" secondItem="mgi-qc-7Mr" secondAttribute="top" id="jFf-zg-a2u"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Ha-oH-hhW" secondAttribute="bottom" id="kI9-BC-Gev"/>
-                                    <constraint firstItem="0FN-pU-4iU" firstAttribute="centerX" secondItem="mgi-qc-7Mr" secondAttribute="centerX" id="rgX-Bn-Utk"/>
-                                    <constraint firstItem="zbX-Bk-Rac" firstAttribute="leading" secondItem="mgi-qc-7Mr" secondAttribute="leading" constant="10" id="xwz-wH-lQG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -103,8 +84,6 @@
                         <outlet property="activityIndicator" destination="WPx-7Z-pq5" id="gai-TI-9c2"/>
                         <outlet property="infoLabel" destination="0FN-pU-4iU" id="9t1-CJ-GHW"/>
                         <outlet property="logoutButton" destination="Y4p-NU-Ced" id="4S6-XH-bDZ"/>
-                        <outlet property="themeLabel" destination="zbX-Bk-Rac" id="78t-Vm-oSf"/>
-                        <outlet property="themeSwitcher" destination="2Ha-oH-hhW" id="lv9-qH-NU2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bs-NL-IvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +576,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPQ-ec-eDp">
-                                        <rect key="frame" x="277" y="64" width="33" height="33"/>
+                                        <rect key="frame" x="277" y="64" width="33" height="66"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="33" id="hrO-EZ-bcy"/>
                                         </constraints>

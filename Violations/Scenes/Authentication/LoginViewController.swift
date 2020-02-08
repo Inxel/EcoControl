@@ -28,13 +28,11 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
     @IBOutlet private weak var emailTextfield: AuthenticationTextField! {
         didSet {
             emailTextfield.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-            changeStyleOf(emailTextfield, "Email")
         }
     }
     @IBOutlet private weak var passwordTextfield: AuthenticationTextField! {
         didSet {
             passwordTextfield.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-            changeStyleOf(passwordTextfield, "Password")
         }
     }
     
@@ -56,6 +54,8 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
         return recognizer
     }()
     
+    private let themeManager: ThemeManager = .shared
+    
     private var email: String?
     private var password: String?
     
@@ -63,10 +63,9 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextfield.delegate = self
-        passwordTextfield.delegate = self
+        themeManager.delegate = self
+        themeDidChange()
         addObservers()
-        view.backgroundColor = Theme.current.background
     }
     
     deinit { removeObservers() }
@@ -84,6 +83,19 @@ extension LoginViewController {
         } else {
             signIn(sender)
         }
+    }
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension LoginViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        changeStyleOf(emailTextfield, "Email")
+        changeStyleOf(passwordTextfield, "Password")
+        view.backgroundColor = themeManager.current.background
     }
     
 }
@@ -149,9 +161,9 @@ extension LoginViewController {
     }
     
     private func changeStyleOf(_ textfield: UITextField, _ placeholder: String) {
-        textfield.backgroundColor = Theme.current.background
-        textfield.textColor = Theme.current.textfieldTextColor
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: Theme.current.textfieldTextColor])
+        textfield.backgroundColor = themeManager.current.background
+        textfield.textColor = themeManager.current.textfieldTextColor
+        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
     }
     
 }
