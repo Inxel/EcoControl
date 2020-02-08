@@ -77,7 +77,7 @@ extension ResetPasswordViewController {
             Auth.auth().sendPasswordReset(withEmail: text) { error in
                 if error != nil {
                     sender.stopAnimation(animationStyle: .shake) {
-                        self.showProgressHUDError(with: "Your email doesn't exist in EcoControl")
+                        self.showProgressHUDError(with: error?.localizedDescription)
                         self.dismissProgressHUD()
                     }
                 } else {
@@ -91,7 +91,7 @@ extension ResetPasswordViewController {
             showProgressHUDError(with: "Please, enter email")
         }
         
-        dismissProgressHUD()
+        dismissProgressHUD(after: 2)
     }
     
 }

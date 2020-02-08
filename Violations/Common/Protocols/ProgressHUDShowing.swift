@@ -14,7 +14,7 @@ protocol ProgressHUDShowing {
     func showProgressHUD()
     func showProgressHUDSuccess(with status: String?)
     func showProgressHUDError(with status: String?)
-    func dismissProgressHUD()
+    func dismissProgressHUD(after secondsCount: Double)
 }
 
 
@@ -35,8 +35,8 @@ extension ProgressHUDShowing where Self: UIViewController {
         SVProgressHUD.showError(withStatus: status)
     }
     
-    func dismissProgressHUD() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+    func dismissProgressHUD(after secondsCount: Double = 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + secondsCount) {
             SVProgressHUD.dismiss()
         }
     }
