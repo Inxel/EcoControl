@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing here :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Beu-92-FkB">
+                                <rect key="frame" x="20" y="435" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="voQ-6Y-Jer">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -26,14 +32,19 @@
                             </tableView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Beu-92-FkB" firstAttribute="leading" secondItem="Py5-yN-CQt" secondAttribute="leading" constant="20" id="JR5-AZ-M85"/>
+                            <constraint firstItem="Py5-yN-CQt" firstAttribute="trailing" secondItem="Beu-92-FkB" secondAttribute="trailing" constant="20" id="JVl-9F-K9V"/>
                             <constraint firstItem="voQ-6Y-Jer" firstAttribute="top" secondItem="Py5-yN-CQt" secondAttribute="top" id="Lcq-n5-7nt"/>
                             <constraint firstItem="voQ-6Y-Jer" firstAttribute="leading" secondItem="Py5-yN-CQt" secondAttribute="leading" id="MTI-Sh-Rhf"/>
                             <constraint firstItem="Py5-yN-CQt" firstAttribute="trailing" secondItem="voQ-6Y-Jer" secondAttribute="trailing" id="gFF-0w-aVX"/>
+                            <constraint firstItem="Beu-92-FkB" firstAttribute="centerX" secondItem="Py5-yN-CQt" secondAttribute="centerX" id="i90-MI-8yn"/>
+                            <constraint firstItem="Beu-92-FkB" firstAttribute="centerY" secondItem="Py5-yN-CQt" secondAttribute="centerY" id="omw-1d-wLy"/>
                             <constraint firstItem="Py5-yN-CQt" firstAttribute="bottom" secondItem="voQ-6Y-Jer" secondAttribute="bottom" id="rBV-xo-Zkm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Py5-yN-CQt"/>
                     </view>
                     <connections>
+                        <outlet property="emptyLabel" destination="Beu-92-FkB" id="WaU-fn-jQg"/>
                         <outlet property="tableView" destination="voQ-6Y-Jer" id="pi6-Qw-h0u"/>
                     </connections>
                 </viewController>

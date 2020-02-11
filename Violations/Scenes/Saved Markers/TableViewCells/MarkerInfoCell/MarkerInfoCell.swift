@@ -28,12 +28,6 @@ final class MarkerInfoCell: UITableViewCell, DequeueableCell {
         }
     }
     
-    // MARK: Lige Cycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
 }
 
 

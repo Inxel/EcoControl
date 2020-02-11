@@ -228,8 +228,7 @@ extension MapViewController: DefaultAlertShowing {
         mapView.showsCompass = false
 
         let button = MKUserTrackingButton(mapView: mapView)
-        button.layer.backgroundColor = UIColor(white: 1, alpha: 0.99).cgColor
-        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderColor = UIColor.clear.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -381,8 +380,8 @@ extension MapViewController {
         markersDB.childByAutoId().setValue(markersDictionary) {
             (error, reference) in
             
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
             }
             else {
                 print("Marker saved successfully!")
@@ -507,7 +506,7 @@ extension MapViewController {
                 realm.add(marker)
             }
         } catch {
-            print("Fuckin' error")
+            showAlert(message: "Something went wrong", defaultButtonTitle: "OK")
         }
         
     }

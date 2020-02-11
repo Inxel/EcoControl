@@ -11,12 +11,9 @@ import Foundation
 
 struct WeatherData {
     
-    var temperature: Int
-    var condition: Int
+    let temperature: Int
+    let condition: Int
     var weather: String { "\(temperature)º\n\(updateWeatherEmoji)" }
-    
-    
-    //This method turns a condition code into the name of the weather condition image
     
     private var updateWeatherEmoji: String {
         

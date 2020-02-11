@@ -79,7 +79,7 @@ extension LoginViewController {
     
     @IBAction private func loginButtonTapped(_ sender: PrimaryButton) {
         if !CheckInternet.connection() {
-            createAlert(with: "Internet connection issues")
+            showAlert(message: "Internet connection issues", defaultButtonTitle: "ОK")
         } else {
             signIn(sender)
         }
@@ -119,10 +119,6 @@ extension LoginViewController: UITextFieldDelegate, KeyboardShowing {
 // MARK: - Private API
 
 extension LoginViewController {
-    
-    private func createAlert(with message: String){
-        showAlert(message: message, defaultButtonTitle: "Ок")
-    }
     
     private func changeSignInViewBottomConstraint(keyboardHeight: CGFloat = 0, with animationDuration: Double) {
         let keyboardHeightWithOffset = keyboardHeight + Constants.keyboardOffset
@@ -166,10 +162,4 @@ extension LoginViewController {
         textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
     }
     
-}
-
-
-//MARK: - Firebase methods
-
-extension LoginViewController {
 }

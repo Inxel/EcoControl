@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 6,
+            schemaVersion: 9,
             migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 6 {
-                    migration.renameProperty(onType: SavedMarker.className(), from: "dateCreated", to: "date") // Renaming
+                if oldSchemaVersion < 9 {
+//                    migration.renameProperty(onType: SavedMarker.className(), from: "markerTitle", to: "title") // Renaming
 //                    migration.enumerateObjects(ofType: SavedMarker.className()) { _, newObject in
 //                        newObject!["isMigrationDoneAlright"] = newObject!["isMigrationDone"] // New
 //                    }

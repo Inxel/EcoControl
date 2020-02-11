@@ -23,11 +23,16 @@ final class SavedMarkersTableViewController: UIViewController {
             tableView.register(MarkerInfoCell.self)
         }
     }
+    @IBOutlet private weak var emptyLabel: UILabel!
     
     // MARK: Properties
     
     private let realm = try! Realm()
-    private var markers: [Marker] = []
+    private var markers: [Marker] = [] {
+        didSet {
+            emptyLabel.isHidden = !markers.isEmpty
+        }
+    }
     
     private weak var delegate: MarkersTableViewControllerDelegate?
     private let themeManager: ThemeManager = .shared
