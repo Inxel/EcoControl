@@ -52,7 +52,8 @@ extension MarkerInfoCell {
     
     private func formatDate(date: Date?) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm   dd MMMM yyyy"
+        formatter.dateFormat = "dd MMMM yyyy"
+        formatter.locale = .init(identifier: "en")
         
         dateLabel.text = formatter.string(from: date ?? Date())
     }

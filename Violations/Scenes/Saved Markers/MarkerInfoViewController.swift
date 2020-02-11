@@ -28,6 +28,7 @@ final class MarkerInfoViewController: ViewControllerPannable {
         didSet {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd MMMM yyyy"
+            formatter.locale = .init(identifier: "en")
             date.text = formatter.string(from: marker?.date ?? Date())
         }
     }
