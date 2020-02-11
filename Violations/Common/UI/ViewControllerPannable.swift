@@ -38,13 +38,14 @@ extension ViewControllerPannable {
     @IBAction private func panGestureRecognizerHandler(_ sender: UIPanGestureRecognizer) {
         let touchPoint = sender.location(in: self.view?.window)
         
-        if sender.state == UIGestureRecognizer.State.began {
+        switch sender.state {
+        case .began:
             initialTouchPoint = touchPoint
-        } else if sender.state == UIGestureRecognizer.State.changed {
+        case .changed:
             if touchPoint.y - initialTouchPoint.y > 0 {
                 self.view.frame = CGRect(x: 0, y: touchPoint.y - initialTouchPoint.y, width: self.view.frame.size.width, height: self.view.frame.size.height)
             }
-        } else if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled {
+        case .ended, .cancelled:
             if touchPoint.y - initialTouchPoint.y > 75 {
                 self.dismiss(animated: true, completion: nil)
             } else {
@@ -52,6 +53,8 @@ extension ViewControllerPannable {
                     self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
                 })
             }
+        default:
+            break
         }
     }
     
