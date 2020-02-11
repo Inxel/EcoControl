@@ -11,8 +11,8 @@ import UIKit
 
 extension UIApplication {
     
-    static var loginAnimation: UIView.AnimationOptions = .transitionFlipFromRight
-    static var logoutAnimation: UIView.AnimationOptions = .transitionFlipFromLeft
+    static private(set) var loginAnimation: UIView.AnimationOptions = .transitionFlipFromRight
+    static private(set) var logoutAnimation: UIView.AnimationOptions = .transitionFlipFromLeft
     
     public static func setRootView(_ viewController: UIViewController,
                                    options: UIView.AnimationOptions = .transitionFlipFromRight,

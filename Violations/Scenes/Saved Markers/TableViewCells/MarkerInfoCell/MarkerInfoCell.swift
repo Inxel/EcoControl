@@ -52,7 +52,7 @@ extension MarkerInfoCell {
     
     private func formatDate(date: Date?) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm   dd.MM.yy"
+        formatter.dateFormat = "HH:mm   dd MMMM yyyy"
         
         dateLabel.text = formatter.string(from: date ?? Date())
     }

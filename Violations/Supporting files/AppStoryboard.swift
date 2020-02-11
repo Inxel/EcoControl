@@ -17,7 +17,7 @@ enum AppStoryboard: String {
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
     }
     
-    func viewController<T : UIViewController>(viewControllerClass: T.Type, function: String = #function, line: Int = #line, file: String = #file) -> T {
+    func viewController<T: UIViewController>(viewControllerClass: T.Type, function: String = #function, line: Int = #line, file: String = #file) -> T {
         let storyboardID = (viewControllerClass as UIViewController.Type).storyboardID
         
         guard let scene = instance.instantiateViewController(withIdentifier: storyboardID) as? T else {

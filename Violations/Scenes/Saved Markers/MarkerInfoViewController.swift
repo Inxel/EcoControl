@@ -27,7 +27,7 @@ final class MarkerInfoViewController: ViewControllerPannable {
     @IBOutlet private weak var date: UILabel! {
         didSet {
             let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm   dd.MM.yy"
+            formatter.dateFormat = "dd MMMM yyyy"
             date.text = formatter.string(from: marker?.date ?? Date())
         }
     }
