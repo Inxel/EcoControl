@@ -98,14 +98,12 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         blurEffect.isHidden = true
         deleteButton.isHidden = true
         
-        Storage.storage().reference().child("\(url)/\(index)").getData(maxSize: 10000000) { ( data, error) in
+        Storage.storage().reference().child("\(url)/\(index)").getData(maxSize: 10000000) { data, error in
             
-            guard let _data = data else {
+            guard let data = data, let photo = UIImage(data: data) else {
                 print(error!)
                 return
             }
-            
-            let photo = UIImage(data: _data)!
             
             self.setup(with: photo)
             completion(photo)
