@@ -96,10 +96,9 @@ extension MarkersTableViewController {
         pageContainer.scrollView?.delegate = self
         
         let savedMarkersVC = SavedMarkersTableViewController.initiate(delegate: self)
-        pages.append(savedMarkersVC)
-        
         let addedMarkersVC = AddedMarkersTableViewController.initiate(delegate: self)
-        pages.append(addedMarkersVC)
+        
+        pages.append(contentsOf: [savedMarkersVC, addedMarkersVC])
         
         if let firstVC = pages.first {
             pageContainer.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
