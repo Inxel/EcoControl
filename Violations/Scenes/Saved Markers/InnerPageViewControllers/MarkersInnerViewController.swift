@@ -34,6 +34,11 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
         getMarkers()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        themeManager.delegate = self
+    }
+    
     // MARK: Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { markers.count }
@@ -70,8 +75,23 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     
-    func markersDidUpdate() {}
+    func markersDidUpdate() {
+        reloadTableView()
+    }
     
     func getMarkers() {}
+    
+    func reloadTableView() {}
+    
+}
+
+
+// MARK: - Theme Manager Delegate
+
+extension MarkersInnerViewController: ThemeManagerDelegate {
+    
+    func themeDidChange() {
+        reloadTableView()
+    }
     
 }

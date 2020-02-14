@@ -23,25 +23,22 @@ final class SavedMarkersTableViewController: MarkersInnerViewController {
         }
     }
     @IBOutlet private weak var emptyLabel: UILabel!
-    
-    // MARK: Properties
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        themeManager.delegate = self
-    }
 
     // MARK: - Overriden API
     
     override func markersDidUpdate() {
+        super.markersDidUpdate()
         emptyLabel.isHidden = !markers.isEmpty
-        tableView.reloadData()
     }
 
     override func getMarkers() {
         let addedMarkers = realm.objects(SavedMarker.self).sorted(byKeyPath: "date", ascending: true)
 
         markers = addedMarkers.map { Marker(marker: $0) }
+    }
+    
+    override func reloadTableView() {
+        tableView.reloadData()
     }
     
 }
@@ -57,17 +54,6 @@ extension SavedMarkersTableViewController {
         viewController.delegate = delegate
         
         return viewController
-    }
-    
-}
-
-
-// MARK: - Theme Manager Delegate
-
-extension SavedMarkersTableViewController: ThemeManagerDelegate {
-    
-    func themeDidChange() {
-        tableView.reloadData()
     }
     
 }

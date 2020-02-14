@@ -24,24 +24,21 @@ final class AddedMarkersTableViewController: MarkersInnerViewController {
     }
     @IBOutlet private weak var emptyLabel: UILabel!
     
-    // MARK: Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        themeManager.delegate = self
-    }
-    
     // MARK: - Overriden API
     
     override func markersDidUpdate() {
+        super.markersDidUpdate()
         emptyLabel.isHidden = !markers.isEmpty
-        tableView.reloadData()
     }
 
     override func getMarkers() {
         let addedMarkers = realm.objects(UserMarker.self).sorted(byKeyPath: "date", ascending: true)
 
         markers = addedMarkers.map { Marker(marker: $0) }
+    }
+    
+    override func reloadTableView() {
+        tableView.reloadData()
     }
     
 }
@@ -57,17 +54,6 @@ extension AddedMarkersTableViewController {
         viewController.delegate = delegate
         
         return viewController
-    }
-    
-}
-
-
-// MARK: - Theme Manager Delegate
-
-extension AddedMarkersTableViewController: ThemeManagerDelegate {
-    
-    func themeDidChange() {
-        tableView.reloadData()
     }
     
 }
