@@ -95,6 +95,10 @@
                                             <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="1m8-fF-MJR" id="wVq-J5-5Hv"/>
+                                            <outlet property="delegate" destination="1m8-fF-MJR" id="eeo-vh-Nke"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>

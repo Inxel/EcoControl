@@ -86,7 +86,7 @@ extension ProfileViewController {
         let user = Auth.auth().currentUser
         var numberOfMarkers = 0
         
-        TakeMarkersFromFirebase.downloadMarkers(child: "Markers") {snapshotValue in
+        TakeMarkersFromFirebase.downloadMarkers(child: "Markers") { snapshotValue in
             let sender = snapshotValue["Sender"]!
             if sender == user?.email {
                 numberOfMarkers += 1

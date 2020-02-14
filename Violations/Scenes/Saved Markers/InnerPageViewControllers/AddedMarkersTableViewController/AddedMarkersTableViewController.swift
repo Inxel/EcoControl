@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import RealmSwift
 
 
 // MARK: - Base
 
-final class AddedMarkersTableViewController: UIViewController {
+final class AddedMarkersTableViewController: MarkersInnerViewController {
     
     // MARK: Outlets
     
@@ -25,18 +24,6 @@ final class AddedMarkersTableViewController: UIViewController {
     }
     @IBOutlet private weak var emptyLabel: UILabel!
     
-    // MARK: Properties
-    
-    private let realm = try! Realm()
-    private var markers: [Marker] = [] {
-        didSet {
-            emptyLabel.isHidden = !markers.isEmpty
-        }
-    }
-    
-    private weak var delegate: MarkersTableViewControllerDelegate?
-    private let themeManager: ThemeManager = .shared
-    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
@@ -44,11 +31,19 @@ final class AddedMarkersTableViewController: UIViewController {
         themeManager.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getMarkers()
+    // MARK: - Overriden API
+    
+    override func markersDidUpdate() {
+        emptyLabel.isHidden = !markers.isEmpty
+        tableView.reloadData()
     }
 
+    override func getMarkers() {
+        let addedMarkers = realm.objects(UserMarker.self).sorted(byKeyPath: "date", ascending: true)
+
+        markers = addedMarkers.map { Marker(marker: $0) }
+    }
+    
 }
 
 
@@ -67,71 +62,11 @@ extension AddedMarkersTableViewController {
 }
 
 
-// MARK: - Table View Data Source
-
-extension AddedMarkersTableViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { markers.count }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath) as MarkerInfoCell
-        
-        let marker = markers[indexPath.row]
-        cell.setUp(title: marker.title, comment: marker.comment, date: marker.date, themeProtocol: themeManager.current)
-        
-        return cell
-    }
-    
-}
-
-
 // MARK: - Theme Manager Delegate
 
 extension AddedMarkersTableViewController: ThemeManagerDelegate {
     
     func themeDidChange() {
-        tableView.reloadData()
-    }
-    
-}
-
-
-// MARK: - Table View Delegate
-
-extension AddedMarkersTableViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.1) {
-            if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
-            cell.background.transform = .init(scaleX: 0.85, y: 0.85)
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.3) {
-            if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
-                cell.background.transform = .identity
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didTap(on: markers[indexPath.row])
-    }
-    
-}
-
-
-// MARK: - Private API
-
-extension AddedMarkersTableViewController {
-    
-    private func getMarkers() {
-        let addedMarkers = realm.objects(UserMarker.self).sorted(byKeyPath: "date", ascending: true)
-        
-        markers = addedMarkers.map { Marker(marker: $0) }
-        
         tableView.reloadData()
     }
     

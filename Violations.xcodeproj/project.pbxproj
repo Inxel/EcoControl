@@ -53,6 +53,7 @@
 		22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968D923D0A7BD00E55572 /* TypeAliases.swift */; };
 		22C968DD23D0A84600E55572 /* KeyboardShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968DC23D0A84600E55572 /* KeyboardShowing.swift */; };
 		22CA8091225A3A2800E01B61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA8090225A3A2800E01B61 /* ProfileViewController.swift */; };
+		22DB647723F69C550039FF6B /* MarkersInnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB647623F69C550039FF6B /* MarkersInnerViewController.swift */; };
 		22DC151223DA1066007F363F /* MarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC151123DA1066007F363F /* MarkersTableViewController.swift */; };
 		22DC151B23DA1788007F363F /* SavedMarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC151923DA1788007F363F /* SavedMarkersTableViewController.swift */; };
 		22DC152023DA17A2007F363F /* AddedMarkersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC151E23DA17A2007F363F /* AddedMarkersTableViewController.swift */; };
@@ -125,6 +126,7 @@
 		22C968D923D0A7BD00E55572 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		22C968DC23D0A84600E55572 /* KeyboardShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShowing.swift; sourceTree = "<group>"; };
 		22CA8090225A3A2800E01B61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		22DB647623F69C550039FF6B /* MarkersInnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkersInnerViewController.swift; sourceTree = "<group>"; };
 		22DC151123DA1066007F363F /* MarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkersTableViewController.swift; sourceTree = "<group>"; };
 		22DC151923DA1788007F363F /* SavedMarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMarkersTableViewController.swift; sourceTree = "<group>"; };
 		22DC151E23DA17A2007F363F /* AddedMarkersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedMarkersTableViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		22DC151323DA11CA007F363F /* InnerPageViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				22DB647623F69C550039FF6B /* MarkersInnerViewController.swift */,
 				22DC151D23DA178B007F363F /* AddedMarkersTableViewController */,
 				22DC151823DA1772007F363F /* SavedMarkersTableViewController */,
 			);
@@ -659,6 +662,7 @@
 				22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */,
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
 				2209B96023D0DD1300B3FE51 /* ReusableView.swift in Sources */,
+				22DB647723F69C550039FF6B /* MarkersInnerViewController.swift in Sources */,
 				2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */,
 				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,
