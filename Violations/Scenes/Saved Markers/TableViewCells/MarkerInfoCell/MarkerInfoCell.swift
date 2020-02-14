@@ -18,7 +18,7 @@ final class MarkerInfoCell: UITableViewCell, DequeueableCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var commentLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet weak var background: UIView! {
+    @IBOutlet private weak var background: UIView! {
         didSet {
             background.layer.cornerRadius = 10
             background.layer.shadowColor = UIColor.black.cgColor
@@ -41,6 +41,10 @@ extension MarkerInfoCell {
         formatDate(date: date)
         background.backgroundColor = themeProtocol.cellBackground
         backgroundColor = themeProtocol.tableViewBackground
+    }
+    
+    func changeBackgroundSize(transform: CGAffineTransform) {
+        background.transform = transform
     }
     
 }

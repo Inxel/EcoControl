@@ -57,7 +57,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.1) {
             if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
-            cell.background.transform = .init(scaleX: 0.85, y: 0.85)
+                cell.changeBackgroundSize(transform: .init(scaleX: 0.85, y: 0.85))
             }
         }
     }
@@ -65,7 +65,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
-                cell.background.transform = .identity
+                cell.changeBackgroundSize(transform: .identity)
             }
         }
     }
