@@ -16,12 +16,12 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: Properties
     
-    let realm = try! Realm()
+    final let realm = try! Realm()
     
-    weak var delegate: MarkersTableViewControllerDelegate?
-    let themeManager: ThemeManager = .shared
+    final weak var delegate: MarkersTableViewControllerDelegate?
+    final let themeManager: ThemeManager = .shared
     
-    var markers: [Marker] = [] {
+    final var markers: [Marker] = [] {
         didSet {
             markersDidUpdate()
         }
@@ -29,12 +29,12 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: Life Cycle
     
-    override func viewWillAppear(_ animated: Bool) {
+    final override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getMarkers()
     }
     
-    override func viewDidLoad() {
+    final override func viewDidLoad() {
         super.viewDidLoad()
         themeManager.delegate = self
     }
@@ -91,7 +91,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
 
 extension MarkersInnerViewController: ThemeManagerDelegate {
     
-    func themeDidChange() {
+    final func themeDidChange() {
         reloadTableView()
     }
     
