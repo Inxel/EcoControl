@@ -27,6 +27,22 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    final private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.contentInset.top = 50
+        tableView.contentInset.bottom = 50
+        tableView.register(MarkerInfoCell.self)
+        tableView.separatorStyle = .none
+        tableView.bounds = view.bounds
+        tableView.center = view.center
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = .clear
+        view.addSubview(tableView)
+        
+        return tableView
+    }()
+    
     // MARK: Life Cycle
     
     final override func viewWillAppear(_ animated: Bool) {
@@ -77,12 +93,10 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: Should be overriden
     
     func markersDidUpdate() {
-        reloadTableView()
+        tableView.reloadData()
     }
     
     func getMarkers() {}
-    
-    func reloadTableView() {}
     
 }
 
@@ -92,7 +106,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
 extension MarkersInnerViewController: ThemeManagerDelegate {
     
     final func themeDidChange() {
-        reloadTableView()
+        tableView.reloadData()
     }
     
 }

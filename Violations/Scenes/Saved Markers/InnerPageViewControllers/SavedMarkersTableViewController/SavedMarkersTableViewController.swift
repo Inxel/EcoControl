@@ -14,17 +14,10 @@ import UIKit
 final class SavedMarkersTableViewController: MarkersInnerViewController {
     
     // MARK: Outlets
-    
-    @IBOutlet private weak var tableView: UITableView! {
-        didSet {
-            tableView.contentInset.top = 50
-            tableView.contentInset.bottom = 50
-            tableView.register(MarkerInfoCell.self)
-        }
-    }
+
     @IBOutlet private weak var emptyLabel: UILabel!
 
-    // MARK: - Overriden API
+    // MARK: Overriden API
     
     override func markersDidUpdate() {
         super.markersDidUpdate()
@@ -32,13 +25,9 @@ final class SavedMarkersTableViewController: MarkersInnerViewController {
     }
 
     override func getMarkers() {
-        let addedMarkers = realm.objects(SavedMarker.self).sorted(byKeyPath: "date", ascending: true)
+        let savedMarkers = realm.objects(SavedMarker.self).sorted(byKeyPath: "date", ascending: true)
 
-        markers = addedMarkers.map { Marker(marker: $0) }
-    }
-    
-    override func reloadTableView() {
-        tableView.reloadData()
+        markers = savedMarkers.map { Marker(marker: $0) }
     }
     
 }
