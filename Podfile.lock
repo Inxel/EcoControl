@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.8.2)
   - Firebase (5.20.1):
     - Firebase/Core (= 5.20.1)
   - Firebase/Auth (5.20.1):
@@ -82,22 +81,17 @@ PODS:
   - Realm/Headers (3.20.0)
   - RealmSwift (3.20.0):
     - Realm (= 3.20.0)
-  - SDWebImage (4.4.6):
-    - SDWebImage/Core (= 4.4.6)
-  - SDWebImage/Core (4.4.6)
   - SKPhotoBrowser (6.0.0)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
   - TransitionButton (0.5.2)
 
 DEPENDENCIES:
-  - Alamofire
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
   - RealmSwift (~> 3.20.0)
-  - SDWebImage
   - SKPhotoBrowser
   - SVProgressHUD
   - SwiftyJSON
@@ -105,7 +99,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -119,7 +112,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - SDWebImage
     - SKPhotoBrowser
     - SVProgressHUD
     - SwiftyJSON
@@ -129,7 +121,6 @@ SPEC REPOS:
     - RealmSwift
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAuth: dd7bbf03a5aee0eafb3a1aee4d2812bd74bac890
@@ -145,12 +136,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
   RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SKPhotoBrowser: 76eb862685761707b5745fde7762757966565e07
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
 
-PODFILE CHECKSUM: a8c662962fae6df8c96fa6f02e5c7cf755079f46
+PODFILE CHECKSUM: 6b6bde606ddefa6495b3b56530ddbb45df428d57
 
 COCOAPODS: 1.8.4

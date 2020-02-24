@@ -12,10 +12,8 @@ target 'Violations' do
     pod 'Firebase/Storage'
     pod 'SVProgressHUD'
     pod 'SwiftyJSON'
-    pod 'Alamofire'
     pod 'RealmSwift', '~> 3.20.0'
     pod 'TransitionButton'
     pod 'SKPhotoBrowser'
-    pod 'SDWebImage'
     
 end

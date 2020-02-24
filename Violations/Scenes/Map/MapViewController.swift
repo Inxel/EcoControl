@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 import Firebase
 import TransitionButton
-import Alamofire
 import SwiftyJSON
 import RealmSwift
 
@@ -19,7 +18,7 @@ import RealmSwift
 // MARK: - Constants
 
 private enum Constants {
-    static var weatherURL: String { "http://api.openweathermap.org/data/2.5/weather" }
+    static var weatherURL: String { "http://api.openweathermap.org/data/2.5/weather?appid=\(weatherAppID)" }
     static var weatherAppID: String { "e72ca729af228beabd5d20e3b7749713" }
     static var user: User? { Auth.auth().currentUser }
 }
@@ -199,12 +198,13 @@ extension MapViewController: CLLocationManagerDelegate {
             
             print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
             
-            let latitude = String(location.coordinate.latitude)
-            let longitude = String(location.coordinate.longitude)
+//            let latitude = String(location.coordinate.latitude)
+//            let longitude = String(location.coordinate.longitude)
+//
+//            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : Constants.weatherAppID]
             
-            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : Constants.weatherAppID]
-            
-            getWeatherData(url: Constants.weatherURL, parameters: params)
+//            getWeatherData(url: Constants.weatherURL, parameters: params)
+            getWeather(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
         }
     }
     
@@ -461,22 +461,21 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController {
     
-    private func getWeatherData(url: String, parameters: [String: String]) {
+    private func getWeather(lat: Double, lng: Double) {
+        guard let url = URL(string: "\(Constants.weatherURL)&lat=\(lat)&lon=\(lng)") else { return }
         
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
-            response in
-            if let value = response.result.value, response.result.isSuccess {
-                
-                print("Success! Got the weather data")
-                let weatherJSON: JSON = JSON(value)
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            
+            if let data = data {
+                let weatherJSON = JSON(data)
                 
                 self.updateWeatherData(json: weatherJSON)
-                
+            } else {
+                print("Error getting weather: \(String(describing: error?.localizedDescription))")
             }
-            else {
-                print("Error: \(String(describing: response.result.error))")
-            }
-        }
+            
+        }.resume()
+        
     }
     
     private func updateWeatherData(json : JSON) {
@@ -488,8 +487,11 @@ extension MapViewController {
         
         let weatherData = WeatherData(temperature: temperature, condition: condition)
         
-        weatherView.text = weatherData.weather
-        weatherView.isHidden = false
+        DispatchQueue.main.async {
+            self.weatherView.text = weatherData.weather
+            self.weatherView.isHidden = false
+        }
+        
     }
     
 }
