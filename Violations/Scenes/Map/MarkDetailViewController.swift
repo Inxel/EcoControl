@@ -87,7 +87,7 @@ final class MarkDetailViewController: ViewControllerPannable {
 
 // MARK: - Actions
 
-extension MarkDetailViewController {
+extension MarkDetailViewController: ProgressHUDShowing {
     
     @IBAction private func cancelTapped(_ sender: Any) {
         delegate?.userTappedButton(button: .cancel)
@@ -96,6 +96,11 @@ extension MarkDetailViewController {
     
     
     @IBAction private func saveTapped(_ sender: Any) {
+        guard CheckInternet.connection() else {
+            showProgressHUDError(with: "Check your internet connection")
+            return
+        }
+        
         let title = currentTitle
         let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
         let url = UUID().uuidString
