@@ -13,7 +13,7 @@ final class NavigationViewController: UINavigationController {
 
     // MARK: Properties
     
-    private let themeManager: ThemeManager = .shared
+    private var themeManager: ThemeManager { .shared }
     
     // MARK: - Overridden Methods
     

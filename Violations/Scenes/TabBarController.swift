@@ -13,7 +13,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     // MARK: Properties
     
-    private let themeManager: ThemeManager = .shared
+    private var themeManager: ThemeManager { .shared }
     
     // MARK: Life Cycle
     
