@@ -36,7 +36,7 @@ final class MarkDetailViewController: ViewControllerPannable {
     @IBOutlet private weak var dataPicker: UIPickerView!
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseID)
         }
     }
     
@@ -234,7 +234,7 @@ extension MarkDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { images.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
         
         cell.setup(with: images[indexPath.item])
         cell.delegate = self

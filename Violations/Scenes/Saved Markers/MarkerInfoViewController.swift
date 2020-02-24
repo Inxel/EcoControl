@@ -38,7 +38,7 @@ final class MarkerInfoViewController: ViewControllerPannable {
     
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseID)
         }
     }
     
@@ -127,7 +127,7 @@ extension MarkerInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { marker?.amountOfPhotos ?? .zero }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
 
         cell.downloadImage(marker?.url ?? "", indexPath.item) { image in
             guard let image = image else { return }

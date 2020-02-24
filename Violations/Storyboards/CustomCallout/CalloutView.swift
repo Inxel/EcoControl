@@ -29,7 +29,7 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+            collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseID)
         }
     }
     
@@ -237,7 +237,7 @@ extension CalloutView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
         
         cell.downloadImage(url, indexPath.item) { image in
             guard let image = image else { return }

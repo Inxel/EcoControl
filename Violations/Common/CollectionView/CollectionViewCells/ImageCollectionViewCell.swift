@@ -21,6 +21,8 @@ protocol ImageCellDelegate: class {
 
 final class ImageCollectionViewCell: UICollectionViewCell {
     
+    static var reuseID: String { "ImageCollectionViewCell" }
+    
     private var sizeOfDeleteButton = 25
     weak var delegate: ImageCellDelegate?
     
