@@ -62,6 +62,7 @@
 		22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC152623DA1863007F363F /* MarkerInfoCell.swift */; };
 		22DC152923DA1863007F363F /* MarkerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DC152723DA1863007F363F /* MarkerInfoCell.xib */; };
 		22DC152C23DA288B007F363F /* UIPageViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */; };
+		22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE41A52403B43900680606 /* Date+Formatting.swift */; };
 		22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2E87A226825A80052BBC9 /* CustomCallout.swift */; };
 		22FAF2E923EF1AD0008C554F /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAF2E823EF1AD0008C554F /* MulticastDelegate.swift */; };
 		22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAF2EA23EF1BDA008C554F /* ThemeManager.swift */; };
@@ -135,6 +136,7 @@
 		22DC152623DA1863007F363F /* MarkerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoCell.swift; sourceTree = "<group>"; };
 		22DC152723DA1863007F363F /* MarkerInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoCell.xib; sourceTree = "<group>"; };
 		22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Navigation.swift"; sourceTree = "<group>"; };
+		22DE41A52403B43900680606 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		22F2E87A226825A80052BBC9 /* CustomCallout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallout.swift; sourceTree = "<group>"; };
 		22FAF2E823EF1AD0008C554F /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		22FAF2EA23EF1BDA008C554F /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				22DE41A42403B41700680606 /* Date */,
 				22DC152A23DA2868007F363F /* PageViewController */,
 				2209B96123D0DD7300B3FE51 /* CollectionView */,
 				2209B95A23D0DCA200B3FE51 /* TableView */,
@@ -438,6 +441,14 @@
 			path = PageViewController;
 			sourceTree = "<group>";
 		};
+		22DE41A42403B41700680606 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				22DE41A52403B43900680606 /* Date+Formatting.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
 		22F2E879226825700052BBC9 /* CustomCallout */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +669,7 @@
 				22FF5A4C2259B505007E4C19 /* RegisterViewController.swift in Sources */,
 				2209B95423D0C95600B3FE51 /* UserDefault.swift in Sources */,
 				220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */,
+				22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */,
 				2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */,
 				22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */,
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
