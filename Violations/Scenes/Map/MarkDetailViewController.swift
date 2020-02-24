@@ -142,7 +142,7 @@ extension MarkDetailViewController: ThemeManagerDelegate {
         typeOfViolationLabel.textColor = themeManager.current.textColor
         collectionView.backgroundColor = themeManager.current.background
         view.backgroundColor = themeManager.current.background
-        commentTextView.textColor = themeManager.current.textColor
+        commentTextView.textColor = commentTextView.text == "Comment" ? #colorLiteral(red: 0, green: 0.5628422499, blue: 0.4330878519, alpha: 1) : themeManager.current.textColor
         dataPicker.reloadInputViews()
     }
     
