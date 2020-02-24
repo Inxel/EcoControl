@@ -354,6 +354,7 @@ extension MapViewController: ThemeManagerDelegate {
     func themeDidChange() {
         weatherView.textColor = themeManager.current.textColor
         weatherView.backgroundColor = themeManager.current.background
+        viewForShadow.backgroundColor = themeManager.current.tableViewBackground
         changeColorOf(addAnotation)
         changeColorOf(addByTapButton)
         changeColorOf(addToLocationButton)
