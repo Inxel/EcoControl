@@ -48,6 +48,7 @@
 		2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */; };
 		2294CCA722758EE2008131A5 /* StorageServiceFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */; };
 		2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCAA22776BC4008131A5 /* ImageCollectionViewCell.swift */; };
+		2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295A64E24122C58007208CD /* StatusBarAppearance.swift */; };
 		22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C23DCF22798816004B47E9 /* CalloutView.storyboard */; };
 		22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C23DD122798CC0004B47E9 /* CalloutView.swift */; };
 		22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968D923D0A7BD00E55572 /* TypeAliases.swift */; };
@@ -122,6 +123,7 @@
 		2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostServiceFirebase.swift; sourceTree = "<group>"; };
 		2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceFireBase.swift; sourceTree = "<group>"; };
 		2294CCAA22776BC4008131A5 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		2295A64E24122C58007208CD /* StatusBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAppearance.swift; sourceTree = "<group>"; };
 		22C23DCF22798816004B47E9 /* CalloutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalloutView.storyboard; sourceTree = "<group>"; };
 		22C23DD122798CC0004B47E9 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		22C968D923D0A7BD00E55572 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2295A64D24122C42007208CD /* StatusBar */,
 				22DE41A42403B41700680606 /* Date */,
 				22DC152A23DA2868007F363F /* PageViewController */,
 				2209B96123D0DD7300B3FE51 /* CollectionView */,
@@ -349,6 +352,14 @@
 				22FF5A3D2259AF23007E4C19 /* Assets.xcassets */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		2295A64D24122C42007208CD /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				2295A64E24122C58007208CD /* StatusBarAppearance.swift */,
+			);
+			path = StatusBar;
 			sourceTree = "<group>";
 		};
 		22C968D623D0A6E600E55572 /* Common */ = {
@@ -709,6 +720,7 @@
 				2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */,
 				2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */,
 				2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */,
+				2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
 				2260E40722BFA09000374258 /* UserMarker.swift in Sources */,
 				22DC151B23DA1788007F363F /* SavedMarkersTableViewController.swift in Sources */,

@@ -56,6 +56,10 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
         }
     }
     
+    // MARK: Overriden Properties
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     // MARK: Properties
     
     lazy var tapRecognizer: UITapGestureRecognizer = {

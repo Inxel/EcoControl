@@ -26,7 +26,7 @@ struct Marker {
             let lng = longitude,
             let latitude = Double(lat),
             let longitude = Double(lng)
-            else { return .init() }
+        else { return .init() }
 
         return .init(latitude: latitude, longitude: longitude)
     }
