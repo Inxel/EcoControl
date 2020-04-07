@@ -35,7 +35,7 @@ final class MarkersTableViewController: UIViewController {
     // MARK: Properties
     
     private var pageContainer: UIPageViewController!
-    private var pages: [UIViewController] = [UIViewController]()
+    private var pages: [UIViewController?] = []
     private var markersType: MarkersType = .saved
     private var selectedMarker: Marker? { didSet { performSegue(withIdentifier: "showMarkerInfo", sender: self) } }
     
@@ -100,7 +100,7 @@ extension MarkersTableViewController {
         
         pages.append(contentsOf: [savedMarkersVC, addedMarkersVC])
         
-        if let firstVC = pages.first {
+        if let firstVC = pages.first as? UIViewController {
             pageContainer.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
         

@@ -37,9 +37,8 @@ final class SavedMarkersTableViewController: MarkersInnerViewController {
 
 extension SavedMarkersTableViewController {
     
-    class func initiate(delegate: MarkersTableViewControllerDelegate? = nil) -> UIViewController {
-        let storyboard = UIStoryboard(name: "SavedMarkersTableViewController", bundle: .main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: SavedMarkersTableViewController.self)) as! SavedMarkersTableViewController
+    class func initiate(delegate: MarkersTableViewControllerDelegate? = nil) -> UIViewController? {
+        guard let viewController = instance() as? SavedMarkersTableViewController else { return nil }
         viewController.delegate = delegate
         
         return viewController

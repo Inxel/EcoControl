@@ -76,7 +76,7 @@
 		22FF5A4E2259C9C2007E4C19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22FF5A4D2259C9C2007E4C19 /* GoogleService-Info.plist */; };
 		22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A4F2259CDF0007E4C19 /* MapViewController.swift */; };
 		22FF5A52225A000E007E4C19 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF5A51225A000E007E4C19 /* TabBarController.swift */; };
-		9032C981100BD28C10885BAD /* Pods_Violations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AECE1715DA8B6914EA4A1F7 /* Pods_Violations.framework */; };
+		AB9052992FC58EEE9C05D562 /* libPods-Violations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D91882A34916FDA2AB0E79 /* libPods-Violations.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,7 +152,7 @@
 		22FF5A4D2259C9C2007E4C19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22FF5A4F2259CDF0007E4C19 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		22FF5A51225A000E007E4C19 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		6AECE1715DA8B6914EA4A1F7 /* Pods_Violations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Violations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66D91882A34916FDA2AB0E79 /* libPods-Violations.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Violations.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B9A8853405CDF2F0F70A94 /* Pods-Violations.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violations.debug.xcconfig"; path = "Target Support Files/Pods-Violations/Pods-Violations.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9032C981100BD28C10885BAD /* Pods_Violations.framework in Frameworks */,
+				AB9052992FC58EEE9C05D562 /* libPods-Violations.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +538,7 @@
 		32A6039BB34023A4AEA2E5CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6AECE1715DA8B6914EA4A1F7 /* Pods_Violations.framework */,
+				66D91882A34916FDA2AB0E79 /* libPods-Violations.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -563,7 +563,7 @@
 				22FF5A2F2259AF21007E4C19 /* Sources */,
 				22FF5A302259AF21007E4C19 /* Frameworks */,
 				22FF5A312259AF21007E4C19 /* Resources */,
-				14283A4C9B80FCC10E8B47E3 /* [CP] Embed Pods Frameworks */,
+				A565F8C0FFBF03B10B69A60B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -628,23 +628,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14283A4C9B80FCC10E8B47E3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Violations/Pods-Violations-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Violations/Pods-Violations-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Violations/Pods-Violations-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		54D5B8ACCF9D98CC038178BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +648,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A565F8C0FFBF03B10B69A60B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Violations/Pods-Violations-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Violations/Pods-Violations-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Violations/Pods-Violations-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
