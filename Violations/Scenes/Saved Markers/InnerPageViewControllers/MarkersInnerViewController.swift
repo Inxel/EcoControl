@@ -57,9 +57,9 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: Table View Data Source
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { markers.count }
+    final func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { markers.count }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    final func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as MarkerInfoCell
         
         let marker = markers[indexPath.row]
@@ -70,7 +70,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: Table View Delegate
     
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+    final func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.1) {
             if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
                 cell.changeBackgroundSize(transform: .init(scaleX: 0.85, y: 0.85))
@@ -78,7 +78,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+    final func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
                 cell.changeBackgroundSize(transform: .identity)
@@ -86,7 +86,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    final func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didTap(on: markers[indexPath.row])
     }
 
