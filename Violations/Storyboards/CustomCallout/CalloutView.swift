@@ -23,7 +23,7 @@ private enum Constants {
 
 // MARK: - Base
 
-final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
+final class CalloutView: UIViewController, ProgressHUDShowing {
     
     // MARK: Outlets
     
@@ -40,7 +40,6 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
     }
     
     @IBOutlet private weak var backgroundView: BackgroundView!
-    @IBOutlet private weak var underButtonView: UIView!
     
     @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
@@ -153,7 +152,6 @@ extension CalloutView: ThemeManagerDelegate {
         commentTextview.textColor = themeManager.current.textColor
         commentTextview.backgroundColor = themeManager.current.background
         backgroundView.backgroundColor = themeManager.current.background
-        underButtonView.backgroundColor = themeManager.current.background
         titleLabel.textColor = themeManager.current.textColor
     }
     
