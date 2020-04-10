@@ -40,6 +40,8 @@ extension MarkerInfoCell {
         commentLabel.text = comment
         dateLabel.text = date?.formattedDate(.long)
         titleLabel.textColor = themeProtocol.textColor
+        commentLabel.textColor = themeProtocol.textColor
+        dateLabel.textColor = themeProtocol.textColor
         background.backgroundColor = themeProtocol.cellBackground
         backgroundColor = themeProtocol.tableViewBackground
     }

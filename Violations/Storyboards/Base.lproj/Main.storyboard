@@ -626,8 +626,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.41093214900000002" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="VOG-pc-bBA" secondAttribute="bottom" id="4YG-rI-Ykc"/>
-                            <constraint firstItem="VOG-pc-bBA" firstAttribute="top" secondItem="tmF-2Y-kbu" secondAttribute="top" id="K0B-in-JZm"/>
+                            <constraint firstItem="uJa-l4-toT" firstAttribute="bottom" secondItem="VOG-pc-bBA" secondAttribute="bottom" id="4YG-rI-Ykc"/>
+                            <constraint firstItem="VOG-pc-bBA" firstAttribute="top" secondItem="uJa-l4-toT" secondAttribute="top" id="K0B-in-JZm"/>
                             <constraint firstItem="VOG-pc-bBA" firstAttribute="leading" secondItem="uJa-l4-toT" secondAttribute="leading" id="v2q-mN-8SZ"/>
                             <constraint firstItem="uJa-l4-toT" firstAttribute="trailing" secondItem="VOG-pc-bBA" secondAttribute="trailing" id="vfT-gN-UKy"/>
                         </constraints>

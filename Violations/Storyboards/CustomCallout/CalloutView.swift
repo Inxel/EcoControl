@@ -153,6 +153,7 @@ extension CalloutView: ThemeManagerDelegate {
         commentTextview.backgroundColor = themeManager.current.background
         backgroundView.backgroundColor = themeManager.current.background
         titleLabel.textColor = themeManager.current.textColor
+        view.backgroundColor = themeManager.current.background
     }
     
 }
