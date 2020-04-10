@@ -682,8 +682,8 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDX-CQ-F6L">
-                                <rect key="frame" x="20" y="137" width="47" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="20" y="142" width="48.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -714,8 +714,8 @@
                             <constraint firstItem="72q-I2-xxq" firstAttribute="top" secondItem="tR9-ki-tWY" secondAttribute="top" constant="20" id="Lzr-EF-46q"/>
                             <constraint firstItem="72q-I2-xxq" firstAttribute="centerX" secondItem="tR9-ki-tWY" secondAttribute="centerX" id="Vog-SI-XSC"/>
                             <constraint firstItem="tR9-ki-tWY" firstAttribute="trailing" secondItem="Z4q-Yj-nYp" secondAttribute="trailing" id="bs0-HQ-rS1"/>
-                            <constraint firstItem="Z4q-Yj-nYp" firstAttribute="top" secondItem="PDX-CQ-F6L" secondAttribute="bottom" constant="20" id="dgq-S9-mBd"/>
-                            <constraint firstItem="PDX-CQ-F6L" firstAttribute="top" secondItem="FYF-ap-nz9" secondAttribute="bottom" constant="30" id="fRh-Ms-XVm"/>
+                            <constraint firstItem="Z4q-Yj-nYp" firstAttribute="top" secondItem="PDX-CQ-F6L" secondAttribute="bottom" constant="15" id="dgq-S9-mBd"/>
+                            <constraint firstItem="PDX-CQ-F6L" firstAttribute="top" secondItem="FYF-ap-nz9" secondAttribute="bottom" constant="35" id="fRh-Ms-XVm"/>
                             <constraint firstItem="Z4q-Yj-nYp" firstAttribute="leading" secondItem="tR9-ki-tWY" secondAttribute="leading" id="hbR-40-LfG"/>
                             <constraint firstItem="PDX-CQ-F6L" firstAttribute="leading" secondItem="FYF-ap-nz9" secondAttribute="leading" id="jDg-Q7-RlK"/>
                             <constraint firstItem="tR9-ki-tWY" firstAttribute="trailing" secondItem="UkR-pe-GVw" secondAttribute="trailing" constant="20" id="jpc-Cw-x2c"/>
