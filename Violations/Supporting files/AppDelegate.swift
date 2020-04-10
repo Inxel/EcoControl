@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9960784314, blue: 0.9960784314, alpha: 1)
+        self.window?.backgroundColor = .black
         
         if Auth.auth().currentUser != nil {
             let mainViewController = TabBarController.instantiate(from: .Main)

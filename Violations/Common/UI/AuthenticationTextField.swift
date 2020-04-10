@@ -17,7 +17,7 @@ final class AuthenticationTextField: UITextField {
         
         self.layer.cornerRadius = 15
         self.layer.borderWidth = 1
-        self.layer.borderColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.4330878519, alpha: 1)
+        self.layer.borderColor = UIColor.primary.cgColor
         self.addPadding(.left(5))
         
     }

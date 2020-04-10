@@ -25,7 +25,7 @@ extension TappedButtonDelegate {
 
 // MARK: - Base
 
-final class MarkDetailViewController: ViewControllerPannable {
+final class MarkDetailViewController: UIViewController {
     
     weak var delegate: TappedButtonDelegate?
     
@@ -46,9 +46,9 @@ final class MarkDetailViewController: ViewControllerPannable {
         didSet {
             commentTextView.text = "Comment"
             commentTextView.layer.borderWidth = 1
-            commentTextView.layer.borderColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.4330878519, alpha: 1)
+            commentTextView.layer.borderColor = UIColor.primary.cgColor
             commentTextView.layer.cornerRadius = 10
-            commentTextView.textColor = #colorLiteral(red: 0, green: 0.5647058824, blue: 0.431372549, alpha: 1)
+            commentTextView.textColor = .primary
         }
     }
     
@@ -142,7 +142,7 @@ extension MarkDetailViewController: ThemeManagerDelegate {
         typeOfViolationLabel.textColor = themeManager.current.textColor
         collectionView.backgroundColor = themeManager.current.background
         view.backgroundColor = themeManager.current.background
-        commentTextView.textColor = commentTextView.text == "Comment" ? #colorLiteral(red: 0, green: 0.5628422499, blue: 0.4330878519, alpha: 1) : themeManager.current.textColor
+        commentTextView.textColor = commentTextView.text == "Comment" ? .primary : themeManager.current.textColor
         dataPicker.reloadInputViews()
     }
     
@@ -162,7 +162,7 @@ extension MarkDetailViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
-            textView.textColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.4330878519, alpha: 1)
+            textView.textColor = .primary
             textView.text = "Comment"
         }
     }

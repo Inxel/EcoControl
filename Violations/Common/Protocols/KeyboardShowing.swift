@@ -11,8 +11,6 @@ import UIKit
 
 protocol KeyboardShowing {
     var tapRecognizer: UITapGestureRecognizer { get set }
-    func addObservers()
-    func removeObservers()
     func keyboardWillShow(keyboardHeight: CGFloat, with animationDuration: Double)
     func keyboardWillHide(with animationDuration: Double)
 }

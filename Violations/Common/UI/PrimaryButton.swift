@@ -16,8 +16,9 @@ final class PrimaryButton: TransitionButton {
         
         super.init(coder: aDecoder)
         
-        self.layer.cornerRadius = 20
-        self.layer.borderColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.4330878519, alpha: 1)
+        setTitleColor(.white, for: .normal)
+        layer.cornerRadius = 20
+        layer.borderColor = UIColor.primary.cgColor
         
     }
     

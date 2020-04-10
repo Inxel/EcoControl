@@ -224,25 +224,25 @@ extension MapViewController: DefaultAlertShowing {
     }
     
     private func setupUserTrackingButton() {
-        view.subviews.filter { $0 is MKUserTrackingButton }.first?.removeFromSuperview()
-        mapView.showsCompass = false
-
-        let button = MKUserTrackingButton(mapView: mapView)
-        button.layer.borderColor = UIColor.clear.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.backgroundColor = themeManager.current.background.cgColor
-        button.tintColor = themeManager.current.trackingButton
-        view.addSubview(button)
-        
-        let scale = MKScaleView(mapView: mapView)
-        scale.legendAlignment = .trailing
-        scale.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scale)
-        
-        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: self.view.frame.height / 2),
-                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)])
+//        view.subviews.filter { $0 is MKUserTrackingButton }.first?.removeFromSuperview()
+//        mapView.showsCompass = false
+//
+//        let button = MKUserTrackingButton(mapView: mapView)
+//        button.layer.borderColor = UIColor.clear.cgColor
+//        button.layer.borderWidth = 1
+//        button.layer.cornerRadius = 5
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.layer.backgroundColor = themeManager.current.background.cgColor
+//        button.tintColor = themeManager.current.trackingButton
+//        view.addSubview(button)
+//        
+//        let scale = MKScaleView(mapView: mapView)
+//        scale.legendAlignment = .trailing
+//        scale.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(scale)
+//        
+//        NSLayoutConstraint.activate([button.topAnchor.constraint(equalTo: view.topAnchor, constant: self.view.frame.height / 2),
+//                                     button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)])
     }
     
 }

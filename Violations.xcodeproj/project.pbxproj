@@ -37,8 +37,14 @@
 		2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */; };
 		2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4522BDFCA8009AE55C /* LightTheme.swift */; };
 		2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4822BDFCC1009AE55C /* DarkTheme.swift */; };
+		224FD0D324407631004DBD1C /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD0D224407631004DBD1C /* Color+CustomColors.swift */; };
+		224FD0D524407B60004DBD1C /* Color+CustomInits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD0D424407B60004DBD1C /* Color+CustomInits.swift */; };
+		22527AAE244071F600435585 /* ThemeModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AAC244071F600435585 /* ThemeModeCell.swift */; };
+		22527AAF244071F600435585 /* ThemeModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22527AAD244071F600435585 /* ThemeModeCell.xib */; };
+		22527AB12440733800435585 /* ThemeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AB02440733800435585 /* ThemeMode.swift */; };
 		22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */; };
 		2260E40722BFA09000374258 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E40622BFA09000374258 /* UserMarker.swift */; };
+		22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22674A2524405FD300646C3B /* AppearanceViewController.swift */; };
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
@@ -111,8 +117,14 @@
 		2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2247BD4522BDFCA8009AE55C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2247BD4822BDFCC1009AE55C /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		224FD0D224407631004DBD1C /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
+		224FD0D424407B60004DBD1C /* Color+CustomInits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomInits.swift"; sourceTree = "<group>"; };
+		22527AAC244071F600435585 /* ThemeModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModeCell.swift; sourceTree = "<group>"; };
+		22527AAD244071F600435585 /* ThemeModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeModeCell.xib; sourceTree = "<group>"; };
+		22527AB02440733800435585 /* ThemeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMode.swift; sourceTree = "<group>"; };
 		2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeMarkersFromFirebase.swift; sourceTree = "<group>"; };
 		2260E40622BFA09000374258 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
+		22674A2524405FD300646C3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				224FD0D12440761D004DBD1C /* UIColor */,
 				2295A64D24122C42007208CD /* StatusBar */,
 				22DE41A42403B41700680606 /* Date */,
 				22DC152A23DA2868007F363F /* PageViewController */,
@@ -321,6 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				22CA8090225A3A2800E01B61 /* ProfileViewController.swift */,
+				22674A2524405FD300646C3B /* AppearanceViewController.swift */,
+				22674A2724406AEB00646C3B /* TableViewCells */,
 			);
 			path = "Profile info";
 			sourceTree = "<group>";
@@ -342,6 +357,32 @@
 				2247BD4822BDFCC1009AE55C /* DarkTheme.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		224FD0D12440761D004DBD1C /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				224FD0D224407631004DBD1C /* Color+CustomColors.swift */,
+				224FD0D424407B60004DBD1C /* Color+CustomInits.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		22527AAB244071E200435585 /* ThemeModeCell */ = {
+			isa = PBXGroup;
+			children = (
+				22527AAC244071F600435585 /* ThemeModeCell.swift */,
+				22527AAD244071F600435585 /* ThemeModeCell.xib */,
+			);
+			path = ThemeModeCell;
+			sourceTree = "<group>";
+		};
+		22674A2724406AEB00646C3B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				22527AAB244071E200435585 /* ThemeModeCell */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		2294CC39226C45D9008131A5 /* Supporting files */ = {
@@ -507,6 +548,7 @@
 				2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */,
 				2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */,
 				2209B96423D0E69B00B3FE51 /* ReportsType.swift */,
+				22527AB02440733800435585 /* ThemeMode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -615,6 +657,7 @@
 				22FF5A412259AF23007E4C19 /* LaunchScreen.storyboard in Resources */,
 				22DC152923DA1863007F363F /* MarkerInfoCell.xib in Resources */,
 				220E24A822883957002F2D63 /* Login.storyboard in Resources */,
+				22527AAF244071F600435585 /* ThemeModeCell.xib in Resources */,
 				22FF5A4E2259C9C2007E4C19 /* GoogleService-Info.plist in Resources */,
 				22FF5A3E2259AF23007E4C19 /* Assets.xcassets in Resources */,
 				22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */,
@@ -694,14 +737,17 @@
 				2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */,
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,
 				2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */,
+				22527AB12440733800435585 /* ThemeMode.swift in Sources */,
 				2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */,
 				220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */,
 				2209B94B23D0C6AD00B3FE51 /* Image.swift in Sources */,
+				22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */,
 				22DC152023DA17A2007F363F /* AddedMarkersTableViewController.swift in Sources */,
 				22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */,
 				2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */,
 				22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */,
 				2294CCA322747954008131A5 /* ImageSource.swift in Sources */,
+				224FD0D524407B60004DBD1C /* Color+CustomInits.swift in Sources */,
 				22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */,
 				2209B95923D0D20500B3FE51 /* MarkersManager.swift in Sources */,
 				2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */,
@@ -724,12 +770,14 @@
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
 				2260E40722BFA09000374258 /* UserMarker.swift in Sources */,
 				22DC151B23DA1788007F363F /* SavedMarkersTableViewController.swift in Sources */,
+				22527AAE244071F600435585 /* ThemeModeCell.swift in Sources */,
 				228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */,
 				2209B94523D0C5DB00B3FE51 /* UIApplication+SettingRootView.swift in Sources */,
 				2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */,
 				22FAF2E923EF1AD0008C554F /* MulticastDelegate.swift in Sources */,
 				22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */,
 				22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */,
+				224FD0D324407631004DBD1C /* Color+CustomColors.swift in Sources */,
 				2209B96323D0DD8100B3FE51 /* UICollectionView+Registration.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
 				228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */,
@@ -809,7 +857,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -864,7 +912,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -882,7 +930,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G3L84SD56C;
 				INFOPLIST_FILE = Violations/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -902,7 +950,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G3L84SD56C;
 				INFOPLIST_FILE = Violations/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

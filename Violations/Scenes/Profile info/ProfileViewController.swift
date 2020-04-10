@@ -16,7 +16,7 @@ final class ProfileViewController: UIViewController, ProgressHUDShowing {
     
     @IBOutlet private weak var logoutButton: PrimaryButton! {
         didSet {
-            logoutButton.layer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            logoutButton.layer.borderColor = UIColor.logoutRed.cgColor
         }
     }
     
@@ -27,6 +27,10 @@ final class ProfileViewController: UIViewController, ProgressHUDShowing {
     }
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: Overriden Properties
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { themeManager.isLightTheme ? .darkContent : .lightContent }
     
     // MARK: Properties
     

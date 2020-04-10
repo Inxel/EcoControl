@@ -23,11 +23,12 @@ final class ThemeManager {
     
     @Multicast var delegate: ThemeManagerDelegate
     
-    private var isLightTheme: Bool = true {
+    @UserDefault("isLightTheme", true) private(set) var isLightTheme: Bool {
         didSet {
             $delegate.invoke { $0.themeDidChange() }
         }
     }
+    @UserDefault("useSystemTheme", true) private(set) var useSystemTheme: Bool
     
     var current: ThemeProtocol { isLightTheme ? LightTheme() : DarkTheme() }
 }
@@ -39,6 +40,11 @@ extension ThemeManager {
     
     func changeTheme(isLightTheme: Bool) {
         self.isLightTheme = isLightTheme
+    }
+    
+    func changeThemeSource(useSystemTheme: Bool, systemThemeIsLight: Bool) {
+        self.useSystemTheme = useSystemTheme
+        changeTheme(isLightTheme: systemThemeIsLight)
     }
     
 }

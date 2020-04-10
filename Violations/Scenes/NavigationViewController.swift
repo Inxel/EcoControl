@@ -19,10 +19,16 @@ final class NavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+        if themeManager.useSystemTheme {
+            themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+        } else {
+            themeManager.changeTheme(isLightTheme: themeManager.isLightTheme)
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard themeManager.useSystemTheme else { return }
         themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
     }
     

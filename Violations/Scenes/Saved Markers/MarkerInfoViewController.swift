@@ -14,7 +14,7 @@ import MapKit
 
 // MARK: - Base
 
-final class MarkerInfoViewController: ViewControllerPannable {
+final class MarkerInfoViewController: UIViewController {
 
     // MARK: Outlets
     

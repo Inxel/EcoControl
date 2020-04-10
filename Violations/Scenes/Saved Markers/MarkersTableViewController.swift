@@ -32,6 +32,10 @@ final class MarkersTableViewController: UIViewController {
     }
     @IBOutlet private weak var markersTypeIndicatorLeadingConstraint: NSLayoutConstraint!
     
+    // MARK: Overriden Properties
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
+    
     // MARK: Properties
     
     private var pageContainer: UIPageViewController!

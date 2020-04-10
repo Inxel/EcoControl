@@ -20,14 +20,20 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         themeManager.delegate = self
-        themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
         self.delegate = self
+        if themeManager.useSystemTheme {
+            themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+        } else {
+            themeManager.changeTheme(isLightTheme: themeManager.isLightTheme)
+        }
+        
     }
     
     // MARK: Overriden API
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
+        guard themeManager.useSystemTheme else { return }
         themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
     }
     
