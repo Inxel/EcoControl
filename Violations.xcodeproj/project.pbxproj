@@ -45,6 +45,7 @@
 		2260E40722BFA09000374258 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E40622BFA09000374258 /* UserMarker.swift */; };
 		22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22674A2524405FD300646C3B /* AppearanceViewController.swift */; };
 		226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */; };
+		226B0E292440B5BD008AF6A4 /* UIImage+CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */; };
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
@@ -125,6 +126,7 @@
 		2260E40622BFA09000374258 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
 		22674A2524405FD300646C3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Properties.swift"; sourceTree = "<group>"; };
+		226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CustomImages.swift"; sourceTree = "<group>"; };
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */,
+				226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				2209B94B23D0C6AD00B3FE51 /* Image.swift in Sources */,
 				22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */,
 				22DC152023DA17A2007F363F /* AddedMarkersTableViewController.swift in Sources */,
+				226B0E292440B5BD008AF6A4 /* UIImage+CustomImages.swift in Sources */,
 				22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */,
 				2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */,
 				226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */,

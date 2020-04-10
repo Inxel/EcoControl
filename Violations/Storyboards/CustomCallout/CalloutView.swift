@@ -77,7 +77,7 @@ final class CalloutView: ViewControllerPannable, ProgressHUDShowing {
         super.viewDidLoad()
         themeManager.delegate = self
         themeDidChange()
-        images = Array(repeating: SKPhoto.photoWithImage(#imageLiteral(resourceName: "loading")), count: numberOfPhotos)
+        images = Array(repeating: SKPhoto.photoWithImage(.loading), count: numberOfPhotos)
         
         SKPhotoBrowserOptions.displayAction = false
         SKPhotoBrowserOptions.displayStatusbar = true
