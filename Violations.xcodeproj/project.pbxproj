@@ -36,14 +36,15 @@
 		2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */; };
 		2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4522BDFCA8009AE55C /* LightTheme.swift */; };
 		2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4822BDFCC1009AE55C /* DarkTheme.swift */; };
-		224FD0D324407631004DBD1C /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD0D224407631004DBD1C /* Color+CustomColors.swift */; };
-		224FD0D524407B60004DBD1C /* Color+CustomInits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD0D424407B60004DBD1C /* Color+CustomInits.swift */; };
+		224FD0D324407631004DBD1C /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD0D224407631004DBD1C /* UIColor+CustomColors.swift */; };
+		224FD0D524407B60004DBD1C /* UIColor+CustomInits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FD0D424407B60004DBD1C /* UIColor+CustomInits.swift */; };
 		22527AAE244071F600435585 /* ThemeModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AAC244071F600435585 /* ThemeModeCell.swift */; };
 		22527AAF244071F600435585 /* ThemeModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22527AAD244071F600435585 /* ThemeModeCell.xib */; };
 		22527AB12440733800435585 /* ThemeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AB02440733800435585 /* ThemeMode.swift */; };
 		22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */; };
 		2260E40722BFA09000374258 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E40622BFA09000374258 /* UserMarker.swift */; };
 		22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22674A2524405FD300646C3B /* AppearanceViewController.swift */; };
+		226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */; };
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
@@ -115,14 +116,15 @@
 		2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2247BD4522BDFCA8009AE55C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2247BD4822BDFCC1009AE55C /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
-		224FD0D224407631004DBD1C /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
-		224FD0D424407B60004DBD1C /* Color+CustomInits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomInits.swift"; sourceTree = "<group>"; };
+		224FD0D224407631004DBD1C /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
+		224FD0D424407B60004DBD1C /* UIColor+CustomInits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomInits.swift"; sourceTree = "<group>"; };
 		22527AAC244071F600435585 /* ThemeModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModeCell.swift; sourceTree = "<group>"; };
 		22527AAD244071F600435585 /* ThemeModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeModeCell.xib; sourceTree = "<group>"; };
 		22527AB02440733800435585 /* ThemeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMode.swift; sourceTree = "<group>"; };
 		2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeMarkersFromFirebase.swift; sourceTree = "<group>"; };
 		2260E40622BFA09000374258 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
 		22674A2524405FD300646C3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Properties.swift"; sourceTree = "<group>"; };
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
@@ -197,43 +199,44 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				226B0E252440B3A7008AF6A4 /* UITraitCollection */,
 				224FD0D12440761D004DBD1C /* UIColor */,
 				2295A64D24122C42007208CD /* StatusBar */,
 				22DE41A42403B41700680606 /* Date */,
-				22DC152A23DA2868007F363F /* PageViewController */,
-				2209B96123D0DD7300B3FE51 /* CollectionView */,
-				2209B95A23D0DCA200B3FE51 /* TableView */,
+				22DC152A23DA2868007F363F /* UIPageViewController */,
+				2209B96123D0DD7300B3FE51 /* UICollectionView */,
+				2209B95A23D0DCA200B3FE51 /* UITableView */,
 				2209B94323D0C5C700B3FE51 /* UIApplication */,
-				2209B94023D0C56C00B3FE51 /* TextField */,
-				2209B93A23D0C4BA00B3FE51 /* ViewController */,
-				2209B93723D0C47700B3FE51 /* Image */,
+				2209B94023D0C56C00B3FE51 /* UITextField */,
+				2209B93A23D0C4BA00B3FE51 /* UIViewController */,
+				2209B93723D0C47700B3FE51 /* UIImage */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		2209B93723D0C47700B3FE51 /* Image */ = {
+		2209B93723D0C47700B3FE51 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
 				2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */,
 			);
-			path = Image;
+			path = UIImage;
 			sourceTree = "<group>";
 		};
-		2209B93A23D0C4BA00B3FE51 /* ViewController */ = {
+		2209B93A23D0C4BA00B3FE51 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
 				2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */,
 				2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */,
 			);
-			path = ViewController;
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
-		2209B94023D0C56C00B3FE51 /* TextField */ = {
+		2209B94023D0C56C00B3FE51 /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
 				2209B94123D0C57C00B3FE51 /* UITextField+Padding.swift */,
 			);
-			path = TextField;
+			path = UITextField;
 			sourceTree = "<group>";
 		};
 		2209B94323D0C5C700B3FE51 /* UIApplication */ = {
@@ -282,20 +285,20 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		2209B95A23D0DCA200B3FE51 /* TableView */ = {
+		2209B95A23D0DCA200B3FE51 /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
 				2209B95B23D0DCB200B3FE51 /* UITableView+Registration.swift */,
 			);
-			path = TableView;
+			path = UITableView;
 			sourceTree = "<group>";
 		};
-		2209B96123D0DD7300B3FE51 /* CollectionView */ = {
+		2209B96123D0DD7300B3FE51 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				2209B96223D0DD8100B3FE51 /* UICollectionView+Registration.swift */,
 			);
-			path = CollectionView;
+			path = UICollectionView;
 			sourceTree = "<group>";
 		};
 		220E24A922883E9C002F2D63 /* Authentication */ = {
@@ -359,8 +362,8 @@
 		224FD0D12440761D004DBD1C /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				224FD0D224407631004DBD1C /* Color+CustomColors.swift */,
-				224FD0D424407B60004DBD1C /* Color+CustomInits.swift */,
+				224FD0D224407631004DBD1C /* UIColor+CustomColors.swift */,
+				224FD0D424407B60004DBD1C /* UIColor+CustomInits.swift */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -380,6 +383,14 @@
 				22527AAB244071E200435585 /* ThemeModeCell */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		226B0E252440B3A7008AF6A4 /* UITraitCollection */ = {
+			isa = PBXGroup;
+			children = (
+				226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */,
+			);
+			path = UITraitCollection;
 			sourceTree = "<group>";
 		};
 		2294CC39226C45D9008131A5 /* Supporting files */ = {
@@ -481,13 +492,13 @@
 			path = AddedMarkersTableViewController;
 			sourceTree = "<group>";
 		};
-		22DC152A23DA2868007F363F /* PageViewController */ = {
+		22DC152A23DA2868007F363F /* UIPageViewController */ = {
 			isa = PBXGroup;
 			children = (
 				22DC152B23DA288B007F363F /* UIPageViewController+Navigation.swift */,
 				228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */,
 			);
-			path = PageViewController;
+			path = UIPageViewController;
 			sourceTree = "<group>";
 		};
 		22DE41A42403B41700680606 /* Date */ = {
@@ -741,9 +752,10 @@
 				22DC152023DA17A2007F363F /* AddedMarkersTableViewController.swift in Sources */,
 				22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */,
 				2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */,
+				226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */,
 				22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */,
 				2294CCA322747954008131A5 /* ImageSource.swift in Sources */,
-				224FD0D524407B60004DBD1C /* Color+CustomInits.swift in Sources */,
+				224FD0D524407B60004DBD1C /* UIColor+CustomInits.swift in Sources */,
 				22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */,
 				2209B95923D0D20500B3FE51 /* MarkersManager.swift in Sources */,
 				2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */,
@@ -773,7 +785,7 @@
 				22FAF2E923EF1AD0008C554F /* MulticastDelegate.swift in Sources */,
 				22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */,
 				22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */,
-				224FD0D324407631004DBD1C /* Color+CustomColors.swift in Sources */,
+				224FD0D324407631004DBD1C /* UIColor+CustomColors.swift in Sources */,
 				2209B96323D0DD8100B3FE51 /* UICollectionView+Registration.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
 				228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */,

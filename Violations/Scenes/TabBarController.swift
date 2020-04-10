@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         themeManager.delegate = self
         self.delegate = self
         if themeManager.useSystemTheme {
-            themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+            themeManager.changeTheme(isLightTheme: traitCollection.isLightInterface)
         } else {
             themeManager.changeTheme(isLightTheme: themeManager.isLightTheme)
         }
@@ -34,7 +34,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         guard themeManager.useSystemTheme else { return }
-        themeManager.changeTheme(isLightTheme: traitCollection.userInterfaceStyle == .light)
+        themeManager.changeTheme(isLightTheme: traitCollection.isLightInterface)
     }
     
 }

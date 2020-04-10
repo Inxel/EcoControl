@@ -43,7 +43,7 @@ final class AppearanceViewController: UIViewController {
 extension AppearanceViewController {
     
     @IBAction private func switchTapped(_ sender: UISwitch) {
-        themeManager.changeThemeSource(useSystemTheme: sender.isOn, systemThemeIsLight: traitCollection.userInterfaceStyle == .light)
+        themeManager.changeThemeSource(useSystemTheme: sender.isOn, systemThemeIsLight: traitCollection.isLightInterface)
         UIView.animate(withDuration: 0.2) {
             self.tableView.alpha = sender.isOn ? 0 : 1
             self.tableViewTitleLabel.alpha = sender.isOn ? 0 : 1
