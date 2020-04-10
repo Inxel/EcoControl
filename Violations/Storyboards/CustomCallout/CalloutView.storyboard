@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +54,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zb-Oq-PTL" customClass="PrimaryButton" customModule="Violations" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="614" width="155.5" height="50"/>
+                                        <rect key="frame" x="25" y="614" width="167" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.43308785189999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Jgs-nW-ErN"/>
@@ -70,7 +69,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-dy-5Qo" customClass="PrimaryButton" customModule="Violations" customModuleProvider="target">
-                                        <rect key="frame" x="210.5" y="614" width="178.5" height="50"/>
+                                        <rect key="frame" x="222" y="614" width="167" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.56470588235294117" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="1va-o9-FcG"/>
@@ -105,7 +104,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ZZC-dy-5Qo" secondAttribute="trailing" constant="25" id="13r-lr-PE7"/>
                                     <constraint firstItem="zJS-AQ-o9g" firstAttribute="leading" secondItem="i9B-vQ-rTo" secondAttribute="leading" id="2HL-sR-vko"/>
-                                    <constraint firstItem="0zb-Oq-PTL" firstAttribute="width" secondItem="ZZC-dy-5Qo" secondAttribute="width" multiplier="0.870968" id="5kq-5c-FTj"/>
+                                    <constraint firstItem="0zb-Oq-PTL" firstAttribute="width" secondItem="ZZC-dy-5Qo" secondAttribute="width" id="5kq-5c-FTj"/>
                                     <constraint firstItem="uKr-xj-KwZ" firstAttribute="leading" secondItem="i9B-vQ-rTo" secondAttribute="leading" id="8Rl-aX-okt"/>
                                     <constraint firstAttribute="trailing" secondItem="zJS-AQ-o9g" secondAttribute="trailing" id="9Kr-G9-LPX"/>
                                     <constraint firstItem="uKr-xj-KwZ" firstAttribute="height" secondItem="dGc-xo-cq1" secondAttribute="height" id="DQE-b0-01d"/>
