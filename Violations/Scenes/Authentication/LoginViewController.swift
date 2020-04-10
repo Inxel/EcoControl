@@ -120,6 +120,23 @@ extension LoginViewController: UITextFieldDelegate, KeyboardShowing {
 }
 
 
+// MARK: - TextField Delegate
+
+extension LoginViewController {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .done {
+            textField.resignFirstResponder()
+        } else if textField == emailTextfield {
+            passwordTextfield.becomeFirstResponder()
+        }
+        
+        return true
+    }
+    
+}
+
+
 // MARK: - Private API
 
 extension LoginViewController {
@@ -163,7 +180,7 @@ extension LoginViewController {
     private func changeStyleOf(_ textfield: UITextField, _ placeholder: String) {
         textfield.backgroundColor = themeManager.current.background
         textfield.textColor = themeManager.current.textfieldTextColor
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
+        textfield.attributedPlaceholder = .init(string: placeholder, attributes: [.foregroundColor: themeManager.current.textfieldTextColor])
     }
     
 }

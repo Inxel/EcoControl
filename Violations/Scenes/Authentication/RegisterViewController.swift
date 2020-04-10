@@ -179,3 +179,22 @@ extension RegisterViewController {
     }
     
 }
+
+
+// MARK: - TextField Delegate
+
+extension RegisterViewController {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .done {
+            textField.resignFirstResponder()
+        } else if textField == emailTextfield {
+            passwordTextfield.becomeFirstResponder()
+        } else if textField == passwordTextfield {
+            confirmPasswordTextfield.becomeFirstResponder()
+        }
+        
+        return true
+    }
+    
+}
