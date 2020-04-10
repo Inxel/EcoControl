@@ -6,7 +6,6 @@
 //  Copyright © 2020 Tyoma Zagoskin. All rights reserved.
 //
 
-// Thanks to https://github.com/funday991
 
 import Foundation
 

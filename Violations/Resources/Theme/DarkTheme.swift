@@ -10,7 +10,7 @@ import UIKit
 
 final class DarkTheme: ThemeProtocol {
     var background: UIColor = .backgroundGray
-    var tabBarColor: UIColor = #colorLiteral(red: 0.2290914655, green: 0.2301582694, blue: 0.2327426076, alpha: 1)
+    var tabBarColor: UIColor = .darkThemeTabBarColor
     var tabBarTintColor: UIColor = .white
     var textColor: UIColor = .white
     var tableViewBackground: UIColor = .backgroundGray

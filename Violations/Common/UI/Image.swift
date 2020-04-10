@@ -12,12 +12,9 @@ import UIKit
 final class Image: UIImageView {
     
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
-        
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        
     }
     
 }

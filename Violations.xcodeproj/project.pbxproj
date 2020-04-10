@@ -33,7 +33,6 @@
 		220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AF2288405A002F2D63 /* CheckInternet.swift */; };
 		2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */; };
 		223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */; };
-		2247BD4222BDFAC1009AE55C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2247BD4122BDFAC1009AE55C /* Colors.xcassets */; };
 		2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */; };
 		2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4522BDFCA8009AE55C /* LightTheme.swift */; };
 		2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4822BDFCC1009AE55C /* DarkTheme.swift */; };
@@ -113,7 +112,6 @@
 		220E24AF2288405A002F2D63 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissingKeyboard.swift"; sourceTree = "<group>"; };
 		223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		2247BD4122BDFAC1009AE55C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2247BD4522BDFCA8009AE55C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2247BD4822BDFCC1009AE55C /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
@@ -344,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				2247BD4722BDFCB0009AE55C /* Theme */,
-				2247BD4122BDFAC1009AE55C /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -664,7 +661,6 @@
 				22DC152323DA17BD007F363F /* AddedMarkersTableViewController.storyboard in Resources */,
 				22DC152523DA17D3007F363F /* SavedMarkersTableViewController.storyboard in Resources */,
 				22FF5A3C2259AF21007E4C19 /* Main.storyboard in Resources */,
-				2247BD4222BDFAC1009AE55C /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

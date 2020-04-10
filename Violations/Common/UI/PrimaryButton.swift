@@ -13,13 +13,10 @@ import TransitionButton
 final class PrimaryButton: TransitionButton {
     
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
-        
         setTitleColor(.white, for: .normal)
         layer.cornerRadius = 20
         layer.borderColor = UIColor.primary.cgColor
-        
     }
     
 }

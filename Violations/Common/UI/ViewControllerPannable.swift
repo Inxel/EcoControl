@@ -24,7 +24,6 @@ class ViewControllerPannable: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addGestureRecognizer(panGestureRecognizer)
     }
     
@@ -49,9 +48,9 @@ extension ViewControllerPannable {
             if touchPoint.y - initialTouchPoint.y > 75 {
                 dismiss(animated: true, completion: nil)
             } else {
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0.3) {
                     self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-                })
+                }
             }
         default:
             break

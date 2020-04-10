@@ -12,9 +12,7 @@ import UIKit
 final class BackgroundView: UIView {
     
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
-        
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         self.layer.cornerRadius = 20
     }
