@@ -76,6 +76,10 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
         }
     }
     
+    // MARK: Overriden Properties
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { themeManager.isLightTheme ? .darkContent : .lightContent }
+    
     // MARK: Properties
     
     private lazy var gestureRecognizer: UIGestureRecognizer = {
@@ -361,6 +365,7 @@ extension MapViewController: ThemeManagerDelegate {
         changeColorOf(addByTapButton)
         changeColorOf(addToLocationButton)
         setupUserTrackingButton()
+        mapView.overrideUserInterfaceStyle = themeManager.isLightTheme ? .light : .dark
     }
     
 }
