@@ -46,6 +46,7 @@
 		22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22674A2524405FD300646C3B /* AppearanceViewController.swift */; };
 		226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */; };
 		226B0E292440B5BD008AF6A4 /* UIImage+CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */; };
+		226B0E2E2442E5AE008AF6A4 /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */; };
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
@@ -127,6 +128,7 @@
 		22674A2524405FD300646C3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Properties.swift"; sourceTree = "<group>"; };
 		226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CustomImages.swift"; sourceTree = "<group>"; };
+		226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				2209B94C23D0C6D800B3FE51 /* BackgroundView.swift */,
 				2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */,
 				2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */,
+				226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
 				2209B96023D0DD1300B3FE51 /* ReusableView.swift in Sources */,
 				22DB647723F69C550039FF6B /* MarkersInnerViewController.swift in Sources */,
+				226B0E2E2442E5AE008AF6A4 /* LoadingLayer.swift in Sources */,
 				2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */,
 				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,

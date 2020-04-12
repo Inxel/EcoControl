@@ -55,7 +55,7 @@ final class MarkerInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        images = Array(repeating: SKPhoto.photoWithImage(.loading), count: marker?.amountOfPhotos ?? .zero)
+        images = Array(repeating: SKPhoto.photoWithImage(.init()), count: marker?.amountOfPhotos ?? .zero)
         
         SKPhotoBrowserOptions.displayAction = false
         SKPhotoBrowserOptions.displayStatusbar = true

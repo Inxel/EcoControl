@@ -27,7 +27,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     weak var delegate: ImageCellDelegate?
     
     lazy private var imageView: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "loading"))
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 10
         image.layer.masksToBounds = true
@@ -99,14 +99,17 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         
         blurEffect.isHidden = true
         deleteButton.isHidden = true
+        let loadingLayer = LoadingLayer(withBounds: bounds)
+        layer.addSublayer(loadingLayer)
         
         Storage.storage().reference().child("\(url)/\(index)").getData(maxSize: 10000000) { data, error in
             
             guard let data = data, let photo = UIImage(data: data) else {
-                print(error!)
+                print(error ?? "error loading photo")
                 return
             }
             
+            self.layer.sublayers?.removeAll(where: { $0 is LoadingLayer })
             self.setup(with: photo)
             completion(photo)
             

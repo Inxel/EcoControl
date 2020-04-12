@@ -76,7 +76,7 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
         super.viewDidLoad()
         themeManager.delegate = self
         themeDidChange()
-        images = Array(repeating: SKPhoto.photoWithImage(.loading), count: numberOfPhotos)
+        images = Array(repeating: SKPhoto.photoWithImage(.init()), count: numberOfPhotos)
         
         SKPhotoBrowserOptions.displayAction = false
         SKPhotoBrowserOptions.displayStatusbar = true
@@ -235,7 +235,6 @@ extension CalloutView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { numberOfPhotos }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
         
         cell.downloadImage(url, indexPath.item) { image in
