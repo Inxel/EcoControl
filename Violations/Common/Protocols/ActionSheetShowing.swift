@@ -10,19 +10,16 @@ import UIKit
 import MapKit
 
 
-protocol ActionSheetShowing {
-    func chooseMap(marker: CustomCallout?)
-}
+protocol ActionSheetShowing {}
 
 
 extension ActionSheetShowing where Self: UIViewController {
     
     func chooseMap(marker: CustomCallout?) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: #"Show on "Maps""#, style: .default, handler: { _ in
+        alert.addAction(.init(title: #"Show on "Maps""#, style: .default, handler: { _ in
             
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey:
-                MKLaunchOptionsDirectionsModeDriving]
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             marker?.mapItem().openInMaps(launchOptions: launchOptions)
         }))
         
@@ -31,7 +28,7 @@ extension ActionSheetShowing where Self: UIViewController {
         
         alert.addAction(cancel)
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
 }

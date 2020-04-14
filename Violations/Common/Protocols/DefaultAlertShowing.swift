@@ -9,9 +9,7 @@
 import UIKit
 
 
-protocol DefaultAlertShowing: class {
-    func showAlert(title: String?, message: String?, defaultButtonTitle: String, cancelButtonTitle: String?, alertHandler: Handler<UIAlertAction>?)
-}
+protocol DefaultAlertShowing: class {}
 
 
 extension DefaultAlertShowing where Self: UIViewController {

@@ -10,12 +10,7 @@ import UIKit
 import SVProgressHUD
 
 
-protocol ProgressHUDShowing {
-    func showProgressHUD()
-    func showProgressHUDSuccess(with status: String?)
-    func showProgressHUDError(with status: String?)
-    func dismissProgressHUD(after secondsCount: Double)
-}
+protocol ProgressHUDShowing {}
 
 
 extension ProgressHUDShowing where Self: UIViewController {
