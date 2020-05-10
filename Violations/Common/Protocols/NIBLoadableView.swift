@@ -17,7 +17,7 @@ protocol NIBLoadableView: class {
 extension NIBLoadableView where Self: UIView, Self: ReusableView {
     static var nib: UINib { .init(nibName: reuseID, bundle: nil) }
 
-    var contentView: UIView? { get { fatalError("Needs to be overriden") } set { fatalError("Needs to be overriden") } }
+    var contentView: UIView? { get { fatalError("Needs to be overridden") } set { fatalError("Needs to be overridden") } }
     
     func loadViewFromNib() {
         guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }

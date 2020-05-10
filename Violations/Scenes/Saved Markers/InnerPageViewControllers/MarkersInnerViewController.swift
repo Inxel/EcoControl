@@ -90,7 +90,7 @@ class MarkersInnerViewController: UIViewController, UITableViewDataSource, UITab
         delegate?.didTap(on: markers[indexPath.row])
     }
 
-    // MARK: Should be overriden
+    // MARK: Should be overridden
     
     func markersDidUpdate() {
         tableView.reloadData()

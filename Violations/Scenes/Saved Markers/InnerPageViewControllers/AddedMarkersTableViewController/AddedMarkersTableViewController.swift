@@ -17,7 +17,7 @@ final class AddedMarkersTableViewController: MarkersInnerViewController {
     
     @IBOutlet private weak var emptyLabel: UILabel!
     
-    // MARK: Overriden API
+    // MARK: Overridden API
     
     override func markersDidUpdate() {
         super.markersDidUpdate()

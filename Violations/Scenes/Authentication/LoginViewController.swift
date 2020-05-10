@@ -47,7 +47,7 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
         }
     }
     
-    // MARK: Overriden Properties
+    // MARK: Overridden Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     

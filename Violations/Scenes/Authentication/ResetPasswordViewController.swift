@@ -43,7 +43,7 @@ final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
     
     @IBOutlet weak var sendButtonBottomConstraint: NSLayoutConstraint!
     
-    // MARK: Overriden Properties
+    // MARK: Overridden Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     

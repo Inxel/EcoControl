@@ -56,7 +56,7 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
         }
     }
     
-    // MARK: Overriden Properties
+    // MARK: Overridden Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     

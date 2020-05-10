@@ -29,7 +29,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
     }
     
-    // MARK: Overriden API
+    // MARK: Overridden API
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)

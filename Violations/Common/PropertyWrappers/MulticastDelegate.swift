@@ -14,6 +14,8 @@ import Foundation
 @propertyWrapper
 struct Multicast<T> {
     
+    // MARK: Properties
+    
     private var _wrappedValue: MulticastDelegate<T> = .init()
     var projectedValue: MulticastDelegate<T> { _wrappedValue }
 
@@ -21,6 +23,10 @@ struct Multicast<T> {
         get { fatalError("Should not be accessed directly") }
         set { _wrappedValue.add(newValue) }
     }
+    
+    // MARK: Initialization
+    
+    init() {}
     
 }
 

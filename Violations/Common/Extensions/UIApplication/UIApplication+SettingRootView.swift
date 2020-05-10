@@ -14,11 +14,11 @@ extension UIApplication {
     static private(set) var loginAnimation: UIView.AnimationOptions = .transitionFlipFromRight
     static private(set) var logoutAnimation: UIView.AnimationOptions = .transitionFlipFromLeft
     
-    public static func setRootView(_ viewController: UIViewController,
+    static func setRootView(_ viewController: UIViewController,
                                    options: UIView.AnimationOptions = .transitionFlipFromRight,
                                    animated: Bool = true,
                                    duration: TimeInterval = 0.5,
-                                   completion: (() -> Void)? = nil) {
+                                   completion: DefaultHandler? = nil) {
         guard animated else {
             UIApplication.shared.keyWindow?.rootViewController = viewController
             return

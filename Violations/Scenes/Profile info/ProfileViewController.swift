@@ -28,7 +28,7 @@ final class ProfileViewController: UIViewController, ProgressHUDShowing {
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
-    // MARK: Overriden Properties
+    // MARK: Overridden Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle { themeManager.isLightTheme ? .darkContent : .lightContent }
     
