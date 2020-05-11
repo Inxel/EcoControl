@@ -78,7 +78,7 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     
     // MARK: Overridden Properties
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { themeManager.isLightTheme ? .darkContent : .lightContent }
+    override var preferredStatusBarStyle: UIStatusBarStyle { themeManager.preferredStatusBarStyle }
     
     // MARK: Properties
     

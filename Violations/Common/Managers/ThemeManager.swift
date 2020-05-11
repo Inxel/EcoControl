@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tyoma Zagoskin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 protocol ThemeManagerDelegate {
@@ -30,6 +30,7 @@ final class ThemeManager {
     }
     @UserDefault("useSystemTheme", true) private(set) var useSystemTheme: Bool
     
+    var preferredStatusBarStyle: UIStatusBarStyle { isLightTheme ? .darkContent : .lightContent }
     var current: ThemeProtocol { isLightTheme ? LightTheme() : DarkTheme() }
 }
 
