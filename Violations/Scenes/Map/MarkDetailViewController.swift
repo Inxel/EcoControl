@@ -89,13 +89,13 @@ final class MarkDetailViewController: UIViewController {
 
 extension MarkDetailViewController: ProgressHUDShowing {
     
-    @IBAction private func cancelTapped(_ sender: Any) {
+    @IBAction private func cancelTapped(_ sender: PrimaryButton) {
         delegate?.userTappedButton(button: .cancel)
         dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction private func saveTapped(_ sender: Any) {
+    @IBAction private func saveTapped(_ sender: PrimaryButton) {
         guard CheckInternet.connection() else {
             showProgressHUDError(with: "Check your internet connection")
             return
@@ -112,7 +112,7 @@ extension MarkDetailViewController: ProgressHUDShowing {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction private func addPhoto(_ sender: Any) {
+    @IBAction private func addPhoto(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
