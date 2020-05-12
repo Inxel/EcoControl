@@ -169,7 +169,7 @@ extension MapViewController {
     }
     
     @IBAction private func addToLocationButtonTapped(_ sender: PrimaryButton) {
-        performSegue(withIdentifier: "createMarkDetail", sender: Any?.self)
+        performSegue(withIdentifier: "createMarkDetail", sender: self)
         
         addToLocationTapped = true
         showAddButtons = false
@@ -260,7 +260,7 @@ extension MapViewController: UIGestureRecognizerDelegate {
     
     @objc private func handleTap(_ gestureReconizer: UILongPressGestureRecognizer) {
         if canAddAnnotation {
-            performSegue(withIdentifier: "createMarkDetail", sender: Any?.self)
+            performSegue(withIdentifier: "createMarkDetail", sender: self)
             
             tappedCoordinates = gestureReconizer.location(in: mapView)
         }
