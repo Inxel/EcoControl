@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Base
 
-final class AddedMarkersTableViewController: MarkersInnerViewController {
+final class AddedMarkersTableViewController: MarkersInnerViewController<UserMarker> {
     
     // MARK: Outlets
     
@@ -22,12 +22,6 @@ final class AddedMarkersTableViewController: MarkersInnerViewController {
     override func markersDidUpdate() {
         super.markersDidUpdate()
         emptyLabel.isHidden = !markers.isEmpty
-    }
-
-    override func getMarkers() {
-        let addedMarkers = realm.objects(UserMarker.self).sorted(byKeyPath: "date", ascending: true)
-
-        markers = addedMarkers.map { Marker(marker: $0) }
     }
     
 }
