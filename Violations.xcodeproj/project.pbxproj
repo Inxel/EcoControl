@@ -41,6 +41,7 @@
 		22527AAE244071F600435585 /* ThemeModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AAC244071F600435585 /* ThemeModeCell.swift */; };
 		22527AAF244071F600435585 /* ThemeModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22527AAD244071F600435585 /* ThemeModeCell.xib */; };
 		22527AB12440733800435585 /* ThemeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AB02440733800435585 /* ThemeMode.swift */; };
+		2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253FD99246BC70500125946 /* MarkerObject.swift */; };
 		22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */; };
 		2260E40722BFA09000374258 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E40622BFA09000374258 /* UserMarker.swift */; };
 		22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22674A2524405FD300646C3B /* AppearanceViewController.swift */; };
@@ -123,6 +124,7 @@
 		22527AAC244071F600435585 /* ThemeModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModeCell.swift; sourceTree = "<group>"; };
 		22527AAD244071F600435585 /* ThemeModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeModeCell.xib; sourceTree = "<group>"; };
 		22527AB02440733800435585 /* ThemeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMode.swift; sourceTree = "<group>"; };
+		2253FD99246BC70500125946 /* MarkerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerObject.swift; sourceTree = "<group>"; };
 		2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeMarkersFromFirebase.swift; sourceTree = "<group>"; };
 		2260E40622BFA09000374258 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
 		22674A2524405FD300646C3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */,
 				2209B96423D0E69B00B3FE51 /* ReportsType.swift */,
 				22527AB02440733800435585 /* ThemeMode.swift */,
+				2253FD99246BC70500125946 /* MarkerObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				22FF5A4C2259B505007E4C19 /* RegisterViewController.swift in Sources */,
 				2209B95423D0C95600B3FE51 /* UserDefault.swift in Sources */,
 				220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */,
+				2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */,
 				22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */,
 				2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */,
 				22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */,
