@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 
 final class UserMarker: MarkerObject {}
