@@ -84,6 +84,17 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     
     deinit { removeObservers() }
     
+    // MARK: Collection View Data Source
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
+        
+        cell.setup(with: items[indexPath.item])
+        cell.delegate = self
+        
+        return cell
+    }
+    
 }
 
 
@@ -239,24 +250,6 @@ extension CreatingMarkerViewController {
 
         addPhotoViewLeadingConstraint.constant = -scrollView.contentOffset.x
         view.layoutIfNeeded()
-    }
-    
-}
-
-
-//MARK: - Collection View Data Source
-
-extension CreatingMarkerViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { items.count }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
-        
-        cell.setup(with: items[indexPath.item])
-        cell.delegate = self
-        
-        return cell
     }
     
 }

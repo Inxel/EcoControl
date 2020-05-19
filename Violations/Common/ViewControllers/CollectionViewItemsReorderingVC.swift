@@ -11,11 +11,15 @@ import UIKit
 
 // MARK: - Base
 
-class CollectionViewItemsReorderingVC<Item: NSItemProviderWriting>: UIViewController, CollectionViewDragAndDropDelegate {
+class CollectionViewItemsReorderingVC<Item: NSItemProviderWriting>: UIViewController, UICollectionViewDataSource, CollectionViewDragAndDropDelegate {
     
     // MARK: Properties
     
     final var items: [Item] = []
+    
+    // MARK: Collection View Data Source
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { items.count }
     
     // MARK: Collection View Drag And Drop Delegate
     
@@ -47,6 +51,12 @@ class CollectionViewItemsReorderingVC<Item: NSItemProviderWriting>: UIViewContro
         if coordinator.proposal.operation == .move {
             reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
         }
+    }
+    
+    // MARK:  Must be overridden
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        fatalError("Needs to be overridden")
     }
     
 }
