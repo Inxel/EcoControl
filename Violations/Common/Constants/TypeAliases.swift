@@ -6,10 +6,12 @@
 //  Copyright © 2020 Tyoma Zagoskin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 typealias Handler<T> = (T) -> Void
 typealias DefaultHandler = () -> Void
 
 typealias DequeueableCell = NIBLoadableView & ReusableView
+
+typealias CollectionViewDragAndDropDelegate = UICollectionViewDragDelegate & UICollectionViewDropDelegate

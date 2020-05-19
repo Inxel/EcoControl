@@ -287,46 +287,24 @@ extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
-// MARK: - Collection View Drag Delegate
+// MARK: - Collection View Drag And Drop
 
-extension CreatingMarkerViewController: UICollectionViewDragDelegate {
+extension CreatingMarkerViewController: CollectionViewItemsReordering, CollectionViewDragAndDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let item = items[indexPath.item]
-        let provider = NSItemProvider(object: item)
-        let dragItem = UIDragItem(itemProvider: provider)
-        dragItem.localObject = item
-        
-        return [dragItem]
+        dragDidBegin(collectionView, itemsForBeginning: session, at: indexPath)
     }
-    
-}
-
-
-// MARK: - Collection View Drop Delegate
-
-extension CreatingMarkerViewController: UICollectionViewDropDelegate {
     
     func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidUpdate session: UIDropSession,
         withDestinationIndexPath destinationIndexPath: IndexPath?
     ) -> UICollectionViewDropProposal {
-        
-        if collectionView.hasActiveDrag {
-            return .init(operation: .move, intent: .insertAtDestinationIndexPath)
-        }
-        
-        return .init(operation: .forbidden)
+        itemPositionDidChange(collectionView, dropSessionDidUpdate: session, withDestinationIndexPath: destinationIndexPath)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        let lastItemInFirstSection = collectionView.numberOfItems(inSection: 0)
-        let destinationIndexPath: IndexPath = coordinator.destinationIndexPath ?? .init(item: lastItemInFirstSection - 1, section: 0)
         
-        if coordinator.proposal.operation == .move {
-            reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
-        }
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        integrateDroppedItem(collectionView, performDropWith: coordinator)
     }
     
 }
@@ -369,11 +347,6 @@ extension CreatingMarkerViewController {
 // MARK: - Keyboard Showing
 
 extension CreatingMarkerViewController: KeyboardShowing {}
-
-
-// MARK: Items Reordering
-
-extension CreatingMarkerViewController: CollectionViewItemsReordering {}
 
 
 // MARK: - Mark Detail Screen Button Type
