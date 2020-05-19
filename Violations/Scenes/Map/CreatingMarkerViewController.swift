@@ -89,7 +89,7 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
         
-        cell.setup(with: items[indexPath.item])
+        cell.setUp(with: items[indexPath.item])
         cell.delegate = self
         
         return cell

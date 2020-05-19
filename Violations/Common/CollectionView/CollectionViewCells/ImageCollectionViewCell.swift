@@ -23,15 +23,16 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     static var reuseID: String { "ImageCollectionViewCell" }
     
-    private var sizeOfDeleteButton = 25
+    private var sizeOfDeleteButton: Int { 25 }
+    private var cornerRadius: CGFloat { 10 }
     weak var delegate: ImageCellDelegate?
     
     lazy private var imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.cornerRadius = 10
+        image.layer.cornerRadius = cornerRadius
         image.layer.masksToBounds = true
-        image.backgroundColor = UIColor.lightGray
+        image.backgroundColor = .lightGray
         image.contentMode = .scaleAspectFill
         
         return image
@@ -40,7 +41,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     lazy private var blurEffect: UIVisualEffectView = {
         let blur = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         blur.translatesAutoresizingMaskIntoConstraints = false
-        blur.layer.cornerRadius = CGFloat(sizeOfDeleteButton / 2)
+        blur.layer.cornerRadius = .init(sizeOfDeleteButton / 2)
         blur.layer.masksToBounds = true
         
         return blur
@@ -50,7 +51,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         let delete = UIButton()
         delete.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         delete.setImage(UIImage(named: "plus"), for: .normal)
-        delete.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 4))
+        delete.transform = CGAffineTransform(rotationAngle: .init(Double.pi / 4))
         delete.translatesAutoresizingMaskIntoConstraints = false
         
         return delete
@@ -58,7 +59,7 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        layer.cornerRadius = cornerRadius
         addSubviews()
     }
     
@@ -80,8 +81,8 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         
         blurEffect.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 5).isActive = true
         blurEffect.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
-        blurEffect.widthAnchor.constraint(equalToConstant: CGFloat(sizeOfDeleteButton)).isActive = true
-        blurEffect.heightAnchor.constraint(equalToConstant: CGFloat(sizeOfDeleteButton)).isActive = true
+        blurEffect.widthAnchor.constraint(equalToConstant: .init(sizeOfDeleteButton)).isActive = true
+        blurEffect.heightAnchor.constraint(equalToConstant: .init(sizeOfDeleteButton)).isActive = true
         
         deleteButton.centerXAnchor.constraint(equalTo: blurEffect.centerXAnchor).isActive = true
         deleteButton.centerYAnchor.constraint(equalTo: blurEffect.centerYAnchor).isActive = true
@@ -110,13 +111,14 @@ final class ImageCollectionViewCell: UICollectionViewCell {
             }
             
             self.layer.sublayers?.removeAll(where: { $0 is LoadingLayer })
-            self.setup(with: photo)
+            self.setUp(with: photo)
             completion(photo)
             
         }
     }
     
-    func setup(with image: UIImage) {
+    func setUp(with image: UIImage) {
         imageView.image = image
     }
+    
 }
