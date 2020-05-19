@@ -69,7 +69,7 @@ final class CreatingMarkerViewController: UIViewController {
     private var currentComment: String = ""
     
     private var imagePicker: UIImagePickerController!
-    private var images: [UIImage] = []
+    var items: [UIImage] = []
     
     private let themeManager: ThemeManager = .shared
     
@@ -106,7 +106,7 @@ extension CreatingMarkerViewController: ProgressHUDShowing {
         let title = currentTitle
         let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
         let url = UUID().uuidString
-        let amountOfPhotos = images.count
+        let amountOfPhotos = items.count
         
         saveImagesToFirebase(url)
         
@@ -151,7 +151,7 @@ extension CreatingMarkerViewController: ThemeManagerDelegate {
 }
 
 
-// MARK: - Textview Methods
+// MARK: - Text View Delegate
 
 extension CreatingMarkerViewController: UITextViewDelegate {
     
@@ -180,12 +180,7 @@ extension CreatingMarkerViewController: UITextViewDelegate {
 }
 
 
-// MARK: - Keyboard Showing Methods
-
-extension CreatingMarkerViewController: KeyboardShowing {}
-
-
-//MARK: - Picker view methods
+//MARK: - Picker View Methods
 
 extension CreatingMarkerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
@@ -227,7 +222,7 @@ extension CreatingMarkerViewController: UIImagePickerControllerDelegate, UINavig
             print("Image not found!")
             return
         }
-        images.append(selectedImage)
+        items.append(selectedImage)
         
         collectionView.reloadData()
     }
@@ -253,12 +248,12 @@ extension CreatingMarkerViewController {
 
 extension CreatingMarkerViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { images.count }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { items.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
         
-        cell.setup(with: images[indexPath.item])
+        cell.setup(with: items[indexPath.item])
         cell.delegate = self
         
         return cell
@@ -297,10 +292,10 @@ extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
 extension CreatingMarkerViewController: UICollectionViewDragDelegate {
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let image = images[indexPath.item]
-        let provider = NSItemProvider(object: image)
+        let item = items[indexPath.item]
+        let provider = NSItemProvider(object: item)
         let dragItem = UIDragItem(itemProvider: provider)
-        dragItem.localObject = image
+        dragItem.localObject = item
         
         return [dragItem]
     }
@@ -330,7 +325,7 @@ extension CreatingMarkerViewController: UICollectionViewDropDelegate {
         let destinationIndexPath: IndexPath = coordinator.destinationIndexPath ?? .init(item: lastItemInFirstSection - 1, section: 0)
         
         if coordinator.proposal.operation == .move {
-            reorderPhotos(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+            reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
         }
     }
     
@@ -343,7 +338,7 @@ extension CreatingMarkerViewController: ImageCellDelegate {
     
     func delete(cell: ImageCollectionViewCell) {
         if let indexPath = collectionView?.indexPath(for: cell) {
-            images.remove(at: indexPath.item)
+            items.remove(at: indexPath.item)
             collectionView.deleteItems(at: [indexPath])
         }
         collectionView.reloadData()
@@ -357,8 +352,8 @@ extension CreatingMarkerViewController: ImageCellDelegate {
 extension CreatingMarkerViewController {
     
     private func saveImagesToFirebase(_ url: String) {
-        for index in 0 ..< images.count {
-            PostServiceFireBase.create(for: images[index], path: "\(url)/\(index)") { downloadURL in
+        for index in 0 ..< items.count {
+            PostServiceFireBase.create(for: items[index], path: "\(url)/\(index)") { downloadURL in
                 guard let downloadURL = downloadURL else {
                     print("Download url not found")
                     return
@@ -368,22 +363,17 @@ extension CreatingMarkerViewController {
         }
     }
     
-    private func reorderPhotos(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
-        if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath, let insertionItem = item.dragItem.localObject as? UIImage {
-            collectionView.performBatchUpdates({
-                images.remove(at: sourceIndexPath.item)
-                images.insert(insertionItem, at: destinationIndexPath.item)
-                
-                collectionView.deleteItems(at: [sourceIndexPath])
-                collectionView.insertItems(at: [destinationIndexPath])
-            }, completion: nil)
-            
-            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
-        }
-    }
-    
 }
 
+
+// MARK: - Keyboard Showing
+
+extension CreatingMarkerViewController: KeyboardShowing {}
+
+
+// MARK: Items Reordering
+
+extension CreatingMarkerViewController: CollectionViewItemsReordering {}
 
 
 // MARK: - Mark Detail Screen Button Type

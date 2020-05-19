@@ -33,6 +33,7 @@
 		220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220E24AF2288405A002F2D63 /* CheckInternet.swift */; };
 		2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */; };
 		223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */; };
+		2246CF7A2473B2AB007F00AD /* CollectionViewItemsReordering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */; };
 		2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */; };
 		2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4522BDFCA8009AE55C /* LightTheme.swift */; };
 		2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4822BDFCC1009AE55C /* DarkTheme.swift */; };
@@ -116,6 +117,7 @@
 		220E24AF2288405A002F2D63 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissingKeyboard.swift"; sourceTree = "<group>"; };
 		223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItemsReordering.swift; sourceTree = "<group>"; };
 		2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2247BD4522BDFCA8009AE55C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2247BD4822BDFCC1009AE55C /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				2209B95D23D0DCF600B3FE51 /* NIBLoadableView.swift */,
 				2209B95F23D0DD1300B3FE51 /* ReusableView.swift */,
 				228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */,
+				2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */,
 				2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */,
 				2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */,
+				2246CF7A2473B2AB007F00AD /* CollectionViewItemsReordering.swift in Sources */,
 				2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
 				2260E40722BFA09000374258 /* UserMarker.swift in Sources */,
