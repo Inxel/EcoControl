@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 import Firebase
 import TransitionButton
-import SwiftyJSON
 import RealmSwift
 
 
@@ -92,7 +91,7 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     
     private var annotations: [CustomCallout] = []
     
-    private var locationManager: CLLocationManager!
+    private var locationManager: CLLocationManager = .init()
     private var currentLocation: CLLocation?
     private var tappedCoordinates: CGPoint?
     private var userLocationButton: MKUserTrackingButton?
@@ -116,7 +115,6 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
         themeManager.delegate = self
         themeDidChange()
         
-        locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
@@ -472,31 +470,18 @@ extension MapViewController {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             
-            if let data = data {
-                let weatherJSON = JSON(data)
+            if let data = data, let weather = Weather.decode(wheatherData: data)  {
                 
-                self.updateWeatherData(json: weatherJSON)
+                DispatchQueue.main.async {
+                    self.weatherView.text = weather.formatted
+                    self.weatherView.isHidden = false
+                }
+                
             } else {
                 print("Error getting weather: \(String(describing: error?.localizedDescription))")
             }
             
         }.resume()
-        
-    }
-    
-    private func updateWeatherData(json : JSON) {
-        
-        let tempResult = json["main"]["temp"].doubleValue
-        
-        let temperature = Int(tempResult - 273.15)
-        let condition = json["weather"][0]["id"].intValue
-        
-        let weatherData = WeatherData(temperature: temperature, condition: condition)
-        
-        DispatchQueue.main.async {
-            self.weatherView.text = weatherData.weather
-            self.weatherView.isHidden = false
-        }
         
     }
     

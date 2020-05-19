@@ -6,7 +6,6 @@
 //  Copyright © 2020 Tyoma Zagoskin. All rights reserved.
 //
 
-import UIKit
 import TransitionButton
 
 

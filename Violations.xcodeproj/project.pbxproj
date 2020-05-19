@@ -54,7 +54,7 @@
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
 		22926C9C225DAEC000E8D3AB /* CreatingMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22926C9B225DAEC000E8D3AB /* CreatingMarkerViewController.swift */; };
-		2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CC7A226EE674008131A5 /* WeatherData.swift */; };
+		2294CC7B226EE674008131A5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CC7A226EE674008131A5 /* Weather.swift */; };
 		2294CCA322747954008131A5 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA222747954008131A5 /* ImageSource.swift */; };
 		2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */; };
 		2294CCA722758EE2008131A5 /* StorageServiceFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */; };
@@ -140,7 +140,7 @@
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
 		22926C9B225DAEC000E8D3AB /* CreatingMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingMarkerViewController.swift; sourceTree = "<group>"; };
 		2294CC79226DAA81008131A5 /* Violations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Violations.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2294CC7A226EE674008131A5 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		2294CC7A226EE674008131A5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		2294CCA222747954008131A5 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostServiceFirebase.swift; sourceTree = "<group>"; };
 		2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceFireBase.swift; sourceTree = "<group>"; };
@@ -572,7 +572,7 @@
 				228A1D3223DAD9E30058C5CD /* Marker.swift */,
 				2208A79B2261B40C00C6D45E /* SavedMarker.swift */,
 				2260E40622BFA09000374258 /* UserMarker.swift */,
-				2294CC7A226EE674008131A5 /* WeatherData.swift */,
+				2294CC7A226EE674008131A5 /* Weather.swift */,
 				2294CCA222747954008131A5 /* ImageSource.swift */,
 				2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */,
 				2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */,
@@ -800,7 +800,7 @@
 				2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */,
 				2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */,
 				2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */,
-				2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */,
+				2294CC7B226EE674008131A5 /* Weather.swift in Sources */,
 				2246CF7A2473B2AB007F00AD /* CollectionViewItemsReordering.swift in Sources */,
 				2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
