@@ -25,7 +25,7 @@ extension TappedButtonDelegate {
 
 // MARK: - Base
 
-final class CreatingMarkerViewController: UIViewController {
+final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImage> {
     
     weak var delegate: TappedButtonDelegate?
     
@@ -69,7 +69,7 @@ final class CreatingMarkerViewController: UIViewController {
     private var currentComment: String = ""
     
     private var imagePicker: UIImagePickerController!
-    var items: [UIImage] = []
+//    var items: [UIImage] = []
     
     private let themeManager: ThemeManager = .shared
     
@@ -286,28 +286,28 @@ extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-
-// MARK: - Collection View Drag And Drop
-
-extension CreatingMarkerViewController: CollectionViewItemsReordering, CollectionViewDragAndDropDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        dragDidBegin(collectionView, itemsForBeginning: session, at: indexPath)
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        dropSessionDidUpdate session: UIDropSession,
-        withDestinationIndexPath destinationIndexPath: IndexPath?
-    ) -> UICollectionViewDropProposal {
-        itemPositionDidChange(collectionView, dropSessionDidUpdate: session, withDestinationIndexPath: destinationIndexPath)
-    }
-        
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        integrateDroppedItem(collectionView, performDropWith: coordinator)
-    }
-    
-}
+//
+//// MARK: - Collection View Drag And Drop
+//
+//extension CreatingMarkerViewController: CollectionViewItemsReordering, CollectionViewDragAndDropDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+//        dragDidBegin(collectionView, itemsForBeginning: session, at: indexPath)
+//    }
+//
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        dropSessionDidUpdate session: UIDropSession,
+//        withDestinationIndexPath destinationIndexPath: IndexPath?
+//    ) -> UICollectionViewDropProposal {
+//        itemPositionDidChange(collectionView, dropSessionDidUpdate: session, withDestinationIndexPath: destinationIndexPath)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+//        integrateDroppedItem(collectionView, performDropWith: coordinator)
+//    }
+//
+//}
 
 
 //MARK: - Image Cell Delegate

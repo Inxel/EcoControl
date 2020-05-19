@@ -34,6 +34,7 @@
 		2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */; };
 		223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */; };
 		2246CF7A2473B2AB007F00AD /* CollectionViewItemsReordering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */; };
+		2246CF7D2473C035007F00AD /* CollectionViewItemsReorderingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246CF7C2473C035007F00AD /* CollectionViewItemsReorderingVC.swift */; };
 		2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */; };
 		2247BD4622BDFCA8009AE55C /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4522BDFCA8009AE55C /* LightTheme.swift */; };
 		2247BD4922BDFCC1009AE55C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247BD4822BDFCC1009AE55C /* DarkTheme.swift */; };
@@ -118,6 +119,7 @@
 		2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissingKeyboard.swift"; sourceTree = "<group>"; };
 		223B171F226B342E00B9E20E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItemsReordering.swift; sourceTree = "<group>"; };
+		2246CF7C2473C035007F00AD /* CollectionViewItemsReorderingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItemsReorderingVC.swift; sourceTree = "<group>"; };
 		2247BD4322BDFC23009AE55C /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2247BD4522BDFCA8009AE55C /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		2247BD4822BDFCC1009AE55C /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
@@ -351,6 +353,14 @@
 			path = "Profile info";
 			sourceTree = "<group>";
 		};
+		2246CF7B2473C00B007F00AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2246CF7C2473C035007F00AD /* CollectionViewItemsReorderingVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2247BD4022BDFAA6009AE55C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +440,7 @@
 				2209B94623D0C61100B3FE51 /* CheckInternet */,
 				2209B93623D0C45D00B3FE51 /* Extensions */,
 				2209B93423D0C16D00B3FE51 /* CollectionView */,
+				2246CF7B2473C00B007F00AD /* ViewControllers */,
 				22C968DB23D0A80A00E55572 /* Protocols */,
 				22C968D823D0A7AC00E55572 /* Constants */,
 			);
@@ -743,6 +754,7 @@
 				2209B95423D0C95600B3FE51 /* UserDefault.swift in Sources */,
 				220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */,
 				2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */,
+				2246CF7D2473C035007F00AD /* CollectionViewItemsReorderingVC.swift in Sources */,
 				22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */,
 				2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */,
 				22926C9C225DAEC000E8D3AB /* CreatingMarkerViewController.swift in Sources */,
