@@ -12,7 +12,7 @@ import RealmSwift
 
 // MARK: - Base
 
-class MarkersInnerViewController<MarkersType: Object>: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MarkersInnerViewController<MarkersType: MarkerObject>: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Properties
     
@@ -115,14 +115,7 @@ extension MarkersInnerViewController: ThemeManagerDelegate {
 extension MarkersInnerViewController {
     
     private func getMarkers() {
-        switch realm.objects(MarkersType.self).sorted(byKeyPath: "date", ascending: true) {
-        case let markers as Results<SavedMarker>:
-            self.markers = markers.map { Marker(marker: $0) }
-        case let markers as Results<UserMarker>:
-            self.markers = markers.map { Marker(marker: $0) }
-        default:
-            break
-        }
+        markers = realm.objects(MarkersType.self).sorted(byKeyPath: "date", ascending: true).map { Marker(marker: $0) }
     }
     
 }

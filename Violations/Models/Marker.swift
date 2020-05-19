@@ -31,17 +31,7 @@ struct Marker {
         return .init(latitude: latitude, longitude: longitude)
     }
     
-    init(marker: UserMarker) {
-        title = marker.title
-        comment = marker.comment
-        url = marker.url
-        amountOfPhotos = marker.amountOfPhotos
-        date = marker.date
-        latitude = marker.latitude
-        longitude = marker.longitude
-    }
-    
-    init(marker: SavedMarker) {
+    init(marker: MarkerObject) {
         title = marker.title
         comment = marker.comment
         url = marker.url
