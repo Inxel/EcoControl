@@ -260,7 +260,7 @@ extension CalloutView: UICollectionViewDelegateFlowLayout {
         
         let cellSize = size / 2
         
-        return CGSize(width: cellSize, height: cellSize)
+        return .init(width: cellSize, height: cellSize)
     }
     
 }

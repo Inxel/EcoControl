@@ -51,7 +51,7 @@
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
-		22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */; };
+		22926C9C225DAEC000E8D3AB /* CreatingMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22926C9B225DAEC000E8D3AB /* CreatingMarkerViewController.swift */; };
 		2294CC7B226EE674008131A5 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CC7A226EE674008131A5 /* WeatherData.swift */; };
 		2294CCA322747954008131A5 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA222747954008131A5 /* ImageSource.swift */; };
 		2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA422758EB7008131A5 /* PostServiceFirebase.swift */; };
@@ -134,7 +134,7 @@
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
-		22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDetailViewController.swift; sourceTree = "<group>"; };
+		22926C9B225DAEC000E8D3AB /* CreatingMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingMarkerViewController.swift; sourceTree = "<group>"; };
 		2294CC79226DAA81008131A5 /* Violations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Violations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2294CC7A226EE674008131A5 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		2294CCA222747954008131A5 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				22FF5A4F2259CDF0007E4C19 /* MapViewController.swift */,
-				22926C9B225DAEC000E8D3AB /* MarkDetailViewController.swift */,
+				22926C9B225DAEC000E8D3AB /* CreatingMarkerViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -742,7 +742,7 @@
 				2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */,
 				22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */,
 				2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */,
-				22926C9C225DAEC000E8D3AB /* MarkDetailViewController.swift in Sources */,
+				22926C9C225DAEC000E8D3AB /* CreatingMarkerViewController.swift in Sources */,
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
 				2209B96023D0DD1300B3FE51 /* ReusableView.swift in Sources */,
 				22DB647723F69C550039FF6B /* MarkersInnerViewController.swift in Sources */,

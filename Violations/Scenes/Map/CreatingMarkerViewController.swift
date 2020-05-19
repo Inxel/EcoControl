@@ -1,5 +1,5 @@
 //
-//  MarkDetailViewController.swift
+//  CreatingMarkerViewController.swift
 //  Violations
 //
 //  Created by Артем Загоскин on 10/04/2019.
@@ -14,18 +14,18 @@ import RealmSwift
 // MARK: - Protocols
 
 protocol TappedButtonDelegate: class {
-    func userTappedButton(button: MarkDetailViewController.ButtonType, title: String?, comment: String?, url: String?, amountOfPhotos: String?)
+    func userTappedButton(button: CreatingMarkerViewController.ButtonType, title: String?, comment: String?, url: String?, amountOfPhotos: String?)
 }
 
 
 extension TappedButtonDelegate {
-    func userTappedButton(button: MarkDetailViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {}
+    func userTappedButton(button: CreatingMarkerViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {}
 }
 
 
 // MARK: - Base
 
-final class MarkDetailViewController: UIViewController {
+final class CreatingMarkerViewController: UIViewController {
     
     weak var delegate: TappedButtonDelegate?
     
@@ -37,10 +37,12 @@ final class MarkDetailViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseID)
+            collectionView.dragInteractionEnabled = true
         }
     }
     
-    @IBOutlet private weak var addPhotoButton: UIButton!
+    @IBOutlet private weak var addPhotoView: UIView!
+    @IBOutlet private weak var addPhotoViewLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var commentTextView: UITextView! {
         didSet {
@@ -87,7 +89,7 @@ final class MarkDetailViewController: UIViewController {
 
 // MARK: - Actions
 
-extension MarkDetailViewController: ProgressHUDShowing {
+extension CreatingMarkerViewController: ProgressHUDShowing {
     
     @IBAction private func cancelTapped(_ sender: PrimaryButton) {
         delegate?.userTappedButton(button: .cancel)
@@ -136,7 +138,7 @@ extension MarkDetailViewController: ProgressHUDShowing {
 
 // MARK: - Theme Manager Delegate
 
-extension MarkDetailViewController: ThemeManagerDelegate {
+extension CreatingMarkerViewController: ThemeManagerDelegate {
     
     func themeDidChange() {
         typeOfViolationLabel.textColor = themeManager.current.textColor
@@ -151,7 +153,7 @@ extension MarkDetailViewController: ThemeManagerDelegate {
 
 // MARK: - Textview Methods
 
-extension MarkDetailViewController: UITextViewDelegate {
+extension CreatingMarkerViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "Comment" {
@@ -180,12 +182,12 @@ extension MarkDetailViewController: UITextViewDelegate {
 
 // MARK: - Keyboard Showing Methods
 
-extension MarkDetailViewController: KeyboardShowing {}
+extension CreatingMarkerViewController: KeyboardShowing {}
 
 
 //MARK: - Picker view methods
 
-extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CreatingMarkerViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { reports.count }
@@ -205,7 +207,7 @@ extension MarkDetailViewController: UIPickerViewDataSource, UIPickerViewDelegate
 
 //MARK: - Take photo methods
 
-extension MarkDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreatingMarkerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private func selectImageFrom(_ source: ImageSource) {
         imagePicker =  UIImagePickerController()
@@ -233,9 +235,23 @@ extension MarkDetailViewController: UIImagePickerControllerDelegate, UINavigatio
 }
 
 
-//MARK: - CollectionView data source methods
+// MARK: - Scroll View Delegate
 
-extension MarkDetailViewController: UICollectionViewDataSource {
+extension CreatingMarkerViewController {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == collectionView else { return }
+
+        addPhotoViewLeadingConstraint.constant = -scrollView.contentOffset.x
+        view.layoutIfNeeded()
+    }
+    
+}
+
+
+//MARK: - Collection View Data Source
+
+extension CreatingMarkerViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { images.count }
     
@@ -251,22 +267,79 @@ extension MarkDetailViewController: UICollectionViewDataSource {
 }
 
 
-//MARK: - CollectionView delegate flow layout methods
+//MARK: - Collection View Delegate Flow Layout
 
-extension MarkDetailViewController: UICollectionViewDelegateFlowLayout {
+extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let cellSize = collectionView.frame.size.height - 10
         
-        return CGSize(width: cellSize, height: cellSize)
+        return .init(width: cellSize, height: cellSize)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        return .init(top: 0, left: addPhotoView.frame.width, bottom: 0, right: 20)
     }
     
 }
 
 
-//MARK: - ImageCell Delegate
+// MARK: - Collection View Drag Delegate
 
-extension MarkDetailViewController: ImageCellDelegate {
+extension CreatingMarkerViewController: UICollectionViewDragDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let image = images[indexPath.item]
+        let provider = NSItemProvider(object: image)
+        let dragItem = UIDragItem(itemProvider: provider)
+        dragItem.localObject = image
+        
+        return [dragItem]
+    }
+    
+}
+
+
+// MARK: - Collection View Drop Delegate
+
+extension CreatingMarkerViewController: UICollectionViewDropDelegate {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        dropSessionDidUpdate session: UIDropSession,
+        withDestinationIndexPath destinationIndexPath: IndexPath?
+    ) -> UICollectionViewDropProposal {
+        
+        if collectionView.hasActiveDrag {
+            return .init(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        
+        return .init(operation: .forbidden)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        let lastItemInFirstSection = collectionView.numberOfItems(inSection: 0)
+        let destinationIndexPath: IndexPath = coordinator.destinationIndexPath ?? .init(item: lastItemInFirstSection - 1, section: 0)
+        
+        if coordinator.proposal.operation == .move {
+            reorderPhotos(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+        }
+    }
+    
+}
+
+
+//MARK: - Image Cell Delegate
+
+extension CreatingMarkerViewController: ImageCellDelegate {
     
     func delete(cell: ImageCollectionViewCell) {
         if let indexPath = collectionView?.indexPath(for: cell) {
@@ -279,9 +352,9 @@ extension MarkDetailViewController: ImageCellDelegate {
 }
 
 
-//MARK: - Save Photos
+//MARK: - Private API
 
-extension MarkDetailViewController {
+extension CreatingMarkerViewController {
     
     private func saveImagesToFirebase(_ url: String) {
         for index in 0 ..< images.count {
@@ -295,12 +368,27 @@ extension MarkDetailViewController {
         }
     }
     
+    private func reorderPhotos(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
+        if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath, let insertionItem = item.dragItem.localObject as? UIImage {
+            collectionView.performBatchUpdates({
+                images.remove(at: sourceIndexPath.item)
+                images.insert(insertionItem, at: destinationIndexPath.item)
+                
+                collectionView.deleteItems(at: [sourceIndexPath])
+                collectionView.insertItems(at: [destinationIndexPath])
+            }, completion: nil)
+            
+            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }
+    }
+    
 }
+
 
 
 // MARK: - Mark Detail Screen Button Type
 
-extension MarkDetailViewController {
+extension CreatingMarkerViewController {
     
     enum ButtonType {
         case save

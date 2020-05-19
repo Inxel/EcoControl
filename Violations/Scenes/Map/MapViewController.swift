@@ -269,7 +269,7 @@ extension MapViewController: UIGestureRecognizerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "createMarkDetail" {
             
-            let destinationVC = segue.destination as! MarkDetailViewController
+            let destinationVC = segue.destination as! CreatingMarkerViewController
             
             destinationVC.delegate = self
         }
@@ -282,9 +282,7 @@ extension MapViewController: UIGestureRecognizerDelegate {
 
 extension MapViewController: TappedButtonDelegate {
     
-    func userTappedButton(button: MarkDetailViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {
-        
-        addToLocationTapped = false
+    func userTappedButton(button: CreatingMarkerViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {
         
         guard
             button == .save,
