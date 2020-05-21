@@ -12,7 +12,7 @@ import UIKit
 // MARK: - Base
 
 protocol CollectionViewItemsReordering: class {
-    associatedtype Item
+    associatedtype Item: NSItemProviderWriting
     
     var items: [Item] { get set }
 }
@@ -20,7 +20,7 @@ protocol CollectionViewItemsReordering: class {
 
 // MARK: - Public API
 
-extension CollectionViewItemsReordering where Item: NSItemProviderWriting, Self: CollectionViewDragAndDropDelegate {
+extension CollectionViewItemsReordering where Self: CollectionViewDragAndDropDelegate {
     
     func dragDidBegin(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let item = items[indexPath.item]
