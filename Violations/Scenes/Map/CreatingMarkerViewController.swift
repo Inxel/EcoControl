@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FirebaseStorage
 import RealmSwift
+import SKPhotoBrowser
 
 
 // MARK: - Protocols
@@ -69,7 +69,6 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     private var currentComment: String = ""
     
     private var imagePicker: UIImagePickerController!
-//    var items: [UIImage] = []
     
     private let themeManager: ThemeManager = .shared
     
@@ -255,7 +254,7 @@ extension CreatingMarkerViewController {
 }
 
 
-//MARK: - Collection View Delegate Flow Layout
+// MARK: - Collection View Delegate Flow Layout
 
 extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
     
@@ -279,8 +278,8 @@ extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-//
-//// MARK: - Collection View Drag And Drop
+
+// MARK: - Collection View Drag And Drop
 //
 //extension CreatingMarkerViewController: CollectionViewItemsReordering, CollectionViewDragAndDropDelegate {
 //
@@ -303,7 +302,7 @@ extension CreatingMarkerViewController: UICollectionViewDelegateFlowLayout {
 //}
 
 
-//MARK: - Image Cell Delegate
+// MARK: - Image Cell Delegate
 
 extension CreatingMarkerViewController: ImageCellDelegate {
     
@@ -318,7 +317,22 @@ extension CreatingMarkerViewController: ImageCellDelegate {
 }
 
 
-//MARK: - Private API
+// MARK: - SKPhotoBrowser Delegate
+
+extension CreatingMarkerViewController: SKPhotoBrowserDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photos = items.map { SKPhoto.photoWithImage($0) }
+        let browser = SKPhotoBrowser(photos: photos, initialPageIndex: indexPath.item)
+        browser.delegate = self
+        
+        present(browser, animated: true, completion: nil)
+    }
+    
+}
+
+
+// MARK: - Private API
 
 extension CreatingMarkerViewController {
     

@@ -57,10 +57,6 @@ final class MarkerInfoViewController: UIViewController {
         
         images = Array(repeating: SKPhoto.photoWithImage(.init()), count: marker?.amountOfPhotos ?? .zero)
         
-        SKPhotoBrowserOptions.displayAction = false
-        SKPhotoBrowserOptions.displayStatusbar = true
-        SKPhotoBrowserOptions.displayCounterLabel = true
-        SKPhotoBrowserOptions.displayBackAndForwardButton = true
         themeManager.delegate = self
         themeDidChange()
     }
