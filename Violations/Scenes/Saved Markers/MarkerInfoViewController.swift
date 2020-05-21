@@ -104,11 +104,10 @@ extension MarkerInfoViewController: ThemeManagerDelegate {
 
 // MARK: - CollectionView Delegate, SKPhotoBrowser Delegate
 
-extension MarkerInfoViewController: UICollectionViewDelegate, SKPhotoBrowserDelegate {
+extension MarkerInfoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.item)
-        browser.delegate = self
         
         present(browser, animated: true, completion: nil)
     }

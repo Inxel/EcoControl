@@ -319,12 +319,11 @@ extension CreatingMarkerViewController: ImageCellDelegate {
 
 // MARK: - SKPhotoBrowser Delegate
 
-extension CreatingMarkerViewController: SKPhotoBrowserDelegate {
+extension CreatingMarkerViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photos = items.map { SKPhoto.photoWithImage($0) }
         let browser = SKPhotoBrowser(photos: photos, initialPageIndex: indexPath.item)
-        browser.delegate = self
         
         present(browser, animated: true, completion: nil)
     }
