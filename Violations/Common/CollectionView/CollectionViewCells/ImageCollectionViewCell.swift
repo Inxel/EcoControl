@@ -21,6 +21,8 @@ protocol ImageCellDelegate: class {
 
 final class ImageCollectionViewCell: UICollectionViewCell {
     
+    // MARK: Properties
+    
     static var reuseID: String { "ImageCollectionViewCell" }
     
     private var sizeOfDeleteButton: Int { 25 }
@@ -57,6 +59,8 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         return delete
     }()
     
+    // MARK: Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = cornerRadius
@@ -66,6 +70,45 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+}
+
+
+// MARK: - Public API
+
+extension ImageCollectionViewCell {
+    
+    func downloadImage(_ url: String, _ index: Int, completion: @escaping Handler<UIImage?>) {
+        
+        blurEffect.isHidden = true
+        deleteButton.isHidden = true
+        let loadingLayer = LoadingLayer(withBounds: bounds)
+        layer.addSublayer(loadingLayer)
+        
+        Storage.storage().reference().child("\(url)/\(index)").getData(maxSize: 10000000) { data, error in
+            
+            guard let data = data, let photo = UIImage(data: data) else {
+                print(error ?? "error loading photo")
+                return
+            }
+            
+            self.layer.sublayers?.removeAll(where: { $0 is LoadingLayer })
+            self.setUp(with: photo)
+            completion(photo)
+            
+        }
+    }
+    
+    func setUp(with image: UIImage) {
+        imageView.image = image
+    }
+    
+}
+
+
+// MARK: - Private API
+
+extension ImageCollectionViewCell {
     
     private func addSubviews() {
         addSubview(imageView)
@@ -94,31 +137,6 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     @objc private func deleteButtonTapped(_ sender: UIButton!) {
         delegate?.delete(cell: self)
-    }
-    
-    func downloadImage(_ url: String, _ index: Int, completion: @escaping Handler<UIImage?>) {
-        
-        blurEffect.isHidden = true
-        deleteButton.isHidden = true
-        let loadingLayer = LoadingLayer(withBounds: bounds)
-        layer.addSublayer(loadingLayer)
-        
-        Storage.storage().reference().child("\(url)/\(index)").getData(maxSize: 10000000) { data, error in
-            
-            guard let data = data, let photo = UIImage(data: data) else {
-                print(error ?? "error loading photo")
-                return
-            }
-            
-            self.layer.sublayers?.removeAll(where: { $0 is LoadingLayer })
-            self.setUp(with: photo)
-            completion(photo)
-            
-        }
-    }
-    
-    func setUp(with image: UIImage) {
-        imageView.image = image
     }
     
 }
