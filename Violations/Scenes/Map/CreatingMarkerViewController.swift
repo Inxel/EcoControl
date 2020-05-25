@@ -13,13 +13,8 @@ import SKPhotoBrowser
 
 // MARK: - Protocols
 
-protocol TappedButtonDelegate: class {
-    func userTappedButton(button: CreatingMarkerViewController.ButtonType, title: String?, comment: String?, url: String?, amountOfPhotos: String?)
-}
-
-
-extension TappedButtonDelegate {
-    func userTappedButton(button: CreatingMarkerViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {}
+protocol CreatingMarkerDelegate: class {
+    func saveMarker(title: String, comment: String, url: String, amountOfPhotos: String)
 }
 
 
@@ -27,7 +22,7 @@ extension TappedButtonDelegate {
 
 final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImage> {
     
-    weak var delegate: TappedButtonDelegate?
+    weak var delegate: CreatingMarkerDelegate?
     
     // MARK: Oultets
     
@@ -65,7 +60,7 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     }()
 
     private var reports: [ReportsType] { ReportsType.allCases }
-    private var currentTitle: String = ""
+    private lazy var currentTitle: String = reports.first?.rawValue ?? ""
     private var currentComment: String = ""
     
     private var imagePicker: UIImagePickerController!
@@ -101,26 +96,19 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
 
 extension CreatingMarkerViewController: ProgressHUDShowing {
     
-    @IBAction private func cancelTapped(_ sender: PrimaryButton) {
-        delegate?.userTappedButton(button: .cancel)
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
     @IBAction private func saveTapped(_ sender: PrimaryButton) {
         guard CheckInternet.connection() else {
             showProgressHUDError(with: "Check your internet connection")
             return
         }
         
-        let title = currentTitle
         let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
         let url = UUID().uuidString
         let amountOfPhotos = items.count
         
         saveImagesToFirebase(url)
         
-        delegate?.userTappedButton(button: .save, title: title.isEmpty ? reports.first?.rawValue : title, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
+        delegate?.saveMarker(title: currentTitle, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
         dismiss(animated: true, completion: nil)
     }
     
@@ -353,15 +341,3 @@ extension CreatingMarkerViewController {
 // MARK: - Keyboard Showing
 
 extension CreatingMarkerViewController: KeyboardShowing {}
-
-
-// MARK: - Mark Detail Screen Button Type
-
-extension CreatingMarkerViewController {
-    
-    enum ButtonType {
-        case save
-        case cancel
-    }
-
-}

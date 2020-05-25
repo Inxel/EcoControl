@@ -142,10 +142,8 @@ extension MarkerInfoViewController: UICollectionViewDataSource {
 extension MarkerInfoViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = collectionView.frame.size.width - 40
-        let cellSize = size / 2
-        
-        return .init(width: cellSize, height: cellSize)
+        let size = collectionView.frame.size.height - 30
+        return .init(width: size, height: size)
     }
     
 }

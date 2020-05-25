@@ -278,18 +278,9 @@ extension MapViewController: UIGestureRecognizerDelegate {
 
 // MARK: - Tapped Button Delegate
 
-extension MapViewController: TappedButtonDelegate {
+extension MapViewController: CreatingMarkerDelegate {
     
-    func userTappedButton(button: CreatingMarkerViewController.ButtonType, title: String? = nil, comment: String? = nil, url: String? = nil, amountOfPhotos: String? = nil) {
-        
-        guard
-            button == .save,
-            let title = title,
-            let comment = comment,
-            let url = url,
-            let amountOfPhotos = amountOfPhotos
-        else { return }
-        
+    func saveMarker(title: String, comment: String, url: String, amountOfPhotos: String) {
         var coordinates: CLLocationCoordinate2D = .init()
         
         if addToLocationTapped {
