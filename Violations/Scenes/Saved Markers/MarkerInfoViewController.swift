@@ -55,7 +55,7 @@ final class MarkerInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        images = Array(repeating: SKPhoto.photoWithImage(.init()), count: marker?.amountOfPhotos ?? .zero)
+        images = Array(repeating: SKPhoto.photoWithImage(.init()), count: marker?.photosCount ?? .zero)
         
         themeManager.delegate = self
         themeDidChange()
@@ -79,7 +79,7 @@ extension MarkerInfoViewController {
     
     @IBAction private func moreButtonTapped(_ sender: UIButton) {
         guard let marker = marker, let reportType = ReportsType(rawValue: marker.title) else { return }
-        let customCallout = CustomCallout(reportType: reportType, comment: marker.comment, coordinate: marker.coordinate, url: marker.url, amountOfPhotos: String(marker.amountOfPhotos))
+        let customCallout = CustomCallout(reportType: reportType, comment: marker.comment, coordinate: marker.coordinate, url: marker.photosPath, amountOfPhotos: marker.photosCount)
         
         chooseMap(marker: customCallout)
     }
@@ -119,12 +119,12 @@ extension MarkerInfoViewController: UICollectionViewDelegate {
 
 extension MarkerInfoViewController: UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { marker?.amountOfPhotos ?? .zero }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { marker?.photosCount ?? .zero }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
 
-        cell.downloadImage(marker?.url ?? "", indexPath.item) { image in
+        cell.downloadImage(marker?.photosPath ?? "", indexPath.item) { image in
             guard let image = image else { return }
             let photo = SKPhoto.photoWithImage(image)
             photo.shouldCachePhotoURLImage = true

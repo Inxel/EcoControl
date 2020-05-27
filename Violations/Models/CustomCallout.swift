@@ -16,21 +16,22 @@ final class CustomCallout: NSObject, MKAnnotation {
     var reportType: ReportsType
     var comment: String
     var coordinate: CLLocationCoordinate2D
-    var url: String
-    var amountOfPhotos: String
+    var photosPath: String
+    var photosCount: Int
     
     var title: String? { reportType.rawValue }
     
-    init(reportType: ReportsType?, comment: String?, coordinate: CLLocationCoordinate2D, url: String, amountOfPhotos: String) {
+    init(reportType: ReportsType?, comment: String?, coordinate: CLLocationCoordinate2D, url: String, amountOfPhotos: Int) {
         self.reportType = reportType ?? .other
         self.comment = comment ?? "User didin't add comment"
         self.coordinate = coordinate
-        self.url = url
-        self.amountOfPhotos = amountOfPhotos
+        self.photosPath = url
+        self.photosCount = amountOfPhotos
     }
     
     func mapItem() -> MKMapItem {  // open annotation on maps
-        let addressDict = [CNPostalAddressStreetKey: title!]
+        guard let title = title else { return .init() }
+        let addressDict = [CNPostalAddressStreetKey: title]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title

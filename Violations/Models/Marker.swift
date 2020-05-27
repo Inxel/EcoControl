@@ -14,8 +14,8 @@ import Contacts
 struct Marker {
     let title: String
     let comment: String
-    let url: String
-    let amountOfPhotos: Int
+    let photosPath: String
+    let photosCount: Int
     let date: Date?
     let latitude: String?
     let longitude: String?
@@ -34,8 +34,8 @@ struct Marker {
     init(marker: MarkerObject) {
         title = marker.title
         comment = marker.comment
-        url = marker.url
-        amountOfPhotos = marker.amountOfPhotos
+        photosPath = marker.photosPath
+        photosCount = marker.photosCount
         date = marker.date
         latitude = marker.latitude
         longitude = marker.longitude

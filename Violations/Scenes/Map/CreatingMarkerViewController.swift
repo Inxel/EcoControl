@@ -14,7 +14,7 @@ import SKPhotoBrowser
 // MARK: - Protocols
 
 protocol CreatingMarkerDelegate: class {
-    func saveMarker(title: String, comment: String, url: String, amountOfPhotos: String)
+    func saveMarker(title: String, comment: String, photosPath: String, photosCount: Int)
 }
 
 
@@ -103,12 +103,12 @@ extension CreatingMarkerViewController: ProgressHUDShowing {
         }
         
         let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
-        let url = UUID().uuidString
-        let amountOfPhotos = items.count
+        let photosPath = UUID().uuidString
+        let photosCount = items.count
         
-        saveImagesToFirebase(url)
+        saveImagesToFirebase(photosPath)
         
-        delegate?.saveMarker(title: currentTitle, comment: comment, url: url, amountOfPhotos: String(amountOfPhotos))
+        delegate?.saveMarker(title: currentTitle, comment: comment, photosPath: photosPath, photosCount: photosCount)
         dismiss(animated: true, completion: nil)
     }
     

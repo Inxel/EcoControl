@@ -280,7 +280,7 @@ extension MapViewController: UIGestureRecognizerDelegate {
 
 extension MapViewController: CreatingMarkerDelegate {
     
-    func saveMarker(title: String, comment: String, url: String, amountOfPhotos: String) {
+    func saveMarker(title: String, comment: String, photosPath: String, photosCount: Int) {
         var coordinates: CLLocationCoordinate2D = .init()
         
         if addToLocationTapped {
@@ -300,18 +300,16 @@ extension MapViewController: CreatingMarkerDelegate {
         
         addAnnotationAnimate()
         
-        guard let numberOfPhotos = Int(amountOfPhotos) else { return }
-        
         let marker = UserMarker()
         marker.title = title
         marker.comment = comment
         marker.date = Date()
-        marker.url = url
-        marker.amountOfPhotos = numberOfPhotos
+        marker.photosPath = photosPath
+        marker.photosCount = photosCount
         marker.latitude = String(describing: coordinates.latitude)
         marker.longitude = String(describing: coordinates.longitude)
         saveToRealm(marker)
-        saveMarkerToFirebase(coordinates, title, comment, url, numberOfPhotos)
+        saveMarkerToFirebase(coordinates, title, comment, photosPath, photosCount)
         
     }
     
@@ -362,15 +360,17 @@ extension MapViewController: ThemeManagerDelegate {
 
 extension MapViewController {
     
-    private func saveMarkerToFirebase(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ url: String, _ amountOfPhotos: Int) {
+    private func saveMarkerToFirebase(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ url: String, _ photosCount: Int) {
         let markersDB = Database.database().reference().child("Markers")
-        let markersDictionary = ["Sender": Constants.user?.email,
-                                 "Title": title,
-                                 "Comment": comment,
-                                 "Latitude": String(coordinate.latitude),
-                                 "Longitude": String(coordinate.longitude),
-                                 "URL": url,
-                                 "AmountOfPhotos": String(amountOfPhotos)]
+        let markersDictionary: [String: Any?] = [
+            "sender": Constants.user?.email,
+            "title": title,
+            "comment": comment,
+            "latitude": Double(coordinate.latitude),
+            "longitude": Double(coordinate.longitude),
+            "photosPath": url,
+            "photosCount": photosCount
+        ]
     
         markersDB.childByAutoId().setValue(markersDictionary) {
             (error, reference) in
@@ -387,22 +387,22 @@ extension MapViewController {
     private func retrieveMarkers() {
         
         TakeMarkersFromFirebase.downloadMarkers(child: "Markers") { snapshotValue in
-            let title = snapshotValue["Title"]!
-            let comment = snapshotValue["Comment"]!
-            let latitude = snapshotValue["Latitude"]!
-            let longitude = snapshotValue["Longitude"]!
-            let url = snapshotValue["URL"]!
-            let amountOfPhotos = snapshotValue["AmountOfPhotos"]!
+            guard
+                let title = snapshotValue["title"] as? String,
+                let comment = snapshotValue["comment"] as? String,
+                let latitude = snapshotValue["latitude"] as? Double,
+                let longitude = snapshotValue["longitude"] as? Double,
+                let url = snapshotValue["photosPath"] as? String,
+                let photosCount = snapshotValue["photosCount"] as? Int
+            else { return }
             
-            guard let lat = Double(latitude), let lon = Double(longitude) else { return }
-            
-            let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             
             let reportType = ReportsType(rawValue: title)
             
             // Add marker on map
             
-            let viewModel = CustomCallout(reportType: reportType, comment: comment, coordinate: coordinates, url: url, amountOfPhotos: amountOfPhotos)
+            let viewModel = CustomCallout(reportType: reportType, comment: comment, coordinate: coordinates, url: url, amountOfPhotos: photosCount)
             
             self.annotations.append(viewModel)
             

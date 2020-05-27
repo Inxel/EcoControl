@@ -13,8 +13,8 @@ import RealmSwift
 class MarkerObject: Object {
     @objc dynamic var title = ""
     @objc dynamic var comment = ""
-    @objc dynamic var url = ""
-    @objc dynamic var amountOfPhotos = 0
+    @objc dynamic var photosPath = ""
+    @objc dynamic var photosCount = 0
     @objc dynamic var date: Date?
     @objc dynamic var latitude: String?
     @objc dynamic var longitude: String?

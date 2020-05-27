@@ -55,10 +55,10 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
     private var reportType: ReportsType { marker?.reportType ?? .other }
     private var markerTitle: String { marker?.title ?? "" }
     private var comment: String { marker?.comment ?? "" }
-    private var url: String { marker?.url ?? "" }
-    private var amountOfPhotos: Int? {
+    private var photosPath: String { marker?.photosPath ?? "" }
+    private var photosCount: Int {
         guard let marker = marker else { return .init() }
-        return Int(marker.amountOfPhotos)
+        return Int(marker.photosCount)
     }
     private var location: CLLocationCoordinate2D? { marker?.coordinate }
     
@@ -66,7 +66,7 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
     
     private var images: [SKPhotoProtocol] = []
     
-    private var numberOfPhotos: Int { amountOfPhotos ?? 0 }
+    private var numberOfPhotos: Int { photosCount ?? 0 }
     
     private let themeManager: ThemeManager = .shared
     
@@ -119,17 +119,17 @@ extension CalloutView: ActionSheetShowing {
         marker.title = markerTitle
         marker.comment = comment == "User didn't add comment" ? "" : comment
         marker.date = Date()
-        marker.url = url
-        marker.amountOfPhotos = numberOfPhotos
+        marker.photosPath = photosPath
+        marker.photosCount = photosCount
         marker.latitude = String(location.latitude)
         marker.longitude = String(location.longitude)
         
-        if !(markersFromRealm?.contains(where: { $0.url == url }) ?? false) {
+        if !(markersFromRealm?.contains(where: { $0.photosPath == photosPath }) ?? false) {
             saveToRealm(marker)
             
             let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             
-            saveMarker(coordinate, markerTitle, comment, url, numberOfPhotos)
+            saveMarker(coordinate, markerTitle, comment, photosPath, numberOfPhotos)
         } else {
             showProgressHUDError(with: "You've already saved this marker")
         }
@@ -235,9 +235,11 @@ extension CalloutView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { numberOfPhotos }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as! ImageCollectionViewCell
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.reuseID, for: indexPath) as? ImageCollectionViewCell
+        else { return .init() }
         
-        cell.downloadImage(url, indexPath.item) { image in
+        cell.downloadImage(photosPath, indexPath.item) { image in
             guard let image = image else { return }
             let photo = SKPhoto.photoWithImage(image)
             photo.shouldCachePhotoURLImage = true

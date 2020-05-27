@@ -11,14 +11,13 @@ import Firebase
 
 struct TakeMarkersFromFirebase {
     
-    static func downloadMarkers(child: String, completion: @escaping Handler<[String: String]>) {
+    static func downloadMarkers(child: String, completion: @escaping Handler<[String: AnyObject]>) {
         let markerDB = Database.database().reference().child(child)
-        var snapshotValue: [String : String]?
         
         markerDB.observe(.childAdded) { snapshot in
-            snapshotValue = snapshot.value as? Dictionary<String,String>
+            let snapshotValue = snapshot.value as? [String: AnyObject] ?? [:]
             
-            completion(snapshotValue!)
+            completion(snapshotValue)
         }
     }
 }
