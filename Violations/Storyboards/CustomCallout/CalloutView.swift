@@ -177,16 +177,18 @@ extension CalloutView {
         
     }
     
-    private func saveMarker(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ url: String, _ amountOfPhotos: Int) {
+    private func saveMarker(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ photosPath: String, _ photosCount: Int) {
         guard let user = Constants.user, CheckInternet.connection() else { return }
         let markersDB = Database.database().reference().child("SavedMarkers/\(user.uid)")
-        let markersDictionary = ["Sender": Auth.auth().currentUser?.email,
-                                 "Title": title,
-                                 "Comment": comment,
-                                 "Latitude": String(coordinate.latitude),
-                                 "Longitude": String(coordinate.longitude),
-                                 "URL": url,
-                                 "AmountOfPhotos": String(amountOfPhotos)]
+        let markersDictionary: [String: Any?] = [
+            FirebaseMarkerProperty.sender.rawValue: Constants.user?.email,
+            FirebaseMarkerProperty.title.rawValue: title,
+            FirebaseMarkerProperty.comment.rawValue: comment,
+            FirebaseMarkerProperty.latitude.rawValue: Double(coordinate.latitude),
+            FirebaseMarkerProperty.longitude.rawValue: Double(coordinate.longitude),
+            FirebaseMarkerProperty.photosPath.rawValue: photosPath,
+            FirebaseMarkerProperty.photosCount.rawValue: photosCount
+        ]
     
         markersDB.childByAutoId().setValue(markersDictionary) {
             (error, reference) in

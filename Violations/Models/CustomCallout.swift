@@ -21,11 +21,11 @@ final class CustomCallout: NSObject, MKAnnotation {
     
     var title: String? { reportType.rawValue }
     
-    init(reportType: ReportsType?, comment: String?, coordinate: CLLocationCoordinate2D, url: String, amountOfPhotos: Int) {
+    init(reportType: ReportsType?, comment: String?, coordinate: CLLocationCoordinate2D, photosPath: String, amountOfPhotos: Int) {
         self.reportType = reportType ?? .other
         self.comment = comment ?? "User didin't add comment"
         self.coordinate = coordinate
-        self.photosPath = url
+        self.photosPath = photosPath
         self.photosCount = amountOfPhotos
     }
     

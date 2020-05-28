@@ -360,16 +360,16 @@ extension MapViewController: ThemeManagerDelegate {
 
 extension MapViewController {
     
-    private func saveMarkerToFirebase(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ url: String, _ photosCount: Int) {
+    private func saveMarkerToFirebase(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ photosPath: String, _ photosCount: Int) {
         let markersDB = Database.database().reference().child("Markers")
         let markersDictionary: [String: Any?] = [
-            "sender": Constants.user?.email,
-            "title": title,
-            "comment": comment,
-            "latitude": Double(coordinate.latitude),
-            "longitude": Double(coordinate.longitude),
-            "photosPath": url,
-            "photosCount": photosCount
+            FirebaseMarkerProperty.sender.rawValue: Constants.user?.email,
+            FirebaseMarkerProperty.title.rawValue: title,
+            FirebaseMarkerProperty.comment.rawValue: comment,
+            FirebaseMarkerProperty.latitude.rawValue: Double(coordinate.latitude),
+            FirebaseMarkerProperty.longitude.rawValue: Double(coordinate.longitude),
+            FirebaseMarkerProperty.photosPath.rawValue: photosPath,
+            FirebaseMarkerProperty.photosCount.rawValue: photosCount
         ]
     
         markersDB.childByAutoId().setValue(markersDictionary) {
@@ -388,12 +388,12 @@ extension MapViewController {
         
         TakeMarkersFromFirebase.downloadMarkers(child: "Markers") { snapshotValue in
             guard
-                let title = snapshotValue["title"] as? String,
-                let comment = snapshotValue["comment"] as? String,
-                let latitude = snapshotValue["latitude"] as? Double,
-                let longitude = snapshotValue["longitude"] as? Double,
-                let url = snapshotValue["photosPath"] as? String,
-                let photosCount = snapshotValue["photosCount"] as? Int
+                let title = snapshotValue[FirebaseMarkerProperty.title.rawValue] as? String,
+                let comment = snapshotValue[FirebaseMarkerProperty.comment.rawValue] as? String,
+                let latitude = snapshotValue[FirebaseMarkerProperty.latitude.rawValue] as? Double,
+                let longitude = snapshotValue[FirebaseMarkerProperty.longitude.rawValue] as? Double,
+                let photosPath = snapshotValue[FirebaseMarkerProperty.photosPath.rawValue] as? String,
+                let photosCount = snapshotValue[FirebaseMarkerProperty.photosCount.rawValue] as? Int
             else { return }
             
             let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -402,7 +402,7 @@ extension MapViewController {
             
             // Add marker on map
             
-            let viewModel = CustomCallout(reportType: reportType, comment: comment, coordinate: coordinates, url: url, amountOfPhotos: photosCount)
+            let viewModel = CustomCallout(reportType: reportType, comment: comment, coordinate: coordinates, photosPath: photosPath, amountOfPhotos: photosCount)
             
             self.annotations.append(viewModel)
             

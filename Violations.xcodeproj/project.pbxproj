@@ -60,6 +60,7 @@
 		2294CCA722758EE2008131A5 /* StorageServiceFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */; };
 		2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCAA22776BC4008131A5 /* ImageCollectionViewCell.swift */; };
 		2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295A64E24122C58007208CD /* StatusBarAppearance.swift */; };
+		229FCCD4247F646E00027C39 /* FirebaseMarkerProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */; };
 		22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C23DCF22798816004B47E9 /* CalloutView.storyboard */; };
 		22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C23DD122798CC0004B47E9 /* CalloutView.swift */; };
 		22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968D923D0A7BD00E55572 /* TypeAliases.swift */; };
@@ -146,6 +147,7 @@
 		2294CCA622758EE2008131A5 /* StorageServiceFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceFireBase.swift; sourceTree = "<group>"; };
 		2294CCAA22776BC4008131A5 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2295A64E24122C58007208CD /* StatusBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAppearance.swift; sourceTree = "<group>"; };
+		229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMarkerProperty.swift; sourceTree = "<group>"; };
 		22C23DCF22798816004B47E9 /* CalloutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalloutView.storyboard; sourceTree = "<group>"; };
 		22C23DD122798CC0004B47E9 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		22C968D923D0A7BD00E55572 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				2209B96423D0E69B00B3FE51 /* ReportsType.swift */,
 				22527AB02440733800435585 /* ThemeMode.swift */,
 				2253FD99246BC70500125946 /* MarkerObject.swift */,
+				229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */,
 				228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */,
 				22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */,
+				229FCCD4247F646E00027C39 /* FirebaseMarkerProperty.swift in Sources */,
 				22FF5A52225A000E007E4C19 /* TabBarController.swift in Sources */,
 				2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */,
 				2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */,
