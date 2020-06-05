@@ -61,6 +61,7 @@
 		2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2294CCAA22776BC4008131A5 /* ImageCollectionViewCell.swift */; };
 		2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295A64E24122C58007208CD /* StatusBarAppearance.swift */; };
 		229FCCD4247F646E00027C39 /* FirebaseMarkerProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */; };
+		229FCD0E248AB32A00027C39 /* RealmContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCD0D248AB32A00027C39 /* RealmContaining.swift */; };
 		22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C23DCF22798816004B47E9 /* CalloutView.storyboard */; };
 		22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C23DD122798CC0004B47E9 /* CalloutView.swift */; };
 		22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968D923D0A7BD00E55572 /* TypeAliases.swift */; };
@@ -148,6 +149,7 @@
 		2294CCAA22776BC4008131A5 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2295A64E24122C58007208CD /* StatusBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAppearance.swift; sourceTree = "<group>"; };
 		229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMarkerProperty.swift; sourceTree = "<group>"; };
+		229FCD0D248AB32A00027C39 /* RealmContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContaining.swift; sourceTree = "<group>"; };
 		22C23DCF22798816004B47E9 /* CalloutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalloutView.storyboard; sourceTree = "<group>"; };
 		22C23DD122798CC0004B47E9 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		22C968D923D0A7BD00E55572 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				2209B95F23D0DD1300B3FE51 /* ReusableView.swift */,
 				228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */,
 				2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */,
+				229FCD0D248AB32A00027C39 /* RealmContaining.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -656,7 +659,7 @@
 		22FF5A2B2259AF21007E4C19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Tyoma Zagoskin";
 				TargetAttributes = {
@@ -769,6 +772,7 @@
 				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,
 				2209B96523D0E69B00B3FE51 /* ReportsType.swift in Sources */,
+				229FCD0E248AB32A00027C39 /* RealmContaining.swift in Sources */,
 				2216D81A23DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift in Sources */,
 				2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */,
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,

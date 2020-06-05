@@ -49,7 +49,7 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
     
     // MARK: Properties
     
-    private var realm = try! Realm()
+    var realm = try! Realm()
     private var markersFromRealm: Results<SavedMarker>?
     
     private var reportType: ReportsType { marker?.reportType ?? .other }
@@ -66,8 +66,6 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
     
     private var images: [SKPhotoProtocol] = []
     
-    private var numberOfPhotos: Int { photosCount ?? 0 }
-    
     private let themeManager: ThemeManager = .shared
     
     // MARK: Life Cycle
@@ -76,7 +74,7 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
         super.viewDidLoad()
         themeManager.delegate = self
         themeDidChange()
-        images = Array(repeating: SKPhoto.photoWithImage(.init()), count: numberOfPhotos)
+        images = Array(repeating: SKPhoto.photoWithImage(.init()), count: photosCount)
         
         SKPhotoBrowserOptions.displayAction = false
         SKPhotoBrowserOptions.displayStatusbar = true
@@ -129,7 +127,7 @@ extension CalloutView: ActionSheetShowing {
             
             let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             
-            saveMarker(coordinate, markerTitle, comment, photosPath, numberOfPhotos)
+            saveMarker(coordinate, markerTitle, comment, photosPath, photosCount)
         } else {
             showProgressHUDError(with: "You've already saved this marker")
         }
@@ -162,20 +160,6 @@ extension CalloutView: ThemeManagerDelegate {
 // MARK: - Private API
 
 extension CalloutView {
-    
-    private func saveToRealm(_ marker: SavedMarker) {
-        
-        do {
-            try realm.write {
-                realm.add(marker)
-                showProgressHUDSuccess(with: "Marker has been successfully saved")
-            }
-        } catch {
-            print("Fuckin' error")
-            showProgressHUDError(with: "Try later")
-        }
-        
-    }
     
     private func saveMarker(_ coordinate: CLLocationCoordinate2D, _ title: String, _ comment: String, _ photosPath: String, _ photosCount: Int) {
         guard let user = Constants.user, CheckInternet.connection() else { return }
@@ -211,6 +195,15 @@ extension CalloutView {
 }
 
 
+extension CalloutView: RealmContaining {
+    
+    func showSuccess() {
+        showProgressHUDSuccess(with: "Marker has been successfully saved")
+    }
+    
+}
+
+
 //MARK: - CollectionView delegate methods
 
 
@@ -234,7 +227,7 @@ extension CalloutView: UICollectionViewDelegate, SKPhotoBrowserDelegate {
 
 extension CalloutView: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { numberOfPhotos }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { photosCount }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard

@@ -87,7 +87,7 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
         return tapRecognizer
     }()
     
-    private var realm = try! Realm()
+    var realm = try! Realm()
     
     private var annotations: [CustomCallout] = []
     
@@ -479,20 +479,6 @@ extension MapViewController {
 }
 
 
-//MARK: - Realm methods
+//MARK: - Realm Containing
 
-extension MapViewController {
-    
-    private func saveToRealm(_ marker: UserMarker) {
-        
-        do {
-            try realm.write {
-                realm.add(marker)
-            }
-        } catch {
-            showAlert(message: "Something went wrong", defaultButtonTitle: "OK")
-        }
-        
-    }
-    
-}
+extension MapViewController: RealmContaining {}

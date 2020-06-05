@@ -79,7 +79,7 @@ extension MarkerInfoViewController {
     
     @IBAction private func moreButtonTapped(_ sender: UIButton) {
         guard let marker = marker, let reportType = ReportsType(rawValue: marker.title) else { return }
-        let customCallout = CustomCallout(reportType: reportType, comment: marker.comment, coordinate: marker.coordinate, url: marker.photosPath, amountOfPhotos: marker.photosCount)
+        let customCallout = CustomCallout(reportType: reportType, comment: marker.comment, coordinate: marker.coordinate, photosPath: marker.photosPath, amountOfPhotos: marker.photosCount)
         
         chooseMap(marker: customCallout)
     }
