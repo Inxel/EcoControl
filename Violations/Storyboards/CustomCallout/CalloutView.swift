@@ -49,8 +49,7 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
     
     // MARK: Properties
     
-    var realm = try! Realm()
-    private var markersFromRealm: Results<SavedMarker>?
+    private var markersFromRealm: [SavedMarker] = []
     
     private var reportType: ReportsType { marker?.reportType ?? .other }
     private var markerTitle: String { marker?.title ?? "" }
@@ -81,7 +80,8 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
         SKPhotoBrowserOptions.displayCounterLabel = true
         SKPhotoBrowserOptions.displayBackAndForwardButton = true
         
-        markersFromRealm = realm.objects(SavedMarker.self)
+        getSavedMarkers()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,10 +106,6 @@ final class CalloutView: UIViewController, ProgressHUDShowing {
 
 extension CalloutView: ActionSheetShowing {
     
-    @IBAction private func dismissCallout(_ sender: UIButton) {
-         dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction private func saveButtonTapped(_ sender: PrimaryButton) {
         guard let location = location else { return }
         showProgressHUD()
@@ -122,7 +118,7 @@ extension CalloutView: ActionSheetShowing {
         marker.latitude = String(location.latitude)
         marker.longitude = String(location.longitude)
         
-        if !(markersFromRealm?.contains(where: { $0.photosPath == photosPath }) ?? false) {
+        if !(markersFromRealm.contains(where: { $0.photosPath == photosPath })) {
             saveToRealm(marker)
             
             let coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
@@ -192,12 +188,17 @@ extension CalloutView {
         }
     }
     
+    private func getSavedMarkers() {
+        markersFromRealm = getFromRealm(SavedMarker.self).map { $0 }
+    }
+    
 }
 
 
 extension CalloutView: RealmContaining {
     
     func showSuccess() {
+        getSavedMarkers()
         showProgressHUDSuccess(with: "Marker has been successfully saved")
     }
     

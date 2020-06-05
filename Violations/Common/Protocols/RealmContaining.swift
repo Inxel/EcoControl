@@ -11,13 +11,26 @@ import RealmSwift
 
 
 protocol RealmContaining {
-    var realm: Realm { get set }
     func showError()
     func showSuccess()
 }
 
 
 extension RealmContaining where Self: UIViewController {
+    
+    var realm: Realm {
+        get {
+            do {
+                let realm = try Realm()
+                return realm
+            }
+            catch {
+                print("Something wrong during connecting to realm")
+            }
+            
+            return self.realm
+        }
+    }
     
     func saveToRealm(_ object: Object) {
         
@@ -30,6 +43,14 @@ extension RealmContaining where Self: UIViewController {
             showError()
         }
         
+    }
+    
+    func getFromRealm<T: Object>(_ object: T.Type, sortingKeyPath: String? = nil, ascending: Bool = true) -> Results<T> {
+        if let sortingKeyPath = sortingKeyPath {
+            return realm.objects(object.self).sorted(byKeyPath: sortingKeyPath, ascending: ascending)
+        } else {
+            return realm.objects(object.self)
+        }
     }
     
     func showError() {}

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 
 // MARK: - Base
@@ -15,8 +14,6 @@ import RealmSwift
 class MarkersInnerViewController<MarkersType: MarkerObject>: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Properties
-    
-    final let realm = try! Realm()
     
     final weak var delegate: MarkersTableViewControllerDelegate?
     final let themeManager: ThemeManager = .shared
@@ -112,10 +109,10 @@ extension MarkersInnerViewController: ThemeManagerDelegate {
 
 // MARK: - Private API
 
-extension MarkersInnerViewController {
+extension MarkersInnerViewController: RealmContaining {
     
     private func getMarkers() {
-        markers = realm.objects(MarkersType.self).sorted(byKeyPath: "date", ascending: true).map { Marker(marker: $0) }
+        markers = getFromRealm(MarkersType.self, sortingKeyPath: "date").map { Marker(marker: $0) }
     }
     
 }

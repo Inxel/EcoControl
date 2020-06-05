@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 import Firebase
 import TransitionButton
-import RealmSwift
 
 
 // MARK: - Constants
@@ -86,8 +85,6 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
         tapRecognizer.delegate = self
         return tapRecognizer
     }()
-    
-    var realm = try! Realm()
     
     private var annotations: [CustomCallout] = []
     
