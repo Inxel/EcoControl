@@ -53,6 +53,16 @@ extension RealmContaining where Self: UIViewController {
         }
     }
     
+    func deleteFromRealm(_ object: Object) {
+        do {
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch {
+            
+        }
+    }
+    
     func showError() {}
     
     func showSuccess() {}
@@ -62,7 +72,7 @@ extension RealmContaining where Self: UIViewController {
 extension RealmContaining where Self: UIViewController, Self: ProgressHUDShowing {
     
     func showError() {
-        showProgressHUDError(with: "Error during saving to database")
+        showProgressHUDError(with: "Error with local database")
     }
     
 }
