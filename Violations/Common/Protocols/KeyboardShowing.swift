@@ -18,7 +18,7 @@ protocol KeyboardShowing {
 
 extension KeyboardShowing where Self: UIViewController {
     
-    func addObservers() {
+    func addKeyboardObservers() {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { [weak self] notification in
             guard let self = self, let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue, let animationDuration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
             
@@ -35,7 +35,7 @@ extension KeyboardShowing where Self: UIViewController {
         }
     }
     
-    func removeObservers() {
+    func removeKeyboardObservers() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }

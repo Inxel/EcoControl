@@ -72,10 +72,10 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
         super.viewDidLoad()
         themeManager.delegate = self
         themeDidChange()
-        addObservers()
+        addKeyboardObservers()
     }
     
-    deinit { removeObservers() }
+    deinit { removeKeyboardObservers() }
     
     // MARK: Collection View Data Source
     

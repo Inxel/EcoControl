@@ -9,10 +9,14 @@
 import UIKit
 
 
+// MARK: - Protocols
+
 protocol ThemeManagerDelegate {
     func themeDidChange()
 }
 
+
+// MARK: - Base
 
 final class ThemeManager {
     
@@ -21,10 +25,13 @@ final class ThemeManager {
     static var shared = ThemeManager()
     private init() {}
     
+    // MARK: Properties
+    
     @Multicast var delegate: ThemeManagerDelegate
     
     @UserDefault("isLightTheme", true) private(set) var isLightTheme: Bool {
         didSet {
+//            NotificationCenter.default.post(.init(name: .themeDidChange))
             $delegate.invoke { $0.themeDidChange() }
         }
     }
@@ -32,6 +39,7 @@ final class ThemeManager {
     
     var preferredStatusBarStyle: UIStatusBarStyle { isLightTheme ? .darkContent : .lightContent }
     var current: ThemeProtocol { isLightTheme ? LightTheme() : DarkTheme() }
+    
 }
 
 

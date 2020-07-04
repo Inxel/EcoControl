@@ -139,6 +139,7 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupUserTrackingButton()
     }
 

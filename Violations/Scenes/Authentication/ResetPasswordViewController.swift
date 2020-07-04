@@ -60,11 +60,11 @@ final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
     override func viewDidLoad() {
         super.viewDidLoad()
         themeManager.delegate = self
-        addObservers()
+        addKeyboardObservers()
         view.backgroundColor = themeManager.current.background
     }
     
-    deinit { removeObservers() }
+    deinit { removeKeyboardObservers() }
     
 }
 

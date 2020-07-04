@@ -74,11 +74,11 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
     override func viewDidLoad() {
         super.viewDidLoad()
         themeManager.delegate = self
-        addObservers()
+        addKeyboardObservers()
         view.backgroundColor = themeManager.current.background
     }
     
-    deinit { removeObservers() }
+    deinit { removeKeyboardObservers() }
 
 }
 

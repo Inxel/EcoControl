@@ -62,6 +62,8 @@
 		2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295A64E24122C58007208CD /* StatusBarAppearance.swift */; };
 		229FCCD4247F646E00027C39 /* FirebaseMarkerProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */; };
 		229FCD0E248AB32A00027C39 /* RealmContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCD0D248AB32A00027C39 /* RealmContaining.swift */; };
+		22B689F424B0350500FA4039 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B689F324B0350500FA4039 /* Notification.Name.swift */; };
+		22B689F624B0729200FA4039 /* ThemeChanging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B689F524B0729200FA4039 /* ThemeChanging.swift */; };
 		22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C23DCF22798816004B47E9 /* CalloutView.storyboard */; };
 		22C23DD222798CC0004B47E9 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C23DD122798CC0004B47E9 /* CalloutView.swift */; };
 		22C968DA23D0A7BD00E55572 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C968D923D0A7BD00E55572 /* TypeAliases.swift */; };
@@ -150,6 +152,8 @@
 		2295A64E24122C58007208CD /* StatusBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAppearance.swift; sourceTree = "<group>"; };
 		229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMarkerProperty.swift; sourceTree = "<group>"; };
 		229FCD0D248AB32A00027C39 /* RealmContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContaining.swift; sourceTree = "<group>"; };
+		22B689F324B0350500FA4039 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
+		22B689F524B0729200FA4039 /* ThemeChanging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChanging.swift; sourceTree = "<group>"; };
 		22C23DCF22798816004B47E9 /* CalloutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalloutView.storyboard; sourceTree = "<group>"; };
 		22C23DD122798CC0004B47E9 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		22C968D923D0A7BD00E55572 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				22B689F224B034EB00FA4039 /* Notification.Name */,
 				226B0E252440B3A7008AF6A4 /* UITraitCollection */,
 				224FD0D12440761D004DBD1C /* UIColor */,
 				2295A64D24122C42007208CD /* StatusBar */,
@@ -435,6 +440,14 @@
 			path = StatusBar;
 			sourceTree = "<group>";
 		};
+		22B689F224B034EB00FA4039 /* Notification.Name */ = {
+			isa = PBXGroup;
+			children = (
+				22B689F324B0350500FA4039 /* Notification.Name.swift */,
+			);
+			path = Notification.Name;
+			sourceTree = "<group>";
+		};
 		22C968D623D0A6E600E55572 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +483,7 @@
 				228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */,
 				2246CF792473B2AB007F00AD /* CollectionViewItemsReordering.swift */,
 				229FCD0D248AB32A00027C39 /* RealmContaining.swift */,
+				22B689F524B0729200FA4039 /* ThemeChanging.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -777,6 +791,7 @@
 				2294CCA522758EB7008131A5 /* PostServiceFirebase.swift in Sources */,
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,
 				2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */,
+				22B689F424B0350500FA4039 /* Notification.Name.swift in Sources */,
 				22527AB12440733800435585 /* ThemeMode.swift in Sources */,
 				2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */,
 				220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */,
@@ -822,6 +837,7 @@
 				22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */,
 				22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */,
 				224FD0D324407631004DBD1C /* UIColor+CustomColors.swift in Sources */,
+				22B689F624B0729200FA4039 /* ThemeChanging.swift in Sources */,
 				2209B96323D0DD8100B3FE51 /* UICollectionView+Registration.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
 				228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */,

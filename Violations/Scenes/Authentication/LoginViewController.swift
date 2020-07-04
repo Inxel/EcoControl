@@ -69,10 +69,10 @@ final class LoginViewController: UIViewController, DefaultAlertShowing {
         super.viewDidLoad()
         themeManager.delegate = self
         themeDidChange()
-        addObservers()
+        addKeyboardObservers()
     }
     
-    deinit { removeObservers() }
+    deinit { removeKeyboardObservers() }
     
 }
 
