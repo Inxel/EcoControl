@@ -21,7 +21,7 @@ private enum Constants {
 
 // MARK: - Base
 
-final class LoginViewController: UIViewController, DefaultAlertShowing {
+final class LoginViewController: UIViewController, AlertShowing {
     
     // MARK: Outlets
     

@@ -213,7 +213,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
 // MARK: - Private API
 
-extension MapViewController: DefaultAlertShowing {
+extension MapViewController: AlertShowing {
     
     private func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {

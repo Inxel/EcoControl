@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A79B2261B40C00C6D45E /* SavedMarker.swift */; };
 		2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */; };
-		2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */; };
+		2209B93123D0A93E00B3FE51 /* AlertShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93023D0A93E00B3FE51 /* AlertShowing.swift */; };
 		2209B93923D0C48C00B3FE51 /* UIImage+ScaleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */; };
 		2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */; };
 		2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209B94123D0C57C00B3FE51 /* UITextField+Padding.swift */; };
@@ -45,11 +45,15 @@
 		22527AB12440733800435585 /* ThemeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22527AB02440733800435585 /* ThemeMode.swift */; };
 		2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253FD99246BC70500125946 /* MarkerObject.swift */; };
 		22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */; };
+		225EA2A824C6A67C00FE706D /* Optional+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EA2A724C6A67C00FE706D /* Optional+String.swift */; };
+		225EA2AB24C6A71200FE706D /* String+BlankChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225EA2AA24C6A71200FE706D /* String+BlankChecking.swift */; };
 		2260E40722BFA09000374258 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260E40622BFA09000374258 /* UserMarker.swift */; };
 		22674A2624405FD300646C3B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22674A2524405FD300646C3B /* AppearanceViewController.swift */; };
 		226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */; };
 		226B0E292440B5BD008AF6A4 /* UIImage+CustomImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */; };
 		226B0E2E2442E5AE008AF6A4 /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */; };
+		227BAE7724CC66D600182039 /* Optional+Colllection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BAE7624CC66D600182039 /* Optional+Colllection.swift */; };
+		227BAE7A24CC68D000182039 /* UIAlertAction+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BAE7924CC68D000182039 /* UIAlertAction+Color.swift */; };
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
@@ -98,7 +102,7 @@
 		0497CF83778F778446DED38A /* Pods-Violations.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Violations.release.xcconfig"; path = "Target Support Files/Pods-Violations/Pods-Violations.release.xcconfig"; sourceTree = "<group>"; };
 		2208A79B2261B40C00C6D45E /* SavedMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMarker.swift; sourceTree = "<group>"; };
 		2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoViewController.swift; sourceTree = "<group>"; };
-		2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAlertShowing.swift; sourceTree = "<group>"; };
+		2209B93023D0A93E00B3FE51 /* AlertShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertShowing.swift; sourceTree = "<group>"; };
 		2209B93823D0C48C00B3FE51 /* UIImage+ScaleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ScaleImage.swift"; sourceTree = "<group>"; };
 		2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Instantiate.swift"; sourceTree = "<group>"; };
 		2209B94123D0C57C00B3FE51 /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
@@ -134,11 +138,15 @@
 		22527AB02440733800435585 /* ThemeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeMode.swift; sourceTree = "<group>"; };
 		2253FD99246BC70500125946 /* MarkerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerObject.swift; sourceTree = "<group>"; };
 		2258520F228415360049F367 /* TakeMarkersFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeMarkersFromFirebase.swift; sourceTree = "<group>"; };
+		225EA2A724C6A67C00FE706D /* Optional+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+String.swift"; sourceTree = "<group>"; };
+		225EA2AA24C6A71200FE706D /* String+BlankChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BlankChecking.swift"; sourceTree = "<group>"; };
 		2260E40622BFA09000374258 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
 		22674A2524405FD300646C3B /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Properties.swift"; sourceTree = "<group>"; };
 		226B0E282440B5BD008AF6A4 /* UIImage+CustomImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CustomImages.swift"; sourceTree = "<group>"; };
 		226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
+		227BAE7624CC66D600182039 /* Optional+Colllection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Colllection.swift"; sourceTree = "<group>"; };
+		227BAE7924CC68D000182039 /* UIAlertAction+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Color.swift"; sourceTree = "<group>"; };
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
@@ -217,6 +225,9 @@
 		2209B93623D0C45D00B3FE51 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				227BAE7824CC68C000182039 /* UIAlertAction */,
+				225EA2A924C6A6FD00FE706D /* String */,
+				225EA2A624C6A66800FE706D /* Optional */,
 				22B689F224B034EB00FA4039 /* Notification.Name */,
 				226B0E252440B3A7008AF6A4 /* UITraitCollection */,
 				224FD0D12440761D004DBD1C /* UIColor */,
@@ -406,6 +417,23 @@
 			path = ThemeModeCell;
 			sourceTree = "<group>";
 		};
+		225EA2A624C6A66800FE706D /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				225EA2A724C6A67C00FE706D /* Optional+String.swift */,
+				227BAE7624CC66D600182039 /* Optional+Colllection.swift */,
+			);
+			path = Optional;
+			sourceTree = "<group>";
+		};
+		225EA2A924C6A6FD00FE706D /* String */ = {
+			isa = PBXGroup;
+			children = (
+				225EA2AA24C6A71200FE706D /* String+BlankChecking.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		22674A2724406AEB00646C3B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +448,14 @@
 				226B0E262440B407008AF6A4 /* UITraitCollection+Properties.swift */,
 			);
 			path = UITraitCollection;
+			sourceTree = "<group>";
+		};
+		227BAE7824CC68C000182039 /* UIAlertAction */ = {
+			isa = PBXGroup;
+			children = (
+				227BAE7924CC68D000182039 /* UIAlertAction+Color.swift */,
+			);
+			path = UIAlertAction;
 			sourceTree = "<group>";
 		};
 		2294CC39226C45D9008131A5 /* Supporting files */ = {
@@ -476,7 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				22C968DC23D0A84600E55572 /* KeyboardShowing.swift */,
-				2209B93023D0A93E00B3FE51 /* DefaultAlertShowing.swift */,
+				2209B93023D0A93E00B3FE51 /* AlertShowing.swift */,
 				2209B95523D0CBE800B3FE51 /* ProgressHUDShowing.swift */,
 				2209B95D23D0DCF600B3FE51 /* NIBLoadableView.swift */,
 				2209B95F23D0DD1300B3FE51 /* ReusableView.swift */,
@@ -776,7 +812,7 @@
 				2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */,
 				2246CF7D2473C035007F00AD /* CollectionViewItemsReorderingVC.swift in Sources */,
 				22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */,
-				2209B93123D0A93E00B3FE51 /* DefaultAlertShowing.swift in Sources */,
+				2209B93123D0A93E00B3FE51 /* AlertShowing.swift in Sources */,
 				22926C9C225DAEC000E8D3AB /* CreatingMarkerViewController.swift in Sources */,
 				223B1720226B342E00B9E20E /* ResetPasswordViewController.swift in Sources */,
 				2209B96023D0DD1300B3FE51 /* ReusableView.swift in Sources */,
@@ -802,6 +838,7 @@
 				22FF5A392259AF21007E4C19 /* LoginViewController.swift in Sources */,
 				2209B94223D0C57C00B3FE51 /* UITextField+Padding.swift in Sources */,
 				226B0E272440B407008AF6A4 /* UITraitCollection+Properties.swift in Sources */,
+				225EA2AB24C6A71200FE706D /* String+BlankChecking.swift in Sources */,
 				22FF5A372259AF21007E4C19 /* AppDelegate.swift in Sources */,
 				2294CCA322747954008131A5 /* ImageSource.swift in Sources */,
 				224FD0D524407B60004DBD1C /* UIColor+CustomInits.swift in Sources */,
@@ -814,9 +851,11 @@
 				22FF5A52225A000E007E4C19 /* TabBarController.swift in Sources */,
 				2294CCAB22776BC4008131A5 /* ImageCollectionViewCell.swift in Sources */,
 				2209B95123D0C74300B3FE51 /* ViewControllerPannable.swift in Sources */,
+				225EA2A824C6A67C00FE706D /* Optional+String.swift in Sources */,
 				2209B94F23D0C70D00B3FE51 /* AuthenticationTextField.swift in Sources */,
 				220E24A6228837FA002F2D63 /* AppStoryboard.swift in Sources */,
 				22CA8091225A3A2800E01B61 /* ProfileViewController.swift in Sources */,
+				227BAE7724CC66D600182039 /* Optional+Colllection.swift in Sources */,
 				22DC152C23DA288B007F363F /* UIPageViewController+Navigation.swift in Sources */,
 				2294CCA722758EE2008131A5 /* StorageServiceFireBase.swift in Sources */,
 				22DC151223DA1066007F363F /* MarkersTableViewController.swift in Sources */,
@@ -828,6 +867,7 @@
 				2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
 				2260E40722BFA09000374258 /* UserMarker.swift in Sources */,
+				227BAE7A24CC68D000182039 /* UIAlertAction+Color.swift in Sources */,
 				22DC151B23DA1788007F363F /* SavedMarkersTableViewController.swift in Sources */,
 				22527AAE244071F600435585 /* ThemeModeCell.swift in Sources */,
 				228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */,

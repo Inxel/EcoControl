@@ -21,7 +21,9 @@ protocol CreatingMarkerDelegate: class {
 
 final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImage> {
     
-    weak var delegate: CreatingMarkerDelegate?
+    // MARK: - Constants
+    
+    private var commentPlaceholder: String { "Comment" }
     
     // MARK: Oultets
     
@@ -40,7 +42,7 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     
     @IBOutlet private weak var commentTextView: UITextView! {
         didSet {
-            commentTextView.text = "Comment"
+            commentTextView.text = commentPlaceholder
             commentTextView.layer.borderWidth = 1
             commentTextView.layer.borderColor = UIColor.primary.cgColor
             commentTextView.layer.cornerRadius = 10
@@ -65,6 +67,8 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     private var imagePicker: UIImagePickerController!
     
     private let themeManager: ThemeManager = .shared
+    
+    weak var delegate: CreatingMarkerDelegate?
     
     // MARK: Life Cycle
     
@@ -101,7 +105,7 @@ extension CreatingMarkerViewController: ProgressHUDShowing {
             return
         }
         
-        let comment = (commentTextView.text == "Comment" ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
+        let comment = (commentTextView.text == commentPlaceholder ? "" : commentTextView.text).trimmingCharacters(in: .whitespacesAndNewlines)
         let photosPath = UUID().uuidString
         let photosCount = items.count
         
@@ -123,7 +127,7 @@ extension CreatingMarkerViewController: ProgressHUDShowing {
         }))
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        cancel.setValue(UIColor.red, forKey: "titleTextColor")
+        cancel.changeColor(to: .red)
         
         alert.addAction(cancel)
         
@@ -141,7 +145,7 @@ extension CreatingMarkerViewController: ThemeManagerDelegate {
         typeOfViolationLabel.textColor = themeManager.current.textColor
         collectionView.backgroundColor = themeManager.current.background
         view.backgroundColor = themeManager.current.background
-        commentTextView.textColor = commentTextView.text == "Comment" ? .primary : themeManager.current.textColor
+        commentTextView.textColor = commentTextView.text == commentPlaceholder ? .primary : themeManager.current.textColor
         dataPicker.reloadInputViews()
     }
     
@@ -153,21 +157,21 @@ extension CreatingMarkerViewController: ThemeManagerDelegate {
 extension CreatingMarkerViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Comment" {
+        if textView.text == commentPlaceholder {
             textView.text = ""
             textView.textColor = themeManager.current.textColor
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == "" {
+        if textView.text.isEmpty {
             textView.textColor = .primary
-            textView.text = "Comment"
+            textView.text = commentPlaceholder
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
+        if text == "\n" {
             textView.resignFirstResponder()
             return false
         }

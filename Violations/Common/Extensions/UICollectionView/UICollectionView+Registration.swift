@@ -11,11 +11,15 @@ import UIKit
 
 extension UICollectionView {
         
-    func register<Cell: UICollectionViewCell>(_: Cell.Type) where Cell: DequeueableCell {
+    final func register<Cell: UICollectionViewCell>(_: Cell.Type) where Cell: DequeueableCell {
         register(Cell.nib, forCellWithReuseIdentifier: Cell.reuseID)
     }
     
-    func dequeueReusableCell<Cell: UICollectionViewCell>(for indexPath: IndexPath) -> Cell where Cell: ReusableView {
+    final func register<Cell: UICollectionViewCell>(cellTypes: [Cell.Type]) where Cell: DequeueableCell {
+        cellTypes.forEach { register($0.self) }
+    }
+    
+    final func dequeueReusableCell<Cell: UICollectionViewCell>(for indexPath: IndexPath) -> Cell where Cell: ReusableView {
         guard let cell = dequeueReusableCell(withReuseIdentifier: Cell.reuseID, for: indexPath) as? Cell else {
             fatalError("Could not dequeue cell with ID: \(Cell.reuseID)")
         }
