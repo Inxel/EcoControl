@@ -21,7 +21,7 @@ private enum Constants {
 
 // MARK: - Base
 
-final class RegisterViewController: UIViewController, UITextFieldDelegate, ProgressHUDShowing {
+final class RegisterViewController: UIViewController, ProgressHUDShowing {
     
     // MARK: Outlets
     
@@ -37,7 +37,6 @@ final class RegisterViewController: UIViewController, UITextFieldDelegate, Progr
             passwordTextfield.layer.cornerRadius = 0
         }
     }
-    
     @IBOutlet private weak var confirmPasswordTextfield: AuthenticationTextField! {
         didSet {
             styleOf(confirmPasswordTextfield, "Confirm password")
@@ -175,7 +174,7 @@ extension RegisterViewController {
     private func styleOf(_ textfield: UITextField, _ placeholder: String) {
         textfield.backgroundColor = themeManager.current.background
         textfield.textColor = themeManager.current.textfieldTextColor
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
+        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: themeManager.current.textfieldTextColor])
     }
     
 }
@@ -183,7 +182,7 @@ extension RegisterViewController {
 
 // MARK: - TextField Delegate
 
-extension RegisterViewController {
+extension RegisterViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.returnKeyType == .done {

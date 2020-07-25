@@ -104,7 +104,7 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(statusBarHeight)
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         mapView.delegate = self
@@ -184,7 +184,6 @@ extension MapViewController: CLLocationManagerDelegate {
         defer { currentLocation = locations.last }
         
         if currentLocation == nil {
-            // Zoom to user location
             if let userLocation = locations.last {
                 let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
                 mapView.setRegion(viewRegion, animated: true)
@@ -193,17 +192,7 @@ extension MapViewController: CLLocationManagerDelegate {
         
         let location = locations[locations.count - 1]
         if location.horizontalAccuracy > 0 {
-            
             self.locationManager.stopUpdatingLocation()
-            
-            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
-            
-//            let latitude = String(location.coordinate.latitude)
-//            let longitude = String(location.coordinate.longitude)
-//
-//            let params : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : Constants.weatherAppID]
-            
-//            getWeatherData(url: Constants.weatherURL, parameters: params)
             getWeather(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
         }
     }
@@ -264,10 +253,9 @@ extension MapViewController: UIGestureRecognizerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "createMarkDetail" {
+            let destinationVC = segue.destination as? CreatingMarkerViewController
             
-            let destinationVC = segue.destination as! CreatingMarkerViewController
-            
-            destinationVC.delegate = self
+            destinationVC?.delegate = self
         }
     }
     

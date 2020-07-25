@@ -27,7 +27,7 @@ final class MarkersTableViewController: UIViewController {
     
     @IBOutlet private weak var markersTypeViewTopConstraint: NSLayoutConstraint! {
         didSet {
-            markersTypeViewTopConstraint.constant = UIApplication.shared.statusBarFrame.height
+            markersTypeViewTopConstraint.constant = statusBarHeight
         }
     }
     @IBOutlet private weak var markersTypeIndicatorLeadingConstraint: NSLayoutConstraint!
@@ -161,6 +161,7 @@ extension MarkersTableViewController: UIPageViewControllerDataSource {
     
 }
 
+// MARK: - UIPageViewControllerDelegate
 
 extension MarkersTableViewController: UIPageViewControllerDelegate {
     

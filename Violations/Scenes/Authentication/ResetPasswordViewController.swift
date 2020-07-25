@@ -10,17 +10,6 @@ import UIKit
 import Firebase
 
 
-// MARK: - Constants
-
-private enum Constants {
-    static var sendButtonBottomConstraint: CGFloat { 20 }
-    static var safeAreaInset: CGFloat {
-        if #available(iOS 11.0, *) { return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0 }
-        return 0
-    }
-}
-
-
 // MARK: - Base
 
 final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
@@ -31,17 +20,15 @@ final class ResetPasswordViewController: UIViewController, ProgressHUDShowing {
         didSet {
             emailTextfield.backgroundColor = themeManager.current.background
             emailTextfield.textColor = themeManager.current.textfieldTextColor
-            emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
+            emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor: themeManager.current.textfieldTextColor])
         }
     }
-    
     @IBOutlet private weak var enterEmailLabel: UILabel! {
         didSet {
             enterEmailLabel.textColor = themeManager.current.textColor
         }
     }
-    
-    @IBOutlet weak var sendButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var sendButton: PrimaryButton!
     
     // MARK: Overridden Properties
     
@@ -106,11 +93,11 @@ extension ResetPasswordViewController {
 extension ResetPasswordViewController: KeyboardShowing {
     
     func keyboardWillShow(keyboardHeight: CGFloat, with animationDuration: Double) {
-        changeSendButtonBottomConstraint(keyboardHeight: keyboardHeight - Constants.safeAreaInset, with: animationDuration)
+        sendButton.transform = .init(translationX: .zero, y: -(keyboardHeight - safeAreaBottomInset))
     }
     
     func keyboardWillHide(with animationDuration: Double) {
-        changeSendButtonBottomConstraint(with: animationDuration)
+        sendButton.transform = .identity
     }
     
 }
@@ -123,24 +110,9 @@ extension ResetPasswordViewController: ThemeManagerDelegate {
     func themeDidChange() {
         emailTextfield.backgroundColor = themeManager.current.background
         emailTextfield.textColor = themeManager.current.textfieldTextColor
-        emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textfieldTextColor])
+        emailTextfield.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor: themeManager.current.textfieldTextColor])
         enterEmailLabel.textColor = themeManager.current.textColor
         view.backgroundColor = themeManager.current.background
-    }
-    
-}
-
-
-// MARK: - Private API
-
-extension ResetPasswordViewController {
-    
-    private func changeSendButtonBottomConstraint(keyboardHeight: CGFloat = 0, with animationDuration: Double) {
-        sendButtonBottomConstraint.constant = keyboardHeight + Constants.sendButtonBottomConstraint
-        
-        UIView.animate(withDuration: animationDuration) {
-            self.view.layoutIfNeeded()
-        }
     }
     
 }

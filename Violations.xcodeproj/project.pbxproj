@@ -54,6 +54,7 @@
 		226B0E2E2442E5AE008AF6A4 /* LoadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */; };
 		227BAE7724CC66D600182039 /* Optional+Colllection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BAE7624CC66D600182039 /* Optional+Colllection.swift */; };
 		227BAE7A24CC68D000182039 /* UIAlertAction+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BAE7924CC68D000182039 /* UIAlertAction+Color.swift */; };
+		227BAE7E24CC6D3E00182039 /* UIViewController+sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BAE7D24CC6D3E00182039 /* UIViewController+sizes.swift */; };
 		228A1D2E23DAB7020058C5CD /* UIPageViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */; };
 		228A1D3323DAD9E30058C5CD /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3223DAD9E30058C5CD /* Marker.swift */; };
 		228A1D3823DAE4A20058C5CD /* ActionSheetShowing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */; };
@@ -147,6 +148,7 @@
 		226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLayer.swift; sourceTree = "<group>"; };
 		227BAE7624CC66D600182039 /* Optional+Colllection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Colllection.swift"; sourceTree = "<group>"; };
 		227BAE7924CC68D000182039 /* UIAlertAction+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Color.swift"; sourceTree = "<group>"; };
+		227BAE7D24CC6D3E00182039 /* UIViewController+sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+sizes.swift"; sourceTree = "<group>"; };
 		228A1D2D23DAB7020058C5CD /* UIPageViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		228A1D3223DAD9E30058C5CD /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		228A1D3723DAE4A20058C5CD /* ActionSheetShowing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetShowing.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				2209B93B23D0C4D000B3FE51 /* UIViewController+Instantiate.swift */,
 				2216D81923DC8C5600BBA6D3 /* UIViewController+DismissingKeyboard.swift */,
+				227BAE7D24CC6D3E00182039 /* UIViewController+sizes.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				22DB647723F69C550039FF6B /* MarkersInnerViewController.swift in Sources */,
 				226B0E2E2442E5AE008AF6A4 /* LoadingLayer.swift in Sources */,
 				2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */,
+				227BAE7E24CC6D3E00182039 /* UIViewController+sizes.swift in Sources */,
 				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
 				22F2E87B226825A80052BBC9 /* CustomCallout.swift in Sources */,
 				2209B96523D0E69B00B3FE51 /* ReportsType.swift in Sources */,
