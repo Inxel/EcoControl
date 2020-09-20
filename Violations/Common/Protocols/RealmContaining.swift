@@ -69,6 +69,7 @@ extension RealmContaining where Self: UIViewController {
     
 }
 
+
 extension RealmContaining where Self: UIViewController, Self: ProgressHUDShowing {
     
     func showError() {

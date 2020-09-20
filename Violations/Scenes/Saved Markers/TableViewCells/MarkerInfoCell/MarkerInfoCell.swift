@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Base
 
-final class MarkerInfoCell: UITableViewCell, DequeueableCell {
+final class MarkerInfoCell: UITableViewCell {
 
     // MARK: Outlets
     

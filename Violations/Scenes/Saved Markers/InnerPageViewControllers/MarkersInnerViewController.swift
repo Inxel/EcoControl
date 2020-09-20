@@ -68,18 +68,16 @@ class MarkersInnerViewController<MarkersType: MarkerObject>: UIViewController, U
     // MARK: Table View Delegate
     
     final func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell else { return }
         UIView.animate(withDuration: 0.1) {
-            if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
-                cell.changeBackgroundSize(transform: .init(scaleX: 0.85, y: 0.85))
-            }
+            cell.changeBackgroundSize(transform: .init(scaleX: 0.85, y: 0.85))
         }
     }
     
     final func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell else { return }
         UIView.animate(withDuration: 0.3) {
-            if let cell = tableView.cellForRow(at: indexPath) as? MarkerInfoCell {
-                cell.changeBackgroundSize(transform: .identity)
-            }
+            cell.changeBackgroundSize(transform: .identity)
         }
     }
     

@@ -13,6 +13,7 @@ import Foundation
     func themeDidChange()
 }
 
+
 extension ThemeChanging {
     
     func addThemeChangingObservers() {

@@ -9,7 +9,7 @@
 import UIKit
 
 
-final class ThemeModeCell: UITableViewCell, DequeueableCell {
+final class ThemeModeCell: UITableViewCell {
     
     // MARK: Outlets
     
