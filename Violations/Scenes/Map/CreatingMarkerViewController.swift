@@ -313,7 +313,7 @@ extension CreatingMarkerViewController: ImageCellDelegate {
 extension CreatingMarkerViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photos = items.map { SKPhoto.photoWithImage($0) }
+        let photos = items.map(SKPhoto.photoWithImage)
         let browser = SKPhotoBrowser(photos: photos, initialPageIndex: indexPath.item)
         
         present(browser, animated: true, completion: nil)

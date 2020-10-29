@@ -110,7 +110,7 @@ extension MarkersInnerViewController: ThemeManagerDelegate {
 extension MarkersInnerViewController: RealmContaining {
     
     private func getMarkers() {
-        markers = getFromRealm(MarkersType.self, sortingKeyPath: "date").map { Marker(marker: $0) }
+        markers = getFromRealm(MarkersType.self, sortingKeyPath: "date").map(Marker.init)
     }
     
 }

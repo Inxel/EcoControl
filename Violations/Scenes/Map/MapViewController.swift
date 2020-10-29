@@ -93,6 +93,8 @@ final class MapViewController: CustomTransitionViewController, ProgressHUDShowin
     private var tappedCoordinates: CGPoint?
     private var userLocationButton: MKUserTrackingButton?
     
+    private var weatherRequest: URLSessionDataTask?
+    
     private var canAddAnnotation: Bool = false
     private var addAnnotationTapped: Bool = false
     private var showAddButtons: Bool = false
@@ -435,6 +437,12 @@ extension MapViewController: MKMapViewDelegate {
         
         mapView.deselectAnnotation(view.annotation, animated: true)
     }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        weatherRequest?.cancel()
+        getWeather(lat: mapView.centerCoordinate.latitude, lng: mapView.centerCoordinate.longitude)
+    }
+    
 }
 
 
@@ -445,20 +453,19 @@ extension MapViewController {
     private func getWeather(lat: Double, lng: Double) {
         guard let url = URL(string: "\(Constants.weatherURL)&lat=\(lat)&lon=\(lng)") else { return }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            
+        weatherRequest = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             if let data = data, let weather = Weather.decode(wheatherData: data)  {
-                
                 DispatchQueue.main.async {
-                    self.weatherView.text = weather.formatted
-                    self.weatherView.isHidden = false
+                    self?.weatherView.text = weather.formatted
+                    self?.weatherView.isHidden = false
                 }
-                
             } else {
                 print("Error getting weather: \(String(describing: error?.localizedDescription))")
             }
             
-        }.resume()
+        }
+        
+        weatherRequest?.resume()
         
     }
     

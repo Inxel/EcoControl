@@ -18,7 +18,7 @@ extension UIApplication {
         .map { $0 as? UIWindowScene }
         .compactMap { $0 }
         .first?.windows
-        .filter { $0.isKeyWindow }.first
+        .filter(\.isKeyWindow).first
     
     static func setRootView(
         _ viewController: UIViewController,
