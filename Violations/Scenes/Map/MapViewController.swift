@@ -17,7 +17,7 @@ import TransitionButton
 
 private enum Constants {
     static var weatherURL: String { "http://api.openweathermap.org/data/2.5/weather?appid=\(weatherAppID)" }
-    static var weatherAppID: String { "e72ca729af228beabd5d20e3b7749713" }
+    static var weatherAppID: String { "ddca52699d4f65dfe4113ca35296b59b" }
     static var user: User? { Auth.auth().currentUser }
 }
 
