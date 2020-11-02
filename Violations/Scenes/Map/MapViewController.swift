@@ -438,8 +438,11 @@ extension MapViewController: MKMapViewDelegate {
         mapView.deselectAnnotation(view.annotation, animated: true)
     }
     
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         weatherRequest?.cancel()
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         getWeather(lat: mapView.centerCoordinate.latitude, lng: mapView.centerCoordinate.longitude)
     }
     
