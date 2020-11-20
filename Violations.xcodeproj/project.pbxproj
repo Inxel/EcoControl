@@ -68,6 +68,13 @@
 		2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295A64E24122C58007208CD /* StatusBarAppearance.swift */; };
 		229FCCD4247F646E00027C39 /* FirebaseMarkerProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */; };
 		229FCD0E248AB32A00027C39 /* RealmContaining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229FCD0D248AB32A00027C39 /* RealmContaining.swift */; };
+		22AD5815256810D500678C3C /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD5814256810D500678C3C /* TableViewCells.swift */; };
+		22AD581A2568142F00678C3C /* MarkerPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD58182568142F00678C3C /* MarkerPhotosCell.swift */; };
+		22AD581B2568142F00678C3C /* MarkerPhotosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AD58192568142F00678C3C /* MarkerPhotosCell.xib */; };
+		22AD581F2568143C00678C3C /* MarkerDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD581D2568143C00678C3C /* MarkerDescriptionCell.swift */; };
+		22AD58202568143C00678C3C /* MarkerDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AD581E2568143C00678C3C /* MarkerDescriptionCell.xib */; };
+		22AD58232568147D00678C3C /* MarkerDescriptionCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD58222568147D00678C3C /* MarkerDescriptionCellProvider.swift */; };
+		22AD58262568285F00678C3C /* MarkerPhotosCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD58252568285F00678C3C /* MarkerPhotosCellProvider.swift */; };
 		22B689F424B0350500FA4039 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B689F324B0350500FA4039 /* Notification.Name.swift */; };
 		22B689F624B0729200FA4039 /* ThemeChanging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B689F524B0729200FA4039 /* ThemeChanging.swift */; };
 		22C23DD022798816004B47E9 /* CalloutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C23DCF22798816004B47E9 /* CalloutView.storyboard */; };
@@ -164,6 +171,13 @@
 		2295A64E24122C58007208CD /* StatusBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAppearance.swift; sourceTree = "<group>"; };
 		229FCCD3247F646E00027C39 /* FirebaseMarkerProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMarkerProperty.swift; sourceTree = "<group>"; };
 		229FCD0D248AB32A00027C39 /* RealmContaining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmContaining.swift; sourceTree = "<group>"; };
+		22AD5814256810D500678C3C /* TableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
+		22AD58182568142F00678C3C /* MarkerPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerPhotosCell.swift; sourceTree = "<group>"; };
+		22AD58192568142F00678C3C /* MarkerPhotosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerPhotosCell.xib; sourceTree = "<group>"; };
+		22AD581D2568143C00678C3C /* MarkerDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerDescriptionCell.swift; sourceTree = "<group>"; };
+		22AD581E2568143C00678C3C /* MarkerDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerDescriptionCell.xib; sourceTree = "<group>"; };
+		22AD58222568147D00678C3C /* MarkerDescriptionCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerDescriptionCellProvider.swift; sourceTree = "<group>"; };
+		22AD58252568285F00678C3C /* MarkerPhotosCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerPhotosCellProvider.swift; sourceTree = "<group>"; };
 		22B689F324B0350500FA4039 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		22B689F524B0729200FA4039 /* ThemeChanging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChanging.swift; sourceTree = "<group>"; };
 		22C23DCF22798816004B47E9 /* CalloutView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalloutView.storyboard; sourceTree = "<group>"; };
@@ -300,6 +314,7 @@
 				2209B94E23D0C70D00B3FE51 /* AuthenticationTextField.swift */,
 				2209B95023D0C74300B3FE51 /* ViewControllerPannable.swift */,
 				226B0E2D2442E5AE008AF6A4 /* LoadingLayer.swift */,
+				22AD5814256810D500678C3C /* TableViewCells.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -360,10 +375,8 @@
 		220E24AB22883F56002F2D63 /* Saved Markers */ = {
 			isa = PBXGroup;
 			children = (
-				22DC151123DA1066007F363F /* MarkersTableViewController.swift */,
-				2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */,
-				22DC151323DA11CA007F363F /* InnerPageViewControllers */,
-				22DC151423DA13E4007F363F /* TableViewCells */,
+				22AD58122568105000678C3C /* MarkerInfoViewController */,
+				22AD58102568103800678C3C /* MarkersTableViewController */,
 			);
 			path = "Saved Markers";
 			sourceTree = "<group>";
@@ -481,6 +494,53 @@
 			path = StatusBar;
 			sourceTree = "<group>";
 		};
+		22AD580F2568102400678C3C /* MarkerDescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				22AD581D2568143C00678C3C /* MarkerDescriptionCell.swift */,
+				22AD581E2568143C00678C3C /* MarkerDescriptionCell.xib */,
+				22AD58222568147D00678C3C /* MarkerDescriptionCellProvider.swift */,
+			);
+			path = MarkerDescriptionCell;
+			sourceTree = "<group>";
+		};
+		22AD58102568103800678C3C /* MarkersTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22AD58112568104200678C3C /* TableViewCells */,
+				22DC151323DA11CA007F363F /* InnerPageViewControllers */,
+				22DC151123DA1066007F363F /* MarkersTableViewController.swift */,
+			);
+			path = MarkersTableViewController;
+			sourceTree = "<group>";
+		};
+		22AD58112568104200678C3C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				22DC151523DA13F9007F363F /* MarkerInfoCell */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		22AD58122568105000678C3C /* MarkerInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22DC151423DA13E4007F363F /* TableViewCells */,
+				2208A7A22262EEE700C6D45E /* MarkerInfoViewController.swift */,
+			);
+			path = MarkerInfoViewController;
+			sourceTree = "<group>";
+		};
+		22AD58132568106100678C3C /* MarkerPhotosCell */ = {
+			isa = PBXGroup;
+			children = (
+				22AD58182568142F00678C3C /* MarkerPhotosCell.swift */,
+				22AD58192568142F00678C3C /* MarkerPhotosCell.xib */,
+				22AD58252568285F00678C3C /* MarkerPhotosCellProvider.swift */,
+			);
+			path = MarkerPhotosCell;
+			sourceTree = "<group>";
+		};
 		22B689F224B034EB00FA4039 /* Notification.Name */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,7 +603,8 @@
 		22DC151423DA13E4007F363F /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				22DC151523DA13F9007F363F /* MarkerInfoCell */,
+				22AD58132568106100678C3C /* MarkerPhotosCell */,
+				22AD580F2568102400678C3C /* MarkerDescriptionCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -747,8 +808,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22AD58202568143C00678C3C /* MarkerDescriptionCell.xib in Resources */,
 				22FF5A412259AF23007E4C19 /* LaunchScreen.storyboard in Resources */,
 				22DC152923DA1863007F363F /* MarkerInfoCell.xib in Resources */,
+				22AD581B2568142F00678C3C /* MarkerPhotosCell.xib in Resources */,
 				220E24A822883957002F2D63 /* Login.storyboard in Resources */,
 				22527AAF244071F600435585 /* ThemeModeCell.xib in Resources */,
 				22FF5A4E2259C9C2007E4C19 /* GoogleService-Info.plist in Resources */,
@@ -816,6 +879,7 @@
 				2209B95423D0C95600B3FE51 /* UserDefault.swift in Sources */,
 				220E24AE22883FA9002F2D63 /* NavigationViewController.swift in Sources */,
 				2253FD9A246BC70500125946 /* MarkerObject.swift in Sources */,
+				22AD5815256810D500678C3C /* TableViewCells.swift in Sources */,
 				2246CF7D2473C035007F00AD /* CollectionViewItemsReorderingVC.swift in Sources */,
 				22DE41A62403B43900680606 /* Date+Formatting.swift in Sources */,
 				2209B93123D0A93E00B3FE51 /* AlertShowing.swift in Sources */,
@@ -824,6 +888,7 @@
 				2209B96023D0DD1300B3FE51 /* ReusableView.swift in Sources */,
 				22DB647723F69C550039FF6B /* MarkersInnerViewController.swift in Sources */,
 				226B0E2E2442E5AE008AF6A4 /* LoadingLayer.swift in Sources */,
+				22AD581A2568142F00678C3C /* MarkerPhotosCell.swift in Sources */,
 				2209B94923D0C63000B3FE51 /* PrimaryButton.swift in Sources */,
 				227BAE7E24CC6D3E00182039 /* UIViewController+sizes.swift in Sources */,
 				2209B95623D0CBE800B3FE51 /* ProgressHUDShowing.swift in Sources */,
@@ -835,6 +900,7 @@
 				22585210228415360049F367 /* TakeMarkersFromFirebase.swift in Sources */,
 				2209B94D23D0C6D800B3FE51 /* BackgroundView.swift in Sources */,
 				22B689F424B0350500FA4039 /* Notification.Name.swift in Sources */,
+				22AD58262568285F00678C3C /* MarkerPhotosCellProvider.swift in Sources */,
 				22527AB12440733800435585 /* ThemeMode.swift in Sources */,
 				2208A7A32262EEE700C6D45E /* MarkerInfoViewController.swift in Sources */,
 				220E24B02288405A002F2D63 /* CheckInternet.swift in Sources */,
@@ -870,6 +936,7 @@
 				2208A79C2261B40C00C6D45E /* SavedMarker.swift in Sources */,
 				2209B93C23D0C4D000B3FE51 /* UIViewController+Instantiate.swift in Sources */,
 				2294CC7B226EE674008131A5 /* Weather.swift in Sources */,
+				22AD58232568147D00678C3C /* MarkerDescriptionCellProvider.swift in Sources */,
 				2246CF7A2473B2AB007F00AD /* CollectionViewItemsReordering.swift in Sources */,
 				2295A64F24122C58007208CD /* StatusBarAppearance.swift in Sources */,
 				2247BD4422BDFC23009AE55C /* ThemeProtocol.swift in Sources */,
@@ -885,6 +952,7 @@
 				22DC152823DA1863007F363F /* MarkerInfoCell.swift in Sources */,
 				22FAF2EB23EF1BDA008C554F /* ThemeManager.swift in Sources */,
 				224FD0D324407631004DBD1C /* UIColor+CustomColors.swift in Sources */,
+				22AD581F2568143C00678C3C /* MarkerDescriptionCell.swift in Sources */,
 				22B689F624B0729200FA4039 /* ThemeChanging.swift in Sources */,
 				2209B96323D0DD8100B3FE51 /* UICollectionView+Registration.swift in Sources */,
 				22FF5A502259CDF0007E4C19 /* MapViewController.swift in Sources */,
