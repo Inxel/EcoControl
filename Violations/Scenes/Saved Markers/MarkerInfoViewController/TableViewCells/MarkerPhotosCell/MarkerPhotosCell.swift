@@ -39,7 +39,7 @@ final class MarkerPhotosCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpUI()
+        setUpCollectionView()
         changeTheme()
     }
     
@@ -69,7 +69,7 @@ extension MarkerPhotosCell {
 
 extension MarkerPhotosCell {
     
-    private func setUpUI() {
+    private func setUpCollectionView() {
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
