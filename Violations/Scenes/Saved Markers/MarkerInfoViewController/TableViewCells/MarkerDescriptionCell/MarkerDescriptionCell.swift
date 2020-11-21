@@ -14,6 +14,13 @@ final class MarkerDescriptionCell: UITableViewCell {
     
     @IBOutlet private weak var titleLabel: UILabel!
     
+    // MARK: - Base
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        changeTheme()
+    }
+    
 }
 
 
@@ -23,6 +30,11 @@ extension MarkerDescriptionCell {
     
     func setUp(with text: String?) {
         titleLabel.text = text
+    }
+    
+    func changeTheme() {
+        titleLabel.textColor = ThemeManager.shared.current.textColor
+        backgroundColor = ThemeManager.shared.current.background
     }
     
 }

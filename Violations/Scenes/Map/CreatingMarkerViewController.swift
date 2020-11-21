@@ -51,7 +51,6 @@ final class CreatingMarkerViewController: CollectionViewItemsReorderingVC<UIImag
     }
     
     @IBOutlet private weak var saveButton: PrimaryButton!
-    @IBOutlet private weak var cancelButton: PrimaryButton!
     
     // MARK: Properties
     
@@ -195,7 +194,7 @@ extension CreatingMarkerViewController: UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        NSAttributedString(string: reports[row].rawValue, attributes: [NSAttributedString.Key.foregroundColor: themeManager.current.textColor])
+        NSAttributedString(string: reports[row].rawValue, attributes: [.foregroundColor: themeManager.current.textColor])
     }
 }
 

@@ -40,6 +40,7 @@ final class MarkerPhotosCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpUI()
+        changeTheme()
     }
     
 }
@@ -54,6 +55,11 @@ extension MarkerPhotosCell {
         self.delegate = delegate
         collectionViewHeight.constant = marker?.photosCount == 0 ? .zero : (collectionView.frame.width - Constants.itemSpacing) / 2
         images = Array(repeating: SKPhoto.photoWithImage(.init()), count: marker?.photosCount ?? .zero)
+    }
+    
+    func changeTheme() {
+        backgroundColor = ThemeManager.shared.current.background
+        collectionView.backgroundColor = ThemeManager.shared.current.background
     }
     
 }

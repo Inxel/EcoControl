@@ -52,13 +52,12 @@ extension MarkerInfoViewController {
         tableView.contentInset.bottom = closeButton.frame.height + closeButtonBottomConstraint.constant * 2
         titleLabel.text = marker?.title
         dateLabel.text = marker?.date?.formattedDate(.long)
-        themeDidChange()
-        
         items = [
             CellDataProvider(MarkerDescriptionCellProvider(dataSource: marker?.comment)),
             CellDataProvider(MarkerPhotosCellProvider(dataSource: marker, delegate: self))
         ]
         tableView.reloadData()
+        themeDidChange()
     }
     
 }
@@ -101,7 +100,21 @@ extension MarkerInfoViewController: ThemeManagerDelegate {
     func themeDidChange() {
         titleLabel.textColor = themeManager.current.textColor
         dateLabel.textColor = themeManager.current.textColor
+        tableView.backgroundColor = themeManager.current.background
         view.backgroundColor = themeManager.current.background
+        tableView.tableHeaderView?.backgroundColor = themeManager.current.background
+        
+        items.indices.forEach {
+            switch tableView.cellForRow(at: IndexPath(row: $0, section: 0)) {
+            case let cell as MarkerDescriptionCell:
+                cell.changeTheme()
+            case let cell as MarkerPhotosCell:
+                cell.changeTheme()
+            default:
+                break
+            }
+        }
+        
     }
     
 }
